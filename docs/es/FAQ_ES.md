@@ -8,8 +8,8 @@ Escribe `hideErrors: true` en las opciones de createBot
 También puedes usar estos eventos:
 
 ```js
-client.on('error', () => {})
-client.on('end', () => {})
+client.on("error", () => {})
+client.on("end", () => {})
 ```
 
 ## Mi evento de chat no se emite en un servidor personalizado, cómo lo resuelvo?
@@ -24,34 +24,36 @@ La mayoría de servidores de minecraft tienen plugins, que mandan mensajes al ch
 **Ejemplo:**
 
 El mensaje podría ser así:
+
 ```
 (!) U9G has won the /jackpot and received
 $26,418,402,450! They purchased 2,350,000 (76.32%) ticket(s) out of the
 3,079,185 ticket(s) sold!
 ```
+
 ```js
 const regex = {
-  first: /\(!\) (.+) has won the \/jackpot and received +/,
-  second: /\$(.+)! They purchased (.+) \((.+)%\) ticket\(s\) out of the /,
-  third: /(.+) ticket\(s\) sold!/
+	first: /\(!\) (.+) has won the \/jackpot and received +/,
+	second: /\$(.+)! They purchased (.+) \((.+)%\) ticket\(s\) out of the /,
+	third: /(.+) ticket\(s\) sold!/,
 }
 
 let jackpot = {}
-bot.on('messagestr', msg => {
-  if (regex.first.test(msg)) {
-    const username = msg.match(regex.first)[1]
-    jackpot.username = username
-  } else if (regex.second.test(msg)) {
-    const [, moneyWon, boughtTickets, winPercent] = msg.match(regex.second)
-    jackpot.moneyWon = parseInt(moneyWon.replace(/,/g, ''))
-    jackpot.boughtTickets = parseInt(boughtTickets.replace(/,/g, ''))
-    jackpot.winPercent = parseFloat(winPercent)
-  } else if (regex.third.test(msg)) {
-    const totalTickets = msg.match(regex.third)[1]
-    jackpot.totalTickets = parseInt(totalTickets.replace(/,/g, ''))
-    onDone(jackpot)
-    jackpot = {}
-  }
+bot.on("messagestr", (msg) => {
+	if (regex.first.test(msg)) {
+		const username = msg.match(regex.first)[1]
+		jackpot.username = username
+	} else if (regex.second.test(msg)) {
+		const [, moneyWon, boughtTickets, winPercent] = msg.match(regex.second)
+		jackpot.moneyWon = parseInt(moneyWon.replace(/,/g, ""))
+		jackpot.boughtTickets = parseInt(boughtTickets.replace(/,/g, ""))
+		jackpot.winPercent = parseFloat(winPercent)
+	} else if (regex.third.test(msg)) {
+		const totalTickets = msg.match(regex.third)[1]
+		jackpot.totalTickets = parseInt(totalTickets.replace(/,/g, ""))
+		onDone(jackpot)
+		jackpot = {}
+	}
 })
 ```
 
@@ -60,8 +62,9 @@ bot.on('messagestr', msg => {
 Usando `bot.chat()`.
 
 **Ejemplo:**
+
 ```js
-bot.chat('/give @p diamond')
+bot.chat("/give @p diamond")
 ```
 
 ### Es posible crear multiples bots y controlarlos separadamente?
@@ -85,26 +88,27 @@ Una forma de hacerlo es aumentar el valor en la opción [checkTimeoutInterval](h
 Puedes usar la propiedad `item.nbt`. Está recomendado usar la librería `prismarine-nbt`. El método nbt.simplify() podría ser útil.
 
 **Ejemplo:**
+
 ```js
-function getLore (item) {
-  let message = ''
-  if (item.nbt == null) return message
+function getLore(item) {
+	let message = ""
+	if (item.nbt == null) return message
 
-  const nbt = require('prismarine-nbt')
-  const ChatMessage = require('prismarine-chat')(bot.version)
+	const nbt = require("prismarine-nbt")
+	const ChatMessage = require("prismarine-chat")(bot.version)
 
-  const data = nbt.simplify(item.nbt)
-  const display = data.display
-  if (display == null) return message
+	const data = nbt.simplify(item.nbt)
+	const display = data.display
+	if (display == null) return message
 
-  const lore = display.Lore
-  if (lore == null) return message
-  for (const line of lore) {
-    message += new ChatMessage(line).toString()
-    message += '\n'
-  }
+	const lore = display.Lore
+	if (lore == null) return message
+	for (const line of lore) {
+		message += new ChatMessage(line).toString()
+		message += "\n"
+	}
 
-  return message
+	return message
 }
 ```
 
@@ -121,29 +125,33 @@ Nota: el orden en el cual los plugins son cargados es dinámico, nunca deberías
 ### Como puedo usar un proxy socks5?
 
 En las opciones de `mineflayer.createBot(opciones)`, quita tu `host` de las opciones y pon las cosas que se necesite en estas variables `PROXY_IP`, `PROXY_PORT`, `PROXY_USERNAME`, `PROXY_PASSWORD`, `MC_SERVER_IP`, `MC_SERVER_PORT`, y añade esto a tus opciones:
+
 ```js
 connect: (client) => {
-  socks.createConnection({
-    proxy: {
-      host: PROXY_IP,
-      port: PROXY_PORT,
-      type: 5,
-      userId: PROXY_USERNAME,
-      password: PROXY_PASSWORD
-    },
-    command: 'connect',
-    destination: {
-      host: MC_SERVER_IP,
-      port: MC_SERVER_PORT
-    }
-  }, (err, info) => {
-    if (err) {
-      console.log(err)
-      return
-    }
-    client.setSocket(info.socket)
-    client.emit('connect')
-  })
+	socks.createConnection(
+		{
+			proxy: {
+				host: PROXY_IP,
+				port: PROXY_PORT,
+				type: 5,
+				userId: PROXY_USERNAME,
+				password: PROXY_PASSWORD,
+			},
+			command: "connect",
+			destination: {
+				host: MC_SERVER_IP,
+				port: MC_SERVER_PORT,
+			},
+		},
+		(err, info) => {
+			if (err) {
+				console.log(err)
+				return
+			}
+			client.setSocket(info.socket)
+			client.emit("connect")
+		},
+	)
 }
 ```
 
@@ -164,6 +172,5 @@ Actualiza la versión de tu node
 ### The bot can't break/place blocks or open chests
 
 Comprueba que la protección de spawn no está impidiendo el bot de realizar la acción
-
 
 Esta documentación no está mantenida oficialmente, si quiere ver las últimas novedades, por favor dirijase a la documentación original: [FAQ](../FAQ.md)

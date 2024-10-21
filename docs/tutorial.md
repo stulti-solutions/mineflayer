@@ -94,7 +94,7 @@ Comments can be created using `//` and everything after that is completely ignor
 
 A lot of times you want to see the current value of a variable, to make sure your program is running correctly.  
 You do this by printing the variables to the terminal.  
-In Javascript, we can do this using the `console.log()` function.  
+In Javascript, we can do this using the `console.log()` function.
 
 ```js
 const test = 5
@@ -115,7 +115,7 @@ These can be useful because you don't have to type something multiple times.
 
 ```js
 const addition = (a, b) => {
-  return a + b
+	return a + b
 }
 
 const test1 = addition(5, 10)
@@ -130,7 +130,7 @@ Before the arrow operator is the parameter list, everything between the round br
 Parameters are variables you can give to your function so that your function can work with them.  
 Then after the arrow operator comes the function body, this is everything between the curly brackets `{}`  
 This is where you put the code of the function.  
-Now that the function is complete, we assign it to a variable to give it a name, in this case `addition`  
+Now that the function is complete, we assign it to a variable to give it a name, in this case `addition`
 
 As you can see, this code takes the parameters `a` and `b` and adds them together.  
 Then the function will return the result.  
@@ -155,7 +155,7 @@ So far we have only worked with numbers, but Javascript can work with more varia
 - A string is a piece of text that can contain multiple characters. Strings are defined by using the quotes `''`
 
 ```js
-const string = 'This is a string' // string type
+const string = "This is a string" // string type
 ```
 
 - An array is a type that can hold multiple variables inside itself. Arrays are defined by using the square brackets `[]`
@@ -163,6 +163,7 @@ const string = 'This is a string' // string type
 ```js
 const array = [1, 2, 3] // array type
 ```
+
 - Object are basically advanced arrays, you will learn more about it later in this tutorial. Their defined by curly brackets `{}`
 
 ```js
@@ -172,7 +173,9 @@ const object = {} // object type
 - Functions are also their own type.
 
 ```js
-const adder = (a, b) => { return a + b } // function type
+const adder = (a, b) => {
+	return a + b
+} // function type
 ```
 
 - A boolean is a type that can only be `true` or `false`
@@ -194,14 +197,14 @@ Sometimes you want to do different things based on a certain condition.
 This can be achieved using if-statements.
 
 ```js
-const name = 'Bob'
+const name = "Bob"
 
-if (name === 'Bob') {
-  console.log('Your name is Bob')
-} else if (name === 'Alice') {
-  console.log('Your name is Alice')
+if (name === "Bob") {
+	console.log("Your name is Bob")
+} else if (name === "Alice") {
+	console.log("Your name is Alice")
 } else {
-  console.log('Your name is not Bob or Alice')
+	console.log("Your name is not Bob or Alice")
 }
 ```
 
@@ -221,11 +224,11 @@ Loops are used to repeat certain code until a certain conditional is met.
 let countDown = 5
 
 while (countDown > 0) {
-  console.log(countDown)
-  countDown = countDown - 1 // Decrement countDown by 1
+	console.log(countDown)
+	countDown = countDown - 1 // Decrement countDown by 1
 }
 
-console.log('Finished!')
+console.log("Finished!")
 ```
 
 The above code will print the following
@@ -246,11 +249,11 @@ This will happen for as long as the condition check is still `true`
 Each loop, this code prints the current `countDown` number, and then decrements it by 1.  
 After the 5th loop, the condition `0 > 0` will be `false`, and thus the code will move on.
 
-A `for` loop is also often used, and differs slightly from a `while` loop.  
+A `for` loop is also often used, and differs slightly from a `while` loop.
 
 ```js
 for (let countDown = 5; countDown > 0; countDown = countDown - 1) {
-  console.log(countDown)
+	console.log(countDown)
 }
 ```
 
@@ -260,13 +263,13 @@ The first parts `let countDown = 5` is only executed once, at the start of the l
 The second part `countDown > 0` is the condition, this is the same as the while loop.  
 The third part `countDown = countDown - 1` is executed after each loop.:
 
-If you want to do something for every item in an array, a `for of` loop can be useful.  
+If you want to do something for every item in an array, a `for of` loop can be useful.
 
 ```js
 const array = [1, 2, 3]
 
 for (const item of array) {
-  console.log(item)
+	console.log(item)
 }
 ```
 
@@ -280,12 +283,12 @@ The last thing you need to know is how to use the [Node Package Manager](https:/
 NPM is automatically installed when you install Node.  
 NPM is used to get useful packages that other people created that can do useful things for you.  
 You can search for packages on [their website](https://www.npmjs.com/), and then install them using the `npm install` command in your terminal.  
-To install Mineflayer for example, run `npm install mineflayer`  
+To install Mineflayer for example, run `npm install mineflayer`
 
 Then, Node can access installed modules by using the `require()` function.
 
 ```js
-const mineflayer = require('mineflayer')
+const mineflayer = require("mineflayer")
 ```
 
 After this, the `mineflayer` variable can be used to access all the features of Mineflayer.
@@ -298,7 +301,7 @@ If you don't know any of the terms above, you should go back to the [previous se
 Below is the absolute minimum necessary to create a Mineflayer bot.
 
 ```js
-const mineflayer = require('mineflayer')
+const mineflayer = require("mineflayer")
 
 const bot = mineflayer.createBot()
 ```
@@ -307,13 +310,12 @@ If you run this example, you'll notice that your program will not stop. If you w
 However, this bot isn't quite useful, as by default this will connect to a Minecraft server running on your machine with the port 25565.  
 If you want to choose which server you want your bot to connect to, you have to pass along a few options.
 
-
 ```js
-const mineflayer = require('mineflayer')
+const mineflayer = require("mineflayer")
 
 const options = {
-  host: 'localhost', // Change this to the ip you want.
-  port: 25565 // Change this to the port you want.
+	host: "localhost", // Change this to the ip you want.
+	port: 25565, // Change this to the port you want.
 }
 
 const bot = mineflayer.createBot(options)
@@ -329,8 +331,8 @@ You can have multiple key-value pairs by separating them by commas.
 
 ```js
 const object = {
-  number: 10,
-  another: 5
+	number: 10,
+	another: 5,
 }
 
 console.log(object.number) // This will print the value 10
@@ -342,7 +344,7 @@ The value can be anything, even other object. If the value is a function, that f
 You can also create the object in-line.
 
 ```js
-const bot = mineflayer.createBot({ host: 'localhost', port: 25565 })
+const bot = mineflayer.createBot({ host: "localhost", port: 25565 })
 ```
 
 #### Logging in
@@ -353,10 +355,10 @@ To log into a specific account, you have to supply both the `username` and the `
 
 ```js
 const bot = mineflayer.createBot({
-  host: 'localhost',
-  port: 25565,
-  username: 'Player',
-  password: 'password'
+	host: "localhost",
+	port: 25565,
+	username: "Player",
+	password: "password",
 })
 ```
 
@@ -368,10 +370,10 @@ To counter this, a lot of people use command line arguments.
 
 ```js
 const bot = mineflayer.createBot({
-  host: process.argv[2],
-  port: parseInt(process.argv[3]),
-  username: process.argv[4],
-  password: process.argv[5]
+	host: process.argv[2],
+	port: parseInt(process.argv[3]),
+	username: process.argv[4],
+	password: process.argv[5],
 })
 ```
 
@@ -381,10 +383,10 @@ Node will automatically split the whole command line into an array, separated by
 This array is `process.argv`  
 The data in an array can be accessed using the index of each item. The index always start at 0, so the first item can be accessed with `[0]` and in this case will be `node` etc.
 
-| | First item | Second item | Third Item | Fourth item | Fifth item | Sixth item |
-| --- | :---: | :---: | :---: | :---: | :---: | :---: |
-| Value | `node` | `filename.js` | `host` | `port` | `username` | `password` |
-| Index | `[0]` | `[1]` | `[2]` | `[3]` | `[4]` | `[5]`
+|       | First item |  Second item  | Third Item | Fourth item | Fifth item | Sixth item |
+| ----- | :--------: | :-----------: | :--------: | :---------: | :--------: | :--------: |
+| Value |   `node`   | `filename.js` |   `host`   |   `port`    | `username` | `password` |
+| Index |   `[0]`    |     `[1]`     |   `[2]`    |    `[3]`    |   `[4]`    |   `[5]`    |
 
 ### Passing along functions
 
@@ -393,10 +395,10 @@ Functions can also be passed as a variable.
 
 ```js
 const welcome = () => {
-  bot.chat('hi!')
+	bot.chat("hi!")
 }
 
-bot.once('spawn', welcome)
+bot.once("spawn", welcome)
 ```
 
 As you can see, the `bot.once()` method takes 2 parameters.  
@@ -410,8 +412,8 @@ An anonymous function doesn't have a name, and is created at the position where 
 They still have to have a parameter list `()` and a function body `{}`, even if it isn't used.
 
 ```js
-bot.once('spawn', () => {
-  bot.chat('hi!')
+bot.once("spawn", () => {
+	bot.chat("hi!")
 })
 ```
 
@@ -431,16 +433,17 @@ To remove specific listener you can use `bot.removeListener()` method.
 Not only bot object, [`Chest`](http://prismarinejs.github.io/mineflayer/#/api?id=mineflayerchest), [`Furnace`](http://prismarinejs.github.io/mineflayer/#/api?id=mineflayerfurnace), [`Dispenser`](http://prismarinejs.github.io/mineflayer/#/api?id=mineflayerdispenser), [`EnchantmentTable`](http://prismarinejs.github.io/mineflayer/#/api?id=mineflayerenchantmenttable), [`Villager`](http://prismarinejs.github.io/mineflayer/#/api?id=mineflayervillager) object also have their own events!
 
 ### Promises
+
 A [promise](https://nodejs.dev/learn/understanding-javascript-promises) is a function that you can use the `await` variable to wait on until it's job is complete. (you can omit the await to not wait for results)
 
 ```js
-async function consume (bot) {
-  try {
-    await bot.consume()
-    console.log('Finished consuming')
-  } catch (err) {
-    console.log(error)
-  }
+async function consume(bot) {
+	try {
+		await bot.consume()
+		console.log("Finished consuming")
+	} catch (err) {
+		console.log(error)
+	}
 }
 ```
 
@@ -456,26 +459,26 @@ Below is an example of a bot that will craft oak logs into oak planks and then i
 Incorrect approach ❌:
 
 ```js
-function craft (bot) {
-  const mcData = require('minecraft-data')(bot.version)
-  const plankRecipe = bot.recipesFor(mcData.itemsByName.oak_planks.id ?? mcData.itemsByName.planks.id)[0] // Get the first recipe for oak planks
-  bot.craft(plankRecipe, 1) // ❌ start crafting oak planks.
+function craft(bot) {
+	const mcData = require("minecraft-data")(bot.version)
+	const plankRecipe = bot.recipesFor(mcData.itemsByName.oak_planks.id ?? mcData.itemsByName.planks.id)[0] // Get the first recipe for oak planks
+	bot.craft(plankRecipe, 1) // ❌ start crafting oak planks.
 
-  const stickRecipe = bot.recipesFor(mcData.itemsByName.sticks.id)[0] // Get the first recipe for sticks
-  bot.craft(stickRecipe, 1) // ❌ start crafting sticks.
+	const stickRecipe = bot.recipesFor(mcData.itemsByName.sticks.id)[0] // Get the first recipe for sticks
+	bot.craft(stickRecipe, 1) // ❌ start crafting sticks.
 }
 ```
 
 Correct approach with promises ✔️:
 
 ```js
-async function craft (bot) {
-  const mcData = require('minecraft-data')(bot.version)
-  const plankRecipe = bot.recipesFor(mcData.itemsByName.oak_planks.id ?? mcData.itemsByName.planks.id)[0]
-  await bot.craft(plankRecipe, 1, null)
-  const stickRecipe = bot.recipesFor(mcData.itemsByName.sticks.id)[0]
-  await bot.craft(stickRecipe, 1, null)
-  bot.chat('Crafting Sticks finished')
+async function craft(bot) {
+	const mcData = require("minecraft-data")(bot.version)
+	const plankRecipe = bot.recipesFor(mcData.itemsByName.oak_planks.id ?? mcData.itemsByName.planks.id)[0]
+	await bot.craft(plankRecipe, 1, null)
+	const stickRecipe = bot.recipesFor(mcData.itemsByName.sticks.id)[0]
+	await bot.craft(stickRecipe, 1, null)
+	bot.chat("Crafting Sticks finished")
 }
 ```
 
@@ -498,9 +501,9 @@ If we have the following object:
 
 ```js
 const obj = {
-  a: 1,
-  b: 2,
-  c: 3
+	a: 1,
+	b: 2,
+	c: 3,
 }
 ```
 
@@ -508,7 +511,7 @@ The following will loop over all the values of the object.
 
 ```js
 for (const value of Object.values(obj)) {
-  console.log(value)
+	console.log(value)
 }
 ```
 
@@ -522,7 +525,7 @@ This will loop over all the keys of the object.
 
 ```js
 for (const key of Object.keys(obj)) {
-  console.log(key)
+	console.log(key)
 }
 ```
 
@@ -536,7 +539,7 @@ You can also loop over the keys and values at the same time. You will have to de
 
 ```js
 for (const [key, value] of Object.entries(obj)) {
-  console.log(key + ', ' + value)
+	console.log(key + ", " + value)
 }
 ```
 
@@ -575,17 +578,13 @@ Examples :
 Here we're creating a bot that answer 'hello' from the other player.
 
 ```js
-bot.chatAddPattern(
-  /(helo|hello|Hello)/,
-  'hello',
-  'Someone says hello'
-)
+bot.chatAddPattern(/(helo|hello|Hello)/, "hello", "Someone says hello")
 
 const hi = () => {
-  bot.chat('Hi!')
+	bot.chat("Hi!")
 }
 
-bot.on('hello', hi)
+bot.on("hello", hi)
 ```
 
 #### Custom chat
@@ -601,17 +600,13 @@ Custom chat example:
 ```
 
 ```js
-bot.chatAddPattern(
-  /^\[(.+)\] (\S+) > (.+)$/,
-  'my_chat_event',
-  'Custom chat event'
-)
+bot.chatAddPattern(/^\[(.+)\] (\S+) > (.+)$/, "my_chat_event", "Custom chat event")
 
 const logger = (rank, username, message) => {
-  console.log(`${username} said ${message}`)
+	console.log(`${username} said ${message}`)
 }
 
-bot.on('my_chat_event', logger)
+bot.on("my_chat_event", logger)
 ```
 
 Explanation on the regex `^\[(.+)\] (\S+) > (.+)$` can be found [here](https://regex101.com/r/VDUrDC/2).

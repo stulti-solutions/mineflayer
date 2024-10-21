@@ -1,6 +1,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Tabela de conteúdos** *gerada com [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Tabela de conteúdos** _gerada com [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [API](#api)
   - [Enums](#enums)
@@ -315,29 +316,37 @@
 Esses enums estão armazenados em um projeto independente da linguagem [minecraft-data](https://github.com/PrismarineJS/minecraft-data) e acessados pelo [node-minecraft-data](https://github.com/PrismarineJS/node-minecraft-data).
 
 ### minecraft-data
+
 Os dados estão disponíveis no módulo [node-minecraft-data](https://github.com/PrismarineJS/node-minecraft-data)
 
 `require('minecraft-data')(bot.version)` te dá acesso a eles.
 
 ### mcdata.blocks
+
 Blocos ordenados por ID.
 
 ### mcdata.items
+
 Itens ordenados por ID.
 
 ### mcdata.materials
+
 A chave é o material. O valor é um objeto com a chave sendo o ID da ferramenta e o valor é o multiplicador de eficiência.
 
 ### mcdata.recipes
+
 Receitas ordenadas por ID.
 
 ### mcdata.instruments
+
 Ferramentas ordenadas por ID.
 
 ### mcdata.biomes
+
 Biomas ordenados por ID.
 
 ### mcdata.entities
+
 Entidades ordenadas por ID.
 
 ## Clases
@@ -366,6 +375,7 @@ Veja [prismarine-entity](https://github.com/PrismarineJS/prismarine-entity)
 Veja [prismarine-block](https://github.com/PrismarineJS/prismarine-block)
 
 Além disso, `block.blockEntity` é um campo adicional com os dados da entidade do bloco em formato de `Object`.
+
 ```js
 // sign.blockEntity
 {
@@ -405,10 +415,10 @@ Esta função também retorna uma `Promise`, com `void` como argumento ao ser co
 
 Esta função também retorna uma `Promise`, com `void` como argumento ao ser concluída.
 
- * `itemType` - ID numérico do item
- * `metadata` - valor numérico. `null` significa que qualquer valor é correspondente.
- * `count` - quantos itens devem ser retirados. `null` é um alias para 1.
- * `callback(err)` - (opcional) - executado ao finalizar
+- `itemType` - ID numérico do item
+- `metadata` - valor numérico. `null` significa que qualquer valor é correspondente.
+- `count` - quantos itens devem ser retirados. `null` é um alias para 1.
+- `callback(err)` - (opcional) - executado ao finalizar
 
 #### window.close()
 
@@ -436,19 +446,19 @@ Veja `bot.openFurnace(blocoDaFornalha)`.
 
 Esta função também retorna uma `Promise`, com `void` como argumento quando concluída.
 
- * `callback(err, item)`
+- `callback(err, item)`
 
 #### furnace.takeFuel([callback])
 
 Esta função também retorna uma `Promise`, com `void` como argumento quando concluída.
 
- * `callback(err, item)`
+- `callback(err, item)`
 
 #### furnace.takeOutput([callback])
 
 Esta função também retorna uma `Promise`, com `void` como argumento quando concluída.
 
- * `callback(err, item)`
+- `callback(err, item)`
 
 #### furnace.putInput(itemType, metadata, count, [cb])
 
@@ -503,16 +513,16 @@ Array de comprimento 3 com três encantamentos que você pode escolher.
 Parece com:
 
 ```js
-[
-  {
-    level: 3
-  },
-  {
-    level: 4
-  },
-  {
-    level: 9
-  }
+;[
+	{
+		level: 3,
+	},
+	{
+		level: 4,
+	},
+	{
+		level: 9,
+	},
 ]
 ```
 
@@ -520,26 +530,26 @@ Parece com:
 
 Esta função também retorna uma `Promise`, com o `item` como argumento quando concluída.
 
-* `escolha` - [0-2], o índice do encantamento que você deseja escolher.
-* `callback(err, item)` - (opcional) executado ao finalizar.
+- `escolha` - [0-2], o índice do encantamento que você deseja escolher.
+- `callback(err, item)` - (opcional) executado ao finalizar.
 
 #### enchantmentTable.takeTargetItem([callback])
 
 Esta função também retorna uma `Promise`, com o `item` como argumento quando concluída.
 
-* `callback(err, item)`
+- `callback(err, item)`
 
 #### enchantmentTable.putTargetItem(item, [callback])
 
 Esta função também retorna uma `Promise`, com `void` como argumento quando concluída.
 
-* `callback(err)`
+- `callback(err)`
 
 #### enchantmentTable.putLapis(item, [callback])
 
 Esta função também retorna uma `Promise`, com `void` como argumento quando concluída.
 
-* `callback(err)`
+- `callback(err)`
 
 ### mineflayer.anvil
 
@@ -550,13 +560,13 @@ Veja `bot.openAnvil(anvilBlock)`.
 
 Esta função também retorna uma `Promise`, com `void` como argumento quando concluída.
 
-* `callback(err)` - para usar o retorno de chamada, o nome deve estar vazio ('').
+- `callback(err)` - para usar o retorno de chamada, o nome deve estar vazio ('').
 
 #### anvil.combine(item[, nome, callback])
 
 Esta função também retorna uma `Promise`, com `void` como argumento quando concluída.
 
-* `callback(err)`
+- `callback(err)`
 
 #### villager "ready"
 
@@ -569,38 +579,39 @@ Array de negociações
 Semelhante a:
 
 ```js
-[
-  {
-    firstInput: Item,
-    output: Item,
-    hasSecondItem: false,
-    secondaryInput: null,
-    disabled: false,
-    tooluses: 0,
-    maxTradeuses: 7
-  },
-  {
-    firstInput: Item,
-    output: Item,
-    hasSecondItem: false,
-    secondaryInput: null,
-    disabled: false,
-    tooluses: 0,
-    maxTradeuses: 7
-  },
-  {
-    firstInput: Item,
-    output: Item,
-    hasSecondItem: true,
-    secondaryInput: Item,
-    disabled: false,
-    tooluses: 0,
-    maxTradeuses: 7
-  }
+;[
+	{
+		firstInput: Item,
+		output: Item,
+		hasSecondItem: false,
+		secondaryInput: null,
+		disabled: false,
+		tooluses: 0,
+		maxTradeuses: 7,
+	},
+	{
+		firstInput: Item,
+		output: Item,
+		hasSecondItem: false,
+		secondaryInput: null,
+		disabled: false,
+		tooluses: 0,
+		maxTradeuses: 7,
+	},
+	{
+		firstInput: Item,
+		output: Item,
+		hasSecondItem: true,
+		secondaryInput: Item,
+		disabled: false,
+		tooluses: 0,
+		maxTradeuses: 7,
+	},
 ]
 ```
 
 #### villager.trade(tradeIndex, [times], [cb])
+
 É o mesmo que [bot.trade(villagerInstance, tradeIndex, [times], [cb])](#bottradevillagerinstance-tradeindex-times-cb)
 
 ### mineflayer.ScoreBoard
@@ -616,6 +627,7 @@ O título do placar (nem sempre é o mesmo que o nome).
 #### ScoreBoard.itemsMap
 
 Um objeto com todos os itens do placar nele.
+
 ```js
 {
   wvffle: { name: 'wvffle', value: 3 },
@@ -626,10 +638,11 @@ Um objeto com todos os itens do placar nele.
 #### ScoreBoard.items
 
 Uma matriz com todos os itens no placar.
+
 ```js
-[
-  { name: 'dzikoysk', value: 6 },
-  { name: 'wvffle', value: 3 }
+;[
+	{ name: "dzikoysk", value: 6 },
+	{ name: "wvffle", value: 3 },
 ]
 ```
 
@@ -674,32 +687,33 @@ Determina el color de la barra entre `pink`, `blue`, `red`, `green`, `yellow`, `
 Crie e retorne uma instância da classe Bot.
 
 `options` é um objeto que contém propriedades opcionais:
- * username : (usuário) o valor padrão é 'Player'
- * port : (porta) o valor padrão é 25565
- * password : (senha) pode ser omitida (se os tokens também forem omitidos, tentará conectar no modo offline)
- * host : (ip) o valor padrão é localhost
- * version : se omitido, tentará determinar automaticamente a versão. Por exemplo: "1.12.2"
- * auth : (autenticação) o valor padrão é 'mojang', também pode ser 'microsoft'
- * clientToken : gerado se uma senha for fornecida
- * accessToken : gerado se uma senha for fornecida
- * logErrors : o valor padrão é true, retém erros e os imprime
- * hideErrors : o valor padrão é true, para ocultar erros (mesmo se logErrors for true)
- * keepAlive : envia pacotes keepAlive: o valor padrão é true
- * checkTimeoutInterval : o valor padrão é `30*1000` (30s), verifica se o pacote keepAlive foi recebido neste período, desconecta o bot se não for recebido.
- * loadInternalPlugins : o valor padrão é true
- * storageBuilder : uma função opcional, que recebe a versão e o nome do mundo (worldName) como argumentos e retorna uma instância de algo com a mesma API que prismarine-provider-anvil. Será usado para salvar o mundo.
- * client : uma instância de node-minecraft-protocol, se não for especificado, o mineflayer criará seu próprio cliente. Isso é útil para usar o mineflayer por meio de um proxy de vários clientes ou para um cliente vanilla e um cliente mineflayer.
- * plugins : objeto: o valor padrão é {}
-   - pluginName : false : não carrega o plugin interno com esse nome, por exemplo, `pluginName`
-   - pluginName : true : carrega o plugin interno com esse nome, por exemplo, `pluginName`, mesmo se loadInternalPlugins estiver definido como false
-   - pluginName : função para introduzir : carrega um plugin de terceiros (externo), anulando o plugin interno com o mesmo nome, por exemplo, `pluginName`
- * physicsEnabled : o valor padrão é true, se o bot deve ser afetado pela física, pode ser modificado através de bot.physicsEnabled
- * [chat](#bot.settings.chat)
- * [colorsEnabled](#bot.settings.colorsEnabled)
- * [viewDistance](#bot.settings.viewDistance)
- * [difficulty](#bot.settings.difficulty)
- * [skinParts](#bot.settings.skinParts)
- * chatLengthLimit : o valor máximo de caracteres que podem ser enviados com uma única mensagem. Se não for especificado, será 100 em versões anteriores à 1.11 e 256 na 1.11 e posteriores.
+
+- username : (usuário) o valor padrão é 'Player'
+- port : (porta) o valor padrão é 25565
+- password : (senha) pode ser omitida (se os tokens também forem omitidos, tentará conectar no modo offline)
+- host : (ip) o valor padrão é localhost
+- version : se omitido, tentará determinar automaticamente a versão. Por exemplo: "1.12.2"
+- auth : (autenticação) o valor padrão é 'mojang', também pode ser 'microsoft'
+- clientToken : gerado se uma senha for fornecida
+- accessToken : gerado se uma senha for fornecida
+- logErrors : o valor padrão é true, retém erros e os imprime
+- hideErrors : o valor padrão é true, para ocultar erros (mesmo se logErrors for true)
+- keepAlive : envia pacotes keepAlive: o valor padrão é true
+- checkTimeoutInterval : o valor padrão é `30*1000` (30s), verifica se o pacote keepAlive foi recebido neste período, desconecta o bot se não for recebido.
+- loadInternalPlugins : o valor padrão é true
+- storageBuilder : uma função opcional, que recebe a versão e o nome do mundo (worldName) como argumentos e retorna uma instância de algo com a mesma API que prismarine-provider-anvil. Será usado para salvar o mundo.
+- client : uma instância de node-minecraft-protocol, se não for especificado, o mineflayer criará seu próprio cliente. Isso é útil para usar o mineflayer por meio de um proxy de vários clientes ou para um cliente vanilla e um cliente mineflayer.
+- plugins : objeto: o valor padrão é {}
+  - pluginName : false : não carrega o plugin interno com esse nome, por exemplo, `pluginName`
+  - pluginName : true : carrega o plugin interno com esse nome, por exemplo, `pluginName`, mesmo se loadInternalPlugins estiver definido como false
+  - pluginName : função para introduzir : carrega um plugin de terceiros (externo), anulando o plugin interno com o mesmo nome, por exemplo, `pluginName`
+- physicsEnabled : o valor padrão é true, se o bot deve ser afetado pela física, pode ser modificado através de bot.physicsEnabled
+- [chat](#bot.settings.chat)
+- [colorsEnabled](#bot.settings.colorsEnabled)
+- [viewDistance](#bot.settings.viewDistance)
+- [difficulty](#bot.settings.difficulty)
+- [skinParts](#bot.settings.skinParts)
+- chatLengthLimit : o valor máximo de caracteres que podem ser enviados com uma única mensagem. Se não for especificado, será 100 em versões anteriores à 1.11 e 256 na 1.11 e posteriores.
 
 ### Properties
 
@@ -718,7 +732,6 @@ Observação: `oldBlock` pode ser `null`.
 É emitido quando um bloco em uma coordenada é atualizado. Retorna o bloco antigo `oldBlock` e o novo bloco `newBlock`.
 
 Observação: `oldBlock` pode ser `null`.
-
 
 #### bot.entity
 
@@ -775,6 +788,7 @@ Se a física deve ser habilitada, o valor padrão é true.
 #### bot.player
 
 Objeto do jogador do bot
+
 ```js
 {
   username: 'player',
@@ -811,17 +825,18 @@ Isso é semelhante ao `bot.rainState`, mas para tempestades de raios. Para tempe
 
 Isso é uma matriz de objetos de padrões, no seguinte formato:
 { /regex/, "chattype", "descrição")
- * /regex/ - um padrão regex, deve ter pelo menos dois grupos de captura.
- * 'chattype' - o tipo de chat que deve corresponder, pode ser "chat" (conversa) ou "whisper" (sussurro), ou qualquer outro.
- * 'descrição' - descrição do padrão, opcional.
+
+- /regex/ - um padrão regex, deve ter pelo menos dois grupos de captura.
+- 'chattype' - o tipo de chat que deve corresponder, pode ser "chat" (conversa) ou "whisper" (sussurro), ou qualquer outro.
+- 'descrição' - descrição do padrão, opcional.
 
 #### bot.settings.chat
 
 Opções:
 
- * `enabled` (ativado) (padrão)
- * `commandsOnly` (apenasComandos)
- * `disabled` (desativado)
+- `enabled` (ativado) (padrão)
+- `commandsOnly` (apenasComandos)
+- `disabled` (desativado)
 
 #### bot.settings.colorsEnabled
 
@@ -830,10 +845,11 @@ Seu valor padrão é verdadeiro, se deve receber códigos de cor do servidor.
 #### bot.settings.viewDistance
 
 Opções:
- * `far` (distante) (padrão)
- * `normal`
- * `short` (curto)
- * `tiny` (minúsculo)
+
+- `far` (distante) (padrão)
+- `normal`
+- `short` (curto)
+- `tiny` (minúsculo)
 
 #### bot.settings.difficulty
 
@@ -984,6 +1000,7 @@ Todos os placares que o bot conhece em um objeto com o formato nome do placar ->
 #### bot.scoreboard
 
 Todos os placares que o bot conhece em um objeto com o formato exibição de placar -> placar.
+
 - `belowName` - placar exibido abaixo do nome
 - `sidebar` - placar exibido na barra lateral
 - `list` - placar exibido na lista
@@ -1000,6 +1017,7 @@ Esses valores podem ser usados em bot.setControlState.
 #### "chat" (username, message, translate, jsonMsg, matches)
 
 Somente é emitido quando um jogador conversa publicamente.
+
 - `username` - o jogador que enviou a mensagem (compare com `bot.username` para ignorar suas próprias mensagens).
 - `message` - mensagem sem códigos de cores.
 - `translate` - tipo de mensagem no chat. Nulo para a maioria das mensagens do Bukkit.
@@ -1009,6 +1027,7 @@ Somente é emitido quando um jogador conversa publicamente.
 #### "whisper" (username, message, translate, jsonMsg, matches)
 
 Somente é emitido quando um jogador conversa com você em particular (sussurro).
+
 - `username` - o jogador que enviou a mensagem.
 - `message` - mensagem sem códigos de cores.
 - `translate` - tipo de mensagem no chat. Nulo para a maioria das mensagens do Bukkit.
@@ -1019,18 +1038,18 @@ Somente é emitido quando um jogador conversa com você em particular (sussurro)
 
 Este evento é emitido para cada mensagem do servidor que aparece na barra de ação.
 
- * `jsonMsg` - mensagem JSON não modificada do servidor
+- `jsonMsg` - mensagem JSON não modificada do servidor
 
 #### "message" (jsonMsg, position)
 
 Este evento é emitido para cada mensagem do servidor, incluindo chats.
 
- * `jsonMsg` - mensagem JSON não modificada do servidor
+- `jsonMsg` - mensagem JSON não modificada do servidor
 
- * `position` - (>= 1.8.1): a posição da mensagem de chat pode ser
-   * chat
-   * sistema
-   * informações_do_jogo
+- `position` - (>= 1.8.1): a posição da mensagem de chat pode ser
+  - chat
+  - sistema
+  - informações_do_jogo
 
 #### "messagestr" (message, messagePosition, jsonMsg)
 
@@ -1064,7 +1083,7 @@ Este evento é emitido quando o arquivo index é carregado. Você pode carregar 
 
 É emitido quando o servidor exibe um título.
 
- * `text` - texto do título
+- `text` - texto do título
 
 #### "rain"
 
@@ -1178,8 +1197,8 @@ Este evento é emitido quando o arquivo index é carregado. Você pode carregar 
 
 É emitido quando uma entidade coleta um item.
 
- * `coletor` - a entidade que coletou o item.
- * `coletado` - a entidade que foi coletada (o item).
+- `coletor` - a entidade que coletou o item.
+- `coletado` - a entidade que foi coletada (o item).
 
 #### "entityGone" (entity)
 
@@ -1197,8 +1216,8 @@ Este evento é emitido quando o arquivo index é carregado. Você pode carregar 
 
 É emitido quando uma entidade entra em um veículo.
 
- * `entidade` - a entidade que entrou
- * `veículo` - a entidade do veículo (carrinho, cavalo)
+- `entidade` - a entidade que entrou
+- `veículo` - a entidade do veículo (carrinho, cavalo)
 
 #### "entityUpdate" (entity)
 
@@ -1254,30 +1273,30 @@ Observação: `blocoAntigo` pode ser `null`.
 
 Isso ocorre quando o cliente ouve um efeito sonoro com um nome específico.
 
- * `nomeSom`: nome do efeito sonoro
- * `posição`: uma instância Vec3 indicando o ponto de onde o som originou
- * `volume`: volume em ponto flutuante, 1.0 é 100%
- * `altura`: pitch em números inteiros, 63 é 100%
+- `nomeSom`: nome do efeito sonoro
+- `posição`: uma instância Vec3 indicando o ponto de onde o som originou
+- `volume`: volume em ponto flutuante, 1.0 é 100%
+- `altura`: pitch em números inteiros, 63 é 100%
 
 #### "hardcodedSoundEffectHeard" (soundId, soundCategory, position, volume, pitch)
 
 Isso ocorre quando o cliente ouve um efeito sonoro codificado.
 
-   * `idSom`: ID do efeito sonoro
-   * `categoriaSom`: categoria do efeito sonoro
-   * `posição`: uma instância Vec3 indicando o ponto de onde o som originou
-   * `volume`: volume em ponto flutuante, 1.0 é 100%
-   * `altura`: pitch em números inteiros, 63 é 100%
+- `idSom`: ID do efeito sonoro
+- `categoriaSom`: categoria do efeito sonoro
+- `posição`: uma instância Vec3 indicando o ponto de onde o som originou
+- `volume`: volume em ponto flutuante, 1.0 é 100%
+- `altura`: pitch em números inteiros, 63 é 100%
 
 #### "noteHeard" (block, instrument, pitch)
 
 Isso ocorre quando um bloco de notas é disparado em algum lugar.
 
- * `bloco`: uma instância de Bloco, o bloco que emitiu o som
- * `instrumento`:
-   - `id`: identificação numérica
-   - `nome`: um dos seguintes [`harpa`, `contrabaixo`, `caixa de bateria`, `baquetas`, `bateria grave`]
- * `tom`: O tom da nota (entre 0 e 24, inclusivos, onde 0 é o mais baixo e 24 é o mais alto). Você pode ler mais (sobre como os valores de tom correspondem às notas na vida real) aqui: [Página oficial da Minecraft Wiki](http://minecraft.wiki/w/Note_Block).
+- `bloco`: uma instância de Bloco, o bloco que emitiu o som
+- `instrumento`:
+  - `id`: identificação numérica
+  - `nome`: um dos seguintes [`harpa`, `contrabaixo`, `caixa de bateria`, `baquetas`, `bateria grave`]
+- `tom`: O tom da nota (entre 0 e 24, inclusivos, onde 0 é o mais baixo e 24 é o mais alto). Você pode ler mais (sobre como os valores de tom correspondem às notas na vida real) aqui: [Página oficial da Minecraft Wiki](http://minecraft.wiki/w/Note_Block).
 
 #### "pistonMove" (block, isPulling, direction)
 
@@ -1287,33 +1306,35 @@ Isso ocorre quando um pistão se move.
 
 Isso ocorre quando a tampa de um baú se move.
 
-* `bloco`: uma instância de Bloco, o bloco da tampa que se moveu. O bloco à direita se for um baú duplo.
-* `estáAberto`: número de jogadores que têm o baú aberto.
-* `bloco2`: uma instância de Bloco, a outra metade do bloco onde a tampa se moveu. Nulo se não for um baú duplo.
+- `bloco`: uma instância de Bloco, o bloco da tampa que se moveu. O bloco à direita se for um baú duplo.
+- `estáAberto`: número de jogadores que têm o baú aberto.
+- `bloco2`: uma instância de Bloco, a outra metade do bloco onde a tampa se moveu. Nulo se não for um baú duplo.
 
 #### "blockBreakProgressObserved" (block, destroyStage)
 
 Isso ocorre quando o cliente observa um bloco enquanto ele está sendo quebrado.
 
- * `bloco`: uma instância de Bloco, o que está sendo quebrado.
- * `estágioDestruicao`: número inteiro correspondente ao progresso (0-9).
+- `bloco`: uma instância de Bloco, o que está sendo quebrado.
+- `estágioDestruicao`: número inteiro correspondente ao progresso (0-9).
 
 #### "blockBreakProgressEnd" (block)
 
 Isso ocorre quando o cliente observa um bloco que termina de ser quebrado.
 Isso ocorre quando o processo foi concluído ou cancelado.
 
- * `bloco`: uma instância de Bloco, o bloco que não está mais sendo quebrado.
+- `bloco`: uma instância de Bloco, o bloco que não está mais sendo quebrado.
 
 #### "diggingCompleted" (block)
 
 Isso ocorre quando a quebra de um bloco foi concluída.
- * `bloco` - o bloco que já não existe.
+
+- `bloco` - o bloco que já não existe.
 
 #### "diggingAborted" (block)
 
 Isso ocorre quando o processo de quebra de um bloco foi abortado.
- * `bloco` - o bloco que ainda existe.
+
+- `bloco` - o bloco que ainda existe.
 
 #### "move"
 
@@ -1418,13 +1439,15 @@ O `cb` é executado quando bastantes chunks são carregados.
 Obsoleto, usar `blockAtCursor` no lugar.
 
 Retorna o bloco que está no cursor do bot ou `null`.
- * `maxSteps` - Número de passos do traçado de raios, o valor padrão é 256.
- * `vectorLength` - Comprimento do vetor do traçado de raios, o valor padrão é `5/16`.
+
+- `maxSteps` - Número de passos do traçado de raios, o valor padrão é 256.
+- `vectorLength` - Comprimento do vetor do traçado de raios, o valor padrão é `5/16`.
 
 #### bot.blockAtCursor(maxDistance=256)
 
 Retorna o bloco que está no cursor do bot ou `null`.
- * `maxDistance` - Distância máxima à qual o bloco pode estar do olho, o valor padrão é 256.
+
+- `maxDistance` - Distância máxima à qual o bloco pode estar do olho, o valor padrão é 256.
 
 #### bot.canSeeBlock(block)
 
@@ -1433,14 +1456,15 @@ Retorna verdadeiro ou falso dependendo se o bot pode ver o `block` (bloco).
 #### bot.findBlocks(options)
 
 Encontra os blocos mais próximos do ponto especificado.
- * `options` - Opções de pesquisa:
-   - `point` - A posição a partir da qual começar a pesquisa (centro). Padrão: a posição do bot.
-   - `matching` - Uma função que retorna verdadeiro se o bloco atender às condições. Também pode ser um ID de bloco ou uma matriz de IDs.
-   - `useExtraInfo` - Pode ser de dois tipos para manter a compatibilidade inversa.
-      - **boolean** - Você fornece sua função `matching` com mais informações - mais lento.
-      - **function** - É feito em duas etapas, se o bloco atender às condições da função `matching`, ele passa para `useExtraInfo` com informações adicionais.
-   - `maxDistance` - A distância máxima de pesquisa, padrão: 16.
-   - `count` - Número de blocos a serem encontrados antes de retornar os resultados. Padrão: 1. Pode retornar menos se não houver blocos suficientes.
+
+- `options` - Opções de pesquisa:
+  - `point` - A posição a partir da qual começar a pesquisa (centro). Padrão: a posição do bot.
+  - `matching` - Uma função que retorna verdadeiro se o bloco atender às condições. Também pode ser um ID de bloco ou uma matriz de IDs.
+  - `useExtraInfo` - Pode ser de dois tipos para manter a compatibilidade inversa.
+    - **boolean** - Você fornece sua função `matching` com mais informações - mais lento.
+    - **function** - É feito em duas etapas, se o bloco atender às condições da função `matching`, ele passa para `useExtraInfo` com informações adicionais.
+  - `maxDistance` - A distância máxima de pesquisa, padrão: 16.
+  - `count` - Número de blocos a serem encontrados antes de retornar os resultados. Padrão: 1. Pode retornar menos se não houver blocos suficientes.
 
 Retorna um array (pode estar vazio) com as coordenadas dos blocos encontrados (não retorna instâncias de blocos). O array é ordenado (os mais próximos primeiro).
 
@@ -1456,10 +1480,10 @@ Retorna se o `block` está dentro do alcance e se pode ser escavado.
 
 Retorna uma lista de instâncias `Recipe` (receita) que você pode usar para criar `itemType` com `metadata`.
 
- * `itemType` - ID numérico do item que deseja criar.
- * `metadata` - o valor numérico da metadados do item que deseja criar, `null` significa "com qualquer valor de metadados".
- * `minResultCount` - baseia-se no seu inventário atual, qualquer receita da lista retornada poderá produzir esse número de itens. `null` significa `1`.
- * `craftingTable` - uma instância `Block` (mesa de criação). Se for `null`, apenas receitas que podem ser feitas no inventário serão incluídas na lista.
+- `itemType` - ID numérico do item que deseja criar.
+- `metadata` - o valor numérico da metadados do item que deseja criar, `null` significa "com qualquer valor de metadados".
+- `minResultCount` - baseia-se no seu inventário atual, qualquer receita da lista retornada poderá produzir esse número de itens. `null` significa `1`.
+- `craftingTable` - uma instância `Block` (mesa de criação). Se for `null`, apenas receitas que podem ser feitas no inventário serão incluídas na lista.
 
 #### bot.recipesAll(itemType, metadata, craftingTable)
 
@@ -1485,11 +1509,12 @@ Para se desconectar do servidor de forma elegante com um motivo (padrão: 'disco
 Essa função também retorna uma `Promise`, com `matches` como argumento quando a conclusão é feita.
 
 Solicita a conclusão da mensagem de chat (para comandos).
- * `str` - String para completar.
- * `callback(matches)`
-   - `matches` - Array de strings correspondentes.
- * `assumeCommand` - Campo enviado ao servidor, padrão: false.
- * `sendBlockInSight` - Campo enviado ao servidor, padrão: true. Mude para false se desejar maior eficiência.
+
+- `str` - String para completar.
+- `callback(matches)`
+  - `matches` - Array de strings correspondentes.
+- `assumeCommand` - Campo enviado ao servidor, padrão: false.
+- `sendBlockInSight` - Campo enviado ao servidor, padrão: true. Mude para false se desejar maior eficiência.
 
 #### bot.chat(message)
 
@@ -1504,39 +1529,43 @@ Atalho para "/tell <username>" (usuário). Todas as partes serão sussurradas ao
 #### bot.addChatPattern(name, pattern, chatPatternOptions)
 
 Adicione um padrão regex à lista de padrões do bot. Útil para servidores Bukkit onde o formato do chat muda com frequência.
- * `pattern` - padrão regex para corresponder
- * `chatType` - o evento que o bot emite quando o padrão corresponde, por exemplo, "chat" ou "whisper"
- * 'description' - Opcional, descrição do padrão
+
+- `pattern` - padrão regex para corresponder
+- `chatType` - o evento que o bot emite quando o padrão corresponde, por exemplo, "chat" ou "whisper"
+- 'description' - Opcional, descrição do padrão
 
 #### bot.addChatPattern(name, pattern, chatPatternOptions)
 
-** isso é semelhante a `bot.addChatPatternSet(name, [pattern], chatPatternOptions)`
+\*\* isso é semelhante a `bot.addChatPatternSet(name, [pattern], chatPatternOptions)`
 
 Cria um evento que é emitido sempre que um padrão corresponde, o evento será chamado "chat:name", sendo "name" o nome fornecido.
-* `name` - o nome usado para o evento
-* `pattern` - expressão regular a ser testada nas mensagens
-* `chatPatternOptions` - objeto
-  * `repeat` - padrão: true, se continuar testando após corresponder uma vez
-  * `parse` - em vez de retornar a mensagem, retorne os grupos capturados pela regex
-  * `deprecated` - (**unstable**) usado por bot.chatAddPattern para manter a compatibilidade, provavelmente será removido
+
+- `name` - o nome usado para o evento
+- `pattern` - expressão regular a ser testada nas mensagens
+- `chatPatternOptions` - objeto
+  - `repeat` - padrão: true, se continuar testando após corresponder uma vez
+  - `parse` - em vez de retornar a mensagem, retorne os grupos capturados pela regex
+  - `deprecated` - (**unstable**) usado por bot.chatAddPattern para manter a compatibilidade, provavelmente será removido
 
 Retorna um número que pode ser usado em bot.removeChatPattern() para remover esse padrão.
 
 #### bot.addChatPatternSet(name, patterns, chatPatternOptions)
 
 Cria um evento que é emitido sempre que todos os padrões correspondem, o evento será chamado "chat:name", sendo "name" o nome fornecido.
-* `name` - o nome usado para o evento
-* `patterns` - expressões regulares a serem testadas nas mensagens
-* `chatPatternOptions` - objeto
-  * `repeat` - padrão: true, se continuar testando após corresponder uma vez
-  * `parse` - em vez de retornar a mensagem, retorne os grupos capturados pela regex
+
+- `name` - o nome usado para o evento
+- `patterns` - expressões regulares a serem testadas nas mensagens
+- `chatPatternOptions` - objeto
+  - `repeat` - padrão: true, se continuar testando após corresponder uma vez
+  - `parse` - em vez de retornar a mensagem, retorne os grupos capturados pela regex
 
 Retorna um número que pode ser usado em bot.removeChatPattern() para remover esse conjunto de padrões.
 
 #### bot.removeChatPattern(name)
 
 Remove um padrão / conjuntos de padrões
-* `name`: string ou número
+
+- `name`: string ou número
 
 Se o nome for uma string, todos os padrões com esse nome serão removidos; caso contrário, se for um número, apenas o padrão exato será removido.
 
@@ -1547,12 +1576,12 @@ Promessa que é resolvida quando uma das mensagens fornecidas é cumprida.
 Exemplo:
 
 ```js
-async function wait () {
-  await bot.awaitMessage('<flatbot> hello world') // resolve "hello world" no chat por flatbot (se resolve quando um usuário chamado flatbot escreve "hello world" no chat)
-  await bot.awaitMessage(['<flatbot> hello', '<flatbot> world']) // resolve "hello" ou "world" no chat por flatbot (se resolve quando um usuário chamado flatbot escreve "hello" ou "world" no chat)
-  await bot.awaitMessage(['<flatbot> hello', '<flatbot> world'], ['<flatbot> im', '<flatbot> batman']) // resolve "hello" ou "world" ou "im" ou "batman" no chat por flatbot (se resolve quando um usuário chamado flatbot escreve "hello world", "world", "im" ou "batman" no bater papo)
-  await bot.awaitMessage('<flatbot> hello', '<flatbot> world') // resolve "hello" ou "world" no chat do flatbot
-  await bot.awaitMessage(/<flatbot> (.+)/) // resolve na primeira mensagem correspondente ao regex (se resolve quando um usuário chamado flatbot escreve algo que coincide com o padrão)
+async function wait() {
+	await bot.awaitMessage("<flatbot> hello world") // resolve "hello world" no chat por flatbot (se resolve quando um usuário chamado flatbot escreve "hello world" no chat)
+	await bot.awaitMessage(["<flatbot> hello", "<flatbot> world"]) // resolve "hello" ou "world" no chat por flatbot (se resolve quando um usuário chamado flatbot escreve "hello" ou "world" no chat)
+	await bot.awaitMessage(["<flatbot> hello", "<flatbot> world"], ["<flatbot> im", "<flatbot> batman"]) // resolve "hello" ou "world" ou "im" ou "batman" no chat por flatbot (se resolve quando um usuário chamado flatbot escreve "hello world", "world", "im" ou "batman" no bater papo)
+	await bot.awaitMessage("<flatbot> hello", "<flatbot> world") // resolve "hello" ou "world" no chat do flatbot
+	await bot.awaitMessage(/<flatbot> (.+)/) // resolve na primeira mensagem correspondente ao regex (se resolve quando um usuário chamado flatbot escreve algo que coincide com o padrão)
 }
 ```
 
@@ -1564,29 +1593,30 @@ Veja a propriedade `bot.settings`.
 
 Introduz um Plugin. Não faz nada se o plugin já estiver carregado/introduzido.
 
- * `plugin` - função
+- `plugin` - função
 
 ```js
-function somePlugin (bot, options) {
-  function someFunction () {
-    bot.chat('Yay!')
-  }
+function somePlugin(bot, options) {
+	function someFunction() {
+		bot.chat("Yay!")
+	}
 
-  bot.myPlugin = {} // Boas práticas para API de plugin de namespace (faça isso para evitar erros como myPlugin não está definido)
-  bot.myPlugin.someFunction = someFunction
+	bot.myPlugin = {} // Boas práticas para API de plugin de namespace (faça isso para evitar erros como myPlugin não está definido)
+	bot.myPlugin.someFunction = someFunction
 }
 
 const bot = mineflayer.createBot({})
 bot.loadPlugin(somePlugin)
-bot.once('login', function () {
-  bot.myPlugin.someFunction() // Yay!
+bot.once("login", function () {
+	bot.myPlugin.someFunction() // Yay!
 })
 ```
 
 #### bot.loadPlugins(plugins)
 
 Introduz plugins, veja `bot.loadPlugin`.
- * `plugins` - array de funções
+
+- `plugins` - array de funções
 
 #### bot.hasPlugin(plugin)
 
@@ -1614,8 +1644,8 @@ Este é o método principal para controlar os movimentos do bot. É semelhante a
 Por exemplo, forward como true fará o bot se mover para a frente. Forward como false fará o bot parar de se mover para a frente.
 Você pode usar bot.lookAt com isso para controlar o movimento. O exemplo jumper.js mostra como fazer isso.
 
- * `control` - Um dos seguintes: ['forward', 'back', 'left', 'right', 'jump', 'sprint', 'sneak']
- * `state` - `true` ou `false`
+- `control` - Um dos seguintes: ['forward', 'back', 'left', 'right', 'jump', 'sprint', 'sneak']
+- `state` - `true` ou `false`
 
 #### bot.getControlState(control)
 
@@ -1623,7 +1653,7 @@ Você pode usar bot.lookAt com isso para controlar o movimento. O exemplo jumper
 
 Retorna verdadeiro se o controle estiver ativado.
 
-* `control` - um dos seguintes ['forward', 'back', 'left', 'right', 'jump', 'sprint', 'sneak']
+- `control` - um dos seguintes ['forward', 'back', 'left', 'right', 'jump', 'sprint', 'sneak']
 
 #### bot.clearControlStates()
 
@@ -1635,9 +1665,9 @@ Esta função também retorna uma `Promise`, com `void` como argumento quando co
 
 Move a cabeça.
 
- * `point` - uma instância [Vec3](https://github.com/andrewrk/node-vec3) - move a cabeça para olhar para este ponto.
- * `force` - Veja `force` em `bot.look`.
- * `callback()` - opcional, executado quando você está olhando para o `point`.
+- `point` - uma instância [Vec3](https://github.com/andrewrk/node-vec3) - move a cabeça para olhar para este ponto.
+- `force` - Veja `force` em `bot.look`.
+- `callback()` - opcional, executado quando você está olhando para o `point`.
 
 #### bot.look(yaw, pitch, [force], [callback])
 
@@ -1645,10 +1675,10 @@ Esta função também retorna uma `Promise`, com `void` como argumento quando co
 
 Move a cabeça.
 
- * `yaw` - O número de radianos para girar em torno do eixo vertical, começando pelo leste, no sentido anti-horário.
- * `pitch` - O número de radianos para olhar para cima ou para baixo. 0 significa olhar em frente. PI / 2 significa para cima. -PI / 2 significa para baixo.
- * `force` - Se presente e verdadeiro, pula a transição suave. Especifique como verdadeiro se você quiser valores precisos para soltar itens ou atirar flechas. Isso não é necessário para cálculos do lado do cliente, como mover-se.
- * `callback()` - opcional, executado quando você está olhando para `yaw` e `pitch`.
+- `yaw` - O número de radianos para girar em torno do eixo vertical, começando pelo leste, no sentido anti-horário.
+- `pitch` - O número de radianos para olhar para cima ou para baixo. 0 significa olhar em frente. PI / 2 significa para cima. -PI / 2 significa para baixo.
+- `force` - Se presente e verdadeiro, pula a transição suave. Especifique como verdadeiro se você quiser valores precisos para soltar itens ou atirar flechas. Isso não é necessário para cálculos do lado do cliente, como mover-se.
+- `callback()` - opcional, executado quando você está olhando para `yaw` e `pitch`.
 
 #### bot.updateSign(block, text)
 
@@ -1660,14 +1690,14 @@ Esta função também retorna uma `Promise`, com `void` como argumento quando co
 
 Equipar um item do inventário.
 
- * `item` - instância `Item`. Veja `window.items()`.
- * `destination` - `"hand"` (mão), `null` é um alias para isso.
-   - `"head"` (cabeça)
-   - `"torso"` (peito)
-   - `"legs"` (pernas)
-   - `"feet"` (pés)
-   - `"off-hand"` (mão esquerda), quando disponível.
- * `callback(error)` - opcional, executado quando o bot equipou o item ou quando falhou em fazê-lo.
+- `item` - instância `Item`. Veja `window.items()`.
+- `destination` - `"hand"` (mão), `null` é um alias para isso.
+  - `"head"` (cabeça)
+  - `"torso"` (peito)
+  - `"legs"` (pernas)
+  - `"feet"` (pés)
+  - `"off-hand"` (mão esquerda), quando disponível.
+- `callback(error)` - opcional, executado quando o bot equipou o item ou quando falhou em fazê-lo.
 
 #### bot.unequip(destination, [callback])
 
@@ -1680,17 +1710,18 @@ Remove um item do destino.
 Esta função também retorna uma `Promise`, com `void` como argumento quando concluída.
 
 Descarta a pilha de itens especificada.
- * `item` - a pilha de itens que você deseja descartar.
- * `callback(error)` - opcional, executado quando o bot terminou de descartar ou quando falhou em fazê-lo.
+
+- `item` - a pilha de itens que você deseja descartar.
+- `callback(error)` - opcional, executado quando o bot terminou de descartar ou quando falhou em fazê-lo.
 
 #### bot.toss(itemType, metadata, count, [callback])
 
 Esta função também retorna uma `Promise`, com `void` como argumento quando concluída.
 
- * `itemType` - ID numérico do item que você deseja descartar.
- * `metadata` - metadados do item que você deseja descartar. `null` para qualquer metadados.
- * `count` - quantos itens você deseja descartar. `null` significa `1`.
- * `callback(err)` - (opcional) executado quando o bot terminou de descartar ou quando falhou em fazê-lo.
+- `itemType` - ID numérico do item que você deseja descartar.
+- `metadata` - metadados do item que você deseja descartar. `null` para qualquer metadados.
+- `count` - quantos itens você deseja descartar. `null` significa `1`.
+- `callback(err)` - (opcional) executado quando o bot terminou de descartar ou quando falhou em fazê-lo.
 
 #### bot.dig(block, [forceLook = true], [digFace], [callback])
 
@@ -1701,10 +1732,10 @@ Observe os eventos "diggingCompleted" e "diggingAborted".
 
 Nota: ao começar a quebrar um bloco, você não poderá quebrar outro bloco até terminar de quebrar aquele bloco ou executar `bot.stopDigging()`.
 
- * `block` - o bloco que você deseja quebrar.
- * `forceLook` - (opcional) se for verdadeiro, olha rapidamente para o bloco e começa a quebrá-lo. Se for falso, olha lentamente para o bloco antes de começar a quebrá-lo. Além disso, pode ser 'ignore', para que o bot não olhe para o bloco ao quebrá-lo.
- * `digFace` - (opcional) Padrão: 'auto', olha para o centro do bloco e quebra-o a partir do topo. Também pode ser um vetor Vec3 da face do bloco para onde o bot deve olhar. Por exemplo: ```vec3(0, 1, 0)``` para quebrar a face de cima. Também pode ser 'raycast', isso verifica se alguma face é visível para começar a quebrar por essa face, o que é útil em servidores com um anti-cheat.
- * `callback(err)` - (opcional) executado quando o bot quebrou o bloco ou quando falhou em fazê-lo.
+- `block` - o bloco que você deseja quebrar.
+- `forceLook` - (opcional) se for verdadeiro, olha rapidamente para o bloco e começa a quebrá-lo. Se for falso, olha lentamente para o bloco antes de começar a quebrá-lo. Além disso, pode ser 'ignore', para que o bot não olhe para o bloco ao quebrá-lo.
+- `digFace` - (opcional) Padrão: 'auto', olha para o centro do bloco e quebra-o a partir do topo. Também pode ser um vetor Vec3 da face do bloco para onde o bot deve olhar. Por exemplo: `vec3(0, 1, 0)` para quebrar a face de cima. Também pode ser 'raycast', isso verifica se alguma face é visível para começar a quebrar por essa face, o que é útil em servidores com um anti-cheat.
+- `callback(err)` - (opcional) executado quando o bot quebrou o bloco ou quando falhou em fazê-lo.
 
 #### bot.stopDigging()
 
@@ -1726,9 +1757,9 @@ Negar o pacote de recursos.
 
 Esta função também retorna uma `Promise`, com `void` como argumento quando concluída.
 
- * `referenceBlock` - o bloco ao lado do bloco que deseja colocar
- * `faceVector` - uma das seis direções cardeais, por exemplo, `new Vec3(0, 1, 0)` para o lado de cima, indicando a face do bloco de referência.
- * `cb` será executado quando o servidor confirmar que o bloco foi colocado.
+- `referenceBlock` - o bloco ao lado do bloco que deseja colocar
+- `faceVector` - uma das seis direções cardeais, por exemplo, `new Vec3(0, 1, 0)` para o lado de cima, indicando a face do bloco de referência.
+- `cb` será executado quando o servidor confirmar que o bloco foi colocado.
 
 O bloco será colocado em `referenceBlock.position.plus(faceVector)` (posição do bloco de referência mais o vetor de face).
 
@@ -1736,8 +1767,8 @@ O bloco será colocado em `referenceBlock.position.plus(faceVector)` (posição 
 
 Esta função também retorna uma `Promise`, com `void` como argumento quando concluída.
 
- * `referenceBlock` - o bloco ao lado de onde deseja colocar a entidade.
- * `faceVector` - uma das seis direções cardeais, por exemplo, `new Vec3(0, 1, 0)` para a face de cima, indicando a face do bloco de referência.
+- `referenceBlock` - o bloco ao lado de onde deseja colocar a entidade.
+- `faceVector` - uma das seis direções cardeais, por exemplo, `new Vec3(0, 1, 0)` para a face de cima, indicando a face do bloco de referência.
 
 A entidade será colocada em `referenceBlock.position.plus(faceVector)` (posição do bloco de referência mais o vetor de face).
 
@@ -1747,8 +1778,8 @@ Esta função também retorna uma `Promise`, com `void` como argumento quando co
 
 Ativar um bloco, como bater em um bloco de nota ou abrir uma porta.
 
- * `block` - o bloco a ser ativado.
- * `callback(err)` - (opcional) executado quando o bot ativa o bloco ou falha ao fazê-lo.
+- `block` - o bloco a ser ativado.
+- `callback(err)` - (opcional) executado quando o bot ativa o bloco ou falha ao fazê-lo.
 
 #### bot.activateEntity(entity, [callback])
 
@@ -1756,8 +1787,8 @@ Esta função também retorna uma `Promise`, com `void` como argumento quando co
 
 Ativar uma entidade, por exemplo, com aldeões.
 
- * `entity` - a entidade a ser ativada.
- * `callback(err)` - (opcional) executado quando o bot ativa a entidade ou falha ao fazê-lo.
+- `entity` - a entidade a ser ativada.
+- `callback(err)` - (opcional) executado quando o bot ativa a entidade ou falha ao fazê-lo.
 
 #### bot.activateEntityAt(entity, position, [callback])
 
@@ -1765,9 +1796,9 @@ Esta função também retorna uma `Promise`, com `void` como argumento quando co
 
 Ativar uma entidade na posição especificada, útil para suportes de armadura.
 
- * `entity` - a entidade a ser ativada.
- * `position` - a posição onde você deve clicar.
- * `callback(err)` - (opcional) executado quando o bot ativa a entidade ou falha ao fazê-lo.
+- `entity` - a entidade a ser ativada.
+- `position` - a posição onde você deve clicar.
+- `callback(err)` - (opcional) executado quando o bot ativa a entidade ou falha ao fazê-lo.
 
 #### bot.consume(callback)
 
@@ -1775,7 +1806,7 @@ Esta função também retorna uma `Promise`, com `void` como argumento quando co
 
 Consumir ou beber o item na mão.
 
- * `callback(error)` - executado quando o bot consome o item ou falha ao fazê-lo.
+- `callback(error)` - executado quando o bot consome o item ou falha ao fazê-lo.
 
 #### bot.fish(callback)
 
@@ -1783,7 +1814,7 @@ Esta função também retorna uma `Promise`, com `void` como argumento quando co
 
 Pescar com a vara de pescar na mão.
 
- * `callback(error)` - (opcional) executado quando o bot pescou algo ou falhou ao fazê-lo.
+- `callback(error)` - (opcional) executado quando o bot pescou algo ou falhou ao fazê-lo.
 
 #### bot.activateItem(offHand=false)
 
@@ -1806,8 +1837,8 @@ Atacar a entidade ou criatura.
 
 Reproduz a animação de mover o braço.
 
- * `mão` - a mão que será animada, pode ser `esquerda` ou `direita`. Padrão: `direita`
- * `mostrarMão` - um booleano que indica se adicionar a mão ao pacote para mostrar a animação. Padrão: `verdadeiro`
+- `mão` - a mão que será animada, pode ser `esquerda` ou `direita`. Padrão: `direita`
+- `mostrarMão` - um booleano que indica se adicionar a mão ao pacote para mostrar a animação. Padrão: `verdadeiro`
 
 #### bot.mount(entity)
 
@@ -1821,33 +1852,33 @@ Desce da entidade em que você está montado.
 
 Mover o veículo:
 
- * esquerda pode ser -1 ou 1: -1 significa direita, 1 significa esquerda
- * frente pode ser -1 ou 1: -1 significa para trás, 1 significa para a frente
+- esquerda pode ser -1 ou 1: -1 significa direita, 1 significa esquerda
+- frente pode ser -1 ou 1: -1 significa para trás, 1 significa para a frente
 
 Todas as direções são relativas à direção em que o bot está olhando.
 
 #### bot.setQuickBarSlot(slot)
 
- * `slot` - pode ser de 0 a 8, a posição da barra de acesso rápido
+- `slot` - pode ser de 0 a 8, a posição da barra de acesso rápido
 
 #### bot.craft(recipe, count, craftingTable, [callback])
 
 Esta função também retorna uma `Promise`, com `void` como argumento quando concluída.
 
- * `receita` - Uma instância de `Receita`. Veja `bot.receitasPara`.
- * `quantidade` - Quantas vezes você deseja repetir a ação.
-   Se você deseja criar `8` varas com tábuas de madeira, você colocaria
-   `quantidade` como `2`. `null` significa `1`.
- * `mesaDeCriação` - Uma instância de `Bloco`, a mesa de criação que você deseja usar. Se a criação não exigir uma mesa, este argumento pode ser deixado como `null`.
- * `retorno` - (opcional) Executado quando o bot terminou a criação e o inventário foi atualizado.
+- `receita` - Uma instância de `Receita`. Veja `bot.receitasPara`.
+- `quantidade` - Quantas vezes você deseja repetir a ação.
+  Se você deseja criar `8` varas com tábuas de madeira, você colocaria
+  `quantidade` como `2`. `null` significa `1`.
+- `mesaDeCriação` - Uma instância de `Bloco`, a mesa de criação que você deseja usar. Se a criação não exigir uma mesa, este argumento pode ser deixado como `null`.
+- `retorno` - (opcional) Executado quando o bot terminou a criação e o inventário foi atualizado.
 
 #### bot.writeBook(slot, pages, [callback])
 
 Esta função também retorna uma `Promise`, com `void` como argumento quando concluída.
 
- * `slot` é um número de posição no inventário (36 é o primeiro slot, etc.).
- * `páginas` é um array de strings representando as páginas.
- * `retorno(erro)` - opcional. Executado quando o bot terminou de escrever ou ocorreu um erro.
+- `slot` é um número de posição no inventário (36 é o primeiro slot, etc.).
+- `páginas` é um array de strings representando as páginas.
+- `retorno(erro)` - opcional. Executado quando o bot terminou de escrever ou ocorreu um erro.
 
 #### bot.openContainer(containerBlock or containerEntity)
 
@@ -1890,6 +1921,7 @@ Use a instância de `Aldeão` para fazer negociações.
 
 Altera as propriedades de um bloco de comandos na posição `posição`.
 Exemplo de `opções`:
+
 ```js
 {
   modo: 2,
@@ -1898,6 +1930,7 @@ Exemplo de `opções`:
   sempreAtivo: verdadeiro
 }
 ```
+
 opções.modo pode ter 3 valores: 0 (SEQUÊNCIA), 1 (AUTO), 2 (REDSTONE)
 Todas as opções têm padrão como falso, exceto modo que é 2 (para se assemelhar ao bloco de comandos do Minecraft).
 
@@ -1920,9 +1953,10 @@ Esses são métodos de nível mais baixo para o inventário e podem ser úteis e
 Esta função também retorna uma `Promise`, com `void` como argumento quando concluída.
 
 Clique na janela/interface atual; os detalhes estão em https://wiki.vg/Protocol#Click_Window
- * slot - número que representa a posição na janela
- * mouseButton - 0 para clique esquerdo e 1 para clique direito
- * mode - mineflayer só tem o modo 0 disponível
+
+- slot - número que representa a posição na janela
+- mouseButton - 0 para clique esquerdo e 1 para clique direito
+- mode - mineflayer só tem o modo 0 disponível
 
 #### bot.putSelectedItemRange(start, end, window, slot)
 
@@ -1939,7 +1973,8 @@ Mova o item para a posição `slot` no inventário.
 #### bot.closeWindow(window)
 
 Feche a janela/interface.
- * janela - a janela a ser fechada
+
+- janela - a janela a ser fechada
 
 #### bot.transfer(options, cb)
 
@@ -1947,23 +1982,23 @@ Esta função também retorna uma `Promise`, com `void` como argumento quando co
 
 Transfira um item de um intervalo para outro. `opções` é um objeto com:
 
- * `janela`: a janela para onde o item será movido
- * `tipoItem`: o tipo de item a ser movido (ID numérico)
- * `metadata`: a metadados do item a ser movido
- * `inícioOrigem` e `fimOrigem`: o intervalo de origem
- * `inícioDestino` e `fimDestino`: o intervalo de destino
+- `janela`: a janela para onde o item será movido
+- `tipoItem`: o tipo de item a ser movido (ID numérico)
+- `metadata`: a metadados do item a ser movido
+- `inícioOrigem` e `fimOrigem`: o intervalo de origem
+- `inícioDestino` e `fimDestino`: o intervalo de destino
 
 #### bot.openBlock(block)
 
 Abra um bloco, como um baú; retorna uma promessa com `Janela` sendo a janela aberta.
 
- * `bloco` é o bloco a ser aberto
+- `bloco` é o bloco a ser aberto
 
 #### bot.openEntity(entity)
 
 Abra uma entidade com um inventário, como um aldeão; retorna uma promessa com `Janela` sendo a janela aberta.
 
- * `entidade` é a entidade a ser aberta
+- `entidade` é a entidade a ser aberta
 
 #### bot.moveSlotItem(sourceSlot, destSlot, cb)
 
@@ -1980,12 +2015,13 @@ Atualize `bot.heldItem`.
 Retorna o ID da posição de equipamento pelo nome do destino.
 
 O destino pode ser:
-* cabeça - (cabeça)
-* peito - (peito)
-* pernas - (pernas)
-* pés - (pés)
-* mão - (mão)
-* mão secundária - (mão esquerda)
+
+- cabeça - (cabeça)
+- peito - (peito)
+- pernas - (pernas)
+- pés - (pés)
+- mão - (mão)
+- mão secundária - (mão esquerda)
 
 ### bot.creative
 
@@ -2000,10 +2036,10 @@ Esta função também retorna uma `Promise`, com `void` como argumento quando co
 Fornece ao bot o item especificado na posição especificada.
 Se for executado duas vezes antes que a primeira execução seja concluída, a primeira execução conterá um erro.
 
- * `slot` é um número de posição no inventário (onde 36 é a primeira posição, etc.).
- * `item` é uma instância de [prismarine-item](https://github.com/PrismarineJS/prismarine-item) com seus metadados, dados nbt, etc.
-    Se `item` for `null`, o item nessa posição será removido
- * `retorno(erro)` (opcional) é uma função de retorno que é executada quando o servidor aceita a transação ou quando a transação falha.
+- `slot` é um número de posição no inventário (onde 36 é a primeira posição, etc.).
+- `item` é uma instância de [prismarine-item](https://github.com/PrismarineJS/prismarine-item) com seus metadados, dados nbt, etc.
+  Se `item` for `null`, o item nessa posição será removido
+- `retorno(erro)` (opcional) é uma função de retorno que é executada quando o servidor aceita a transação ou quando a transação falha.
 
 Se este método alterar algo, será emitido `bot.inventory.on("updateSlot")`.
 

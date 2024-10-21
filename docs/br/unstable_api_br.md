@@ -1,17 +1,18 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Tabla de contenidos**  *generado con [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [API inestable : bot._](#api-instable--bot_)
-  - [bot._client](#bot_client)
+**Tabla de contenidos** _generado con [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [API inestable : bot.\_](#api-instable--bot_)
+  - [bot.\_client](#bot_client)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# API instável: bot._
+# API instável: bot.\_
 
 Esses métodos e classes são úteis em alguns casos especiais, mas não são estáveis e podem mudar a qualquer momento.
 
-## bot._client
+## bot.\_client
 
 `bot._client` é criado usando [node-minecraft-protocol](https://github.com/PrismarineJS/node-minecraft-protocol).
 Lida com a escrita e recepção de pacotes.

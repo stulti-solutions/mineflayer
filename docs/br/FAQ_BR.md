@@ -7,8 +7,8 @@ Este documento de perguntas frequentes tem o objetivo de ajudar as pessoas com i
 Para ocultar erros, você pode adicionar a opção `hideErrors: true` nas configurações ao criar o bot. Também é possível usar os seguintes eventos:
 
 ```js
-client.on('error', () => {})
-client.on('end', () => {})
+client.on("error", () => {})
+client.on("end", () => {})
 ```
 
 ## Meu evento de chat não está sendo emitido em um servidor personalizado. Como posso resolver isso?
@@ -31,27 +31,27 @@ de um total de 3,079,185 bilhetes vendidos!
 
 ```js
 const regex = {
-  first: /\(!\) (.+) ganhou o \/jackpot e recebeu +/,
-  second: /\$(.+)! Eles compraram (.+) \((.+)%\) bilhetes do total de /,
-  third: /(.+) bilhetes vendidos!/
+	first: /\(!\) (.+) ganhou o \/jackpot e recebeu +/,
+	second: /\$(.+)! Eles compraram (.+) \((.+)%\) bilhetes do total de /,
+	third: /(.+) bilhetes vendidos!/,
 }
 
 let jackpot = {}
-bot.on('messagestr', msg => {
-  if (regex.first.test(msg)) {
-    const username = msg.match(regex.first)[1]
-    jackpot.username = username
-  } else if (regex.second.test(msg)) {
-    const [, moneyWon, boughtTickets, winPercent] = msg.match(regex.second)
-    jackpot.moneyWon = parseInt(moneyWon.replace(/,/g, ''))
-    jackpot.boughtTickets = parseInt(boughtTickets.replace(/,/g, ''))
-    jackpot.winPercent = parseFloat(winPercent)
-  } else if (regex.third.test(msg)) {
-    const totalTickets = msg.match(regex.third)[1]
-    jackpot.totalTickets = parseInt(totalTickets.replace(/,/g, ''))
-    onDone(jackpot)
-    jackpot = {}
-  }
+bot.on("messagestr", (msg) => {
+	if (regex.first.test(msg)) {
+		const username = msg.match(regex.first)[1]
+		jackpot.username = username
+	} else if (regex.second.test(msg)) {
+		const [, moneyWon, boughtTickets, winPercent] = msg.match(regex.second)
+		jackpot.moneyWon = parseInt(moneyWon.replace(/,/g, ""))
+		jackpot.boughtTickets = parseInt(boughtTickets.replace(/,/g, ""))
+		jackpot.winPercent = parseFloat(winPercent)
+	} else if (regex.third.test(msg)) {
+		const totalTickets = msg.match(regex.third)[1]
+		jackpot.totalTickets = parseInt(totalTickets.replace(/,/g, ""))
+		onDone(jackpot)
+		jackpot = {}
+	}
 })
 ```
 
@@ -60,8 +60,9 @@ bot.on('messagestr', msg => {
 Usando `bot.chat()`.
 
 **Exmemplo:**
+
 ```js
-bot.chat('/give @p diamond')
+bot.chat("/give @p diamond")
 ```
 
 ### É possível criar vários bots e controlá-los separadamente?
@@ -85,26 +86,27 @@ Uma maneira de evitar desconexões devido à latência no servidor é aumentar o
 Você pode usar a propriedade `item.nbt`. É recomendável utilizar a biblioteca `prismarine-nbt`. O método `nbt.simplify()` pode ser útil para simplificar a obtenção da descrição de um item.
 
 **Exemplo:**
+
 ```js
-function getLore (item) {
-  let message = ''
-  if (item.nbt == null) return message
+function getLore(item) {
+	let message = ""
+	if (item.nbt == null) return message
 
-  const nbt = require('prismarine-nbt')
-  const ChatMessage = require('prismarine-chat')(bot.version)
+	const nbt = require("prismarine-nbt")
+	const ChatMessage = require("prismarine-chat")(bot.version)
 
-  const data = nbt.simplify(item.nbt)
-  const display = data.display
-  if (display == null) return message
+	const data = nbt.simplify(item.nbt)
+	const display = data.display
+	if (display == null) return message
 
-  const lore = display.Lore
-  if (lore == null) return message
-  for (const line of lore) {
-    message += new ChatMessage(line).toString()
-    message += '\n'
-  }
+	const lore = display.Lore
+	if (lore == null) return message
+	for (const line of lore) {
+		message += new ChatMessage(line).toString()
+		message += "\n"
+	}
 
-  return message
+	return message
 }
 ```
 
@@ -124,27 +126,30 @@ Nas opções de `mineflayer.createBot(opções)`, remova o seu `host` das opçõ
 
 ```js
 connect: (client) => {
-  socks.createConnection({
-    proxy: {
-      host: PROXY_IP,
-      port: PROXY_PORT,
-      type: 5,
-      userId: PROXY_USERNAME,
-      password: PROXY_PASSWORD
-    },
-    command: 'connect',
-    destination: {
-      host: MC_SERVER_IP,
-      port: MC_SERVER_PORT
-    }
-  }, (err, info) => {
-    if (err) {
-      console.log(err)
-      return
-    }
-    client.setSocket(info.socket)
-    client.emit('connect')
-  })
+	socks.createConnection(
+		{
+			proxy: {
+				host: PROXY_IP,
+				port: PROXY_PORT,
+				type: 5,
+				userId: PROXY_USERNAME,
+				password: PROXY_PASSWORD,
+			},
+			command: "connect",
+			destination: {
+				host: MC_SERVER_IP,
+				port: MC_SERVER_PORT,
+			},
+		},
+		(err, info) => {
+			if (err) {
+				console.log(err)
+				return
+			}
+			client.setSocket(info.socket)
+			client.emit("connect")
+		},
+	)
 }
 ```
 

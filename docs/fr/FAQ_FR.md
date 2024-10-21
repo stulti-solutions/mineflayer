@@ -15,8 +15,8 @@ Utiliser `hideErrors : true` dans les options de createBot
 Vous pouvez également choisir d'ajouter ces listeners :
 
 ```js
-client.on('error', () => {})
-client.on('end', () => {})
+client.on("error", () => {})
+client.on("end", () => {})
 ```
 
 ### Je ne reçois pas d'événement de chat sur un serveur personnalisé, comment puis-je résoudre ce problème ?
@@ -41,27 +41,27 @@ $26,418,402,450! They purchased 2,350,000 (76.32%) ticket(s) out of the
 
 ```js
 const regex = {
-  first: /\(!\) (.+) has won the \/jackpot and received +/,
-  second: /\$(.+)! They purchased (.+) \((.+)%\) ticket\(s\) out of the /,
-  third: /(.+) ticket\(s\) sold!/
+	first: /\(!\) (.+) has won the \/jackpot and received +/,
+	second: /\$(.+)! They purchased (.+) \((.+)%\) ticket\(s\) out of the /,
+	third: /(.+) ticket\(s\) sold!/,
 }
 
 let jackpot = {}
-bot.on('messagestr', msg => {
-  if (regex.first.test(msg)) {
-    const username = msg.match(regex.first)[1]
-    jackpot.username = username
-  } else if (regex.second.test(msg)) {
-    const [, moneyWon, boughtTickets, winPercent] = msg.match(regex.second)
-    jackpot.moneyWon = parseInt(moneyWon.replace(/,/g, ''))
-    jackpot.boughtTickets = parseInt(boughtTickets.replace(/,/g, ''))
-    jackpot.winPercent = parseFloat(winPercent)
-  } else if (regex.third.test(msg)) {
-    const totalTickets = msg.match(regex.third)[1]
-    jackpot.totalTickets = parseInt(totalTickets.replace(/,/g, ''))
-    onDone(jackpot)
-    jackpot = {}
-  }
+bot.on("messagestr", (msg) => {
+	if (regex.first.test(msg)) {
+		const username = msg.match(regex.first)[1]
+		jackpot.username = username
+	} else if (regex.second.test(msg)) {
+		const [, moneyWon, boughtTickets, winPercent] = msg.match(regex.second)
+		jackpot.moneyWon = parseInt(moneyWon.replace(/,/g, ""))
+		jackpot.boughtTickets = parseInt(boughtTickets.replace(/,/g, ""))
+		jackpot.winPercent = parseFloat(winPercent)
+	} else if (regex.third.test(msg)) {
+		const totalTickets = msg.match(regex.third)[1]
+		jackpot.totalTickets = parseInt(totalTickets.replace(/,/g, ""))
+		onDone(jackpot)
+		jackpot = {}
+	}
 })
 ```
 
@@ -72,7 +72,7 @@ En utilisant `bot.chat()`.
 **Example:**
 
 ```js
-bot.chat('/give @p diamond')
+bot.chat("/give @p diamond")
 ```
 
 ### Est-il possible de se connecter à plusieurs comptes en utilisant bot = mineflayer.createbot tout en les contrôlant tous séparément ?
@@ -98,25 +98,25 @@ Vous pouvez utiliser la propriété `item.nbt`. Il est également recommandé d'
 **Exemple:**
 
 ```js
-function getLore (item) {
-  let message = ''
-  if (item.nbt == null) return message
+function getLore(item) {
+	let message = ""
+	if (item.nbt == null) return message
 
-  const nbt = require('prismarine-nbt')
-  const ChatMessage = require('prismarine-chat')(bot.version)
+	const nbt = require("prismarine-nbt")
+	const ChatMessage = require("prismarine-chat")(bot.version)
 
-  const data = nbt.simplify(item.nbt)
-  const display = data.display
-  if (display == null) return message
+	const data = nbt.simplify(item.nbt)
+	const display = data.display
+	if (display == null) return message
 
-  const lore = display.Lore
-  if (lore == null) return message
-  for (const line of lore) {
-    message += new ChatMessage(line).toString()
-    message += '\n'
-  }
+	const lore = display.Lore
+	if (lore == null) return message
+	for (const line of lore) {
+		message += new ChatMessage(line).toString()
+		message += "\n"
+	}
 
-  return message
+	return message
 }
 ```
 
@@ -136,33 +136,36 @@ In the options object for `mineflayer.createBot(options)`, remove your `host` op
 
 ```js
 connect: (client) => {
-    socks.createConnection({
-      proxy: {
-        host: PROXY_IP,
-        port: PROXY_PORT,
-        type: 5,
-        userId: PROXY_USERNAME,
-        password: PROXY_PASSWORD
-      },
-      command: 'connect',
-      destination: {
-        host: MC_SERVER_ADDRESS,
-        port: MC_SERVER_PORT
-      }
-    }, (err, info) => {
-      if (err) {
-        console.log(err)
-        return
-      }
-      client.setSocket(info.socket)
-      client.emit('connect')
-    })
-  }
-  ```
+	socks.createConnection(
+		{
+			proxy: {
+				host: PROXY_IP,
+				port: PROXY_PORT,
+				type: 5,
+				userId: PROXY_USERNAME,
+				password: PROXY_PASSWORD,
+			},
+			command: "connect",
+			destination: {
+				host: MC_SERVER_ADDRESS,
+				port: MC_SERVER_PORT,
+			},
+		},
+		(err, info) => {
+			if (err) {
+				console.log(err)
+				return
+			}
+			client.setSocket(info.socket)
+			client.emit("connect")
+		},
+	)
+}
+```
 
 `socks` est déclaré avec `const socks = require('socks').SocksClient` et utilise le paquet [this](https://www.npmjs.com/package/socks).
 Certains serveurs peuvent rejeter la connexion. Si cela se produit, essayez d'ajouter `fakeHost : MC_SERVER_ADDRESS` aux options de votre createBot.
-  
+
 # Erreurs courantes
 
 ### `UnhandledPromiseRejectionWarning: Error: Failed to read asymmetric key`

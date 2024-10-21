@@ -8,8 +8,8 @@
 您也可以选择添加这些监听事件:
 
 ```js
-client.on('error', () => {})
-client.on('end', () => {})
+client.on("error", () => {})
+client.on("end", () => {})
 ```
 
 ### 我无法在自定义服务器上获取聊天事件，如何解决?
@@ -24,53 +24,56 @@ Spigot 服务器, 特别是一些插件, 使用的是自定义聊天格式,您�
 **例子:**
 
 聊天栏中的信息看起来像:
+
 ```
 (!) U9G has won the /jackpot and received
 $26,418,402,450! They purchased 2,350,000 (76.32%) ticket(s) out of the
 3,079,185 ticket(s) sold!
 ```
+
 ```js
 const regex = {
-  first: /\(!\) (.+) has won the \/jackpot and received +/,
-  second: /\$(.+)! They purchased (.+) \((.+)%\) ticket\(s\) out of the /,
-  third: /(.+) ticket\(s\) sold!/
+	first: /\(!\) (.+) has won the \/jackpot and received +/,
+	second: /\$(.+)! They purchased (.+) \((.+)%\) ticket\(s\) out of the /,
+	third: /(.+) ticket\(s\) sold!/,
 }
 
 let jackpot = {}
-bot.on('messagestr', msg => {
-  if (regex.first.test(msg)) {
-    const username = msg.match(regex.first)[1]
-    jackpot.username = username
-  } else if (regex.second.test(msg)) {
-    const [, moneyWon, boughtTickets, winPercent] = msg.match(regex.second)
-    jackpot.moneyWon = parseInt(moneyWon.replace(/,/g, ''))
-    jackpot.boughtTickets = parseInt(boughtTickets.replace(/,/g, ''))
-    jackpot.winPercent = parseFloat(winPercent)
-  } else if (regex.third.test(msg)) {
-    const totalTickets = msg.match(regex.third)[1]
-    jackpot.totalTickets = parseInt(totalTickets.replace(/,/g, ''))
-    onDone(jackpot)
-    jackpot = {}
-  }
+bot.on("messagestr", (msg) => {
+	if (regex.first.test(msg)) {
+		const username = msg.match(regex.first)[1]
+		jackpot.username = username
+	} else if (regex.second.test(msg)) {
+		const [, moneyWon, boughtTickets, winPercent] = msg.match(regex.second)
+		jackpot.moneyWon = parseInt(moneyWon.replace(/,/g, ""))
+		jackpot.boughtTickets = parseInt(boughtTickets.replace(/,/g, ""))
+		jackpot.winPercent = parseFloat(winPercent)
+	} else if (regex.third.test(msg)) {
+		const totalTickets = msg.match(regex.third)[1]
+		jackpot.totalTickets = parseInt(totalTickets.replace(/,/g, ""))
+		onDone(jackpot)
+		jackpot = {}
+	}
 })
 ```
+
 ### 如何发送命令 ?
 
-使用  `bot.chat()`.
+使用 `bot.chat()`.
 
 **例子:**
 
 ```js
-bot.chat('/give @p minecraft:diamond_sword')
+bot.chat("/give @p minecraft:diamond_sword")
 ```
 
-### 是否可以使用bot = mineflayer.createbot登录多个帐户  同时分别控制它们 ?
+### 是否可以使用bot = mineflayer.createbot登录多个帐户 同时分别控制它们 ?
 
 通过调用createBot创建不同的bot实例，然后为每个实例执行不同的操作，请参考 multiple.js
 
 ### 如何让机器人丢出它的全部背包物品?
 
-bot.inventory.items() 返回机器人的物品数组. 您可以使用递归函数循环遍历它们，并使用 `bot.toss()`.  [点这里](https://gist.github.com/dada513/3d88f772be4224b40f9e5d1787bd63e9) 查看例子
+bot.inventory.items() 返回机器人的物品数组. 您可以使用递归函数循环遍历它们，并使用 `bot.toss()`. [点这里](https://gist.github.com/dada513/3d88f772be4224b40f9e5d1787bd63e9) 查看例子
 
 ### 如何检查发送/接收的数据包 ?
 
@@ -78,34 +81,34 @@ bot.inventory.items() 返回机器人的物品数组. 您可以使用递归函�
 
 ### 我希望即使在服务器有延迟的情况下也能避免断开连接，如何实现这一点 ?
 
-一种方法是增加 [checkTimeoutInterval](https://github.com/PrismarineJS/node-minecraft-protocol/blob/master/docs/API.md#mccreateclientoptions) 选项的值(在createBot中设置)  (例如 `300*1000` 这是5分钟，而不是默认的30秒). 如果仍然断开连接，可以使用类似于此示例的方法自动重新连接 https://github.com/PrismarineJS/mineflayer/blob/master/examples/reconnector.js
+一种方法是增加 [checkTimeoutInterval](https://github.com/PrismarineJS/node-minecraft-protocol/blob/master/docs/API.md#mccreateclientoptions) 选项的值(在createBot中设置) (例如 `300*1000` 这是5分钟，而不是默认的30秒). 如果仍然断开连接，可以使用类似于此示例的方法自动重新连接 https://github.com/PrismarineJS/mineflayer/blob/master/examples/reconnector.js
 
 ### 如何获取物品的 lore / text?
 
-你可以使用 `item.nbt` 属性. 此外建议使用 `prismarine-nbt` 库.   `nbt.simplify()` 方法可能有用
+你可以使用 `item.nbt` 属性. 此外建议使用 `prismarine-nbt` 库. `nbt.simplify()` 方法可能有用
 
 **例子:**
 
 ```js
-function getLore (item) {
-  let message = ''
-  if (item.nbt == null) return message
+function getLore(item) {
+	let message = ""
+	if (item.nbt == null) return message
 
-  const nbt = require('prismarine-nbt')
-  const ChatMessage = require('prismarine-chat')(bot.version)
+	const nbt = require("prismarine-nbt")
+	const ChatMessage = require("prismarine-chat")(bot.version)
 
-  const data = nbt.simplify(item.nbt)
-  const display = data.display
-  if (display == null) return message
+	const data = nbt.simplify(item.nbt)
+	const display = data.display
+	if (display == null) return message
 
-  const lore = display.Lore
-  if (lore == null) return message
-  for (const line of lore) {
-    message += new ChatMessage(line).toString()
-    message += '\n'
-  }
+	const lore = display.Lore
+	if (lore == null) return message
+	for (const line of lore) {
+		message += new ChatMessage(line).toString()
+		message += "\n"
+	}
 
-  return message
+	return message
 }
 ```
 
@@ -122,32 +125,37 @@ function getLore (item) {
 ### 如何使用socks5代理？
 
 在对象的选项中 `mineflayer.createBot(options)`,从选项对象中删除你的 `host` 选项,声明以下变量 `PROXY_IP, PROXY_PORT, PROXY_USERNAME, PROXY_PASSWORD, MC_SERVER_IP, MC_SERVER_PORT` 并将其添加到选项对象中:
+
 ```js
 connect: (client) => {
-  socks.createConnection({
-    proxy: {
-      host: PROXY_IP,
-      port: PROXY_PORT,
-      type: 5,
-      userId: PROXY_USERNAME,
-      password: PROXY_PASSWORD
-    },
-    command: 'connect',
-    destination: {
-      host: MC_SERVER_IP,
-      port: MC_SERVER_PORT
-    }
-  }, (err, info) => {
-    if (err) {
-      console.log(err)
-      return
-    }
-    client.setSocket(info.socket)
-    client.emit('connect')
-  })
+	socks.createConnection(
+		{
+			proxy: {
+				host: PROXY_IP,
+				port: PROXY_PORT,
+				type: 5,
+				userId: PROXY_USERNAME,
+				password: PROXY_PASSWORD,
+			},
+			command: "connect",
+			destination: {
+				host: MC_SERVER_IP,
+				port: MC_SERVER_PORT,
+			},
+		},
+		(err, info) => {
+			if (err) {
+				console.log(err)
+				return
+			}
+			client.setSocket(info.socket)
+			client.emit("connect")
+		},
+	)
 }
 ```
-  `socks` 用 `const socks = require('socks').SocksClient` 声明 使用的是[这个](https://www.npmjs.com/package/socks) 包.
+
+`socks` 用 `const socks = require('socks').SocksClient` 声明 使用的是[这个](https://www.npmjs.com/package/socks) 包.
 
 # 常见错误
 
@@ -166,4 +174,3 @@ connect: (client) => {
 ### The bot can't break/place blocks or open chests
 
 检查出生点保护是否阻止了机器人的操作
-

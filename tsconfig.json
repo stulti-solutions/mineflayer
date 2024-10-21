@@ -1,9 +1,7 @@
 {
-    "compilerOptions": {
-      "module": "commonjs",
-      "strictNullChecks": true
-    },
-    "files": [
-      "index.d.ts"
-    ]
+	"compilerOptions": {
+		"module": "commonjs",
+		"strictNullChecks": true
+	},
+	"files": ["index.d.ts"]
 }

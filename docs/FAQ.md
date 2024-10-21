@@ -5,7 +5,7 @@ This Frequently Asked Question document is meant to help people for the most com
 ### I get an error when trying to login with a microsoft account.
 
 Make sure the email you entered into the username option in createBot can be used to login to `minecraft.net` using the 'Login with Microsoft' button.
-Make sure you have the option `auth: 'microsoft'` in your createBot options. 
+Make sure you have the option `auth: 'microsoft'` in your createBot options.
 
 When you get an error that says something about invalid credentials or 'Does this account own Minecraft?' try removing the password field in the `createBot` options and try again.
 
@@ -13,9 +13,10 @@ When you get an error that says something about invalid credentials or 'Does thi
 
 Use `hideErrors: true` in createBot options
 You may also choose to add these listeners :
+
 ```js
-client.on('error', () => {})
-client.on('end', () => {})
+client.on("error", () => {})
+client.on("end", () => {})
 ```
 
 ### I'm not getting chat event on a custom server, how can I solve it ?
@@ -31,43 +32,47 @@ Most custom minecraft servers have plugin support, and a lot of these plugins sa
 **Example:**
 
 chat message in chat looks like:
+
 ```
 (!) U9G has won the /jackpot and received
 $26,418,402,450! They purchased 2,350,000 (76.32%) ticket(s) out of the
 3,079,185 ticket(s) sold!
 ```
+
 ```js
 const regex = {
-  first: /\(!\) (.+) has won the \/jackpot and received +/,
-  second: /\$(.+)! They purchased (.+) \((.+)%\) ticket\(s\) out of the /,
-  third: /(.+) ticket\(s\) sold!/
+	first: /\(!\) (.+) has won the \/jackpot and received +/,
+	second: /\$(.+)! They purchased (.+) \((.+)%\) ticket\(s\) out of the /,
+	third: /(.+) ticket\(s\) sold!/,
 }
 
 let jackpot = {}
-bot.on('messagestr', msg => {
-  if (regex.first.test(msg)) {
-    const username = msg.match(regex.first)[1]
-    jackpot.username = username
-  } else if (regex.second.test(msg)) {
-    const [, moneyWon, boughtTickets, winPercent] = msg.match(regex.second)
-    jackpot.moneyWon = parseInt(moneyWon.replace(/,/g, ''))
-    jackpot.boughtTickets = parseInt(boughtTickets.replace(/,/g, ''))
-    jackpot.winPercent = parseFloat(winPercent)
-  } else if (regex.third.test(msg)) {
-    const totalTickets = msg.match(regex.third)[1]
-    jackpot.totalTickets = parseInt(totalTickets.replace(/,/g, ''))
-    onDone(jackpot)
-    jackpot = {}
-  }
+bot.on("messagestr", (msg) => {
+	if (regex.first.test(msg)) {
+		const username = msg.match(regex.first)[1]
+		jackpot.username = username
+	} else if (regex.second.test(msg)) {
+		const [, moneyWon, boughtTickets, winPercent] = msg.match(regex.second)
+		jackpot.moneyWon = parseInt(moneyWon.replace(/,/g, ""))
+		jackpot.boughtTickets = parseInt(boughtTickets.replace(/,/g, ""))
+		jackpot.winPercent = parseFloat(winPercent)
+	} else if (regex.third.test(msg)) {
+		const totalTickets = msg.match(regex.third)[1]
+		jackpot.totalTickets = parseInt(totalTickets.replace(/,/g, ""))
+		onDone(jackpot)
+		jackpot = {}
+	}
 })
 ```
+
 ### How can I send a command ?
 
 By using `bot.chat()`.
 
 **Example:**
+
 ```js
-bot.chat('/give @p diamond')
+bot.chat("/give @p diamond")
 ```
 
 ### Is it possible to login multiple accounts using bot = mineflayer.createbot while controlling them all separately ?
@@ -91,26 +96,27 @@ One way is to increase the [checkTimeoutInterval](https://github.com/PrismarineJ
 You can use the `item.nbt` property. It is also recommended to use the `prismarine-nbt` library. The `nbt.simplify()` method may be useful.
 
 **Example:**
+
 ```js
-function getLore (item) {
-  let message = ''
-  if (item.nbt == null) return message
+function getLore(item) {
+	let message = ""
+	if (item.nbt == null) return message
 
-  const nbt = require('prismarine-nbt')
-  const ChatMessage = require('prismarine-chat')(bot.version)
+	const nbt = require("prismarine-nbt")
+	const ChatMessage = require("prismarine-chat")(bot.version)
 
-  const data = nbt.simplify(item.nbt)
-  const display = data.display
-  if (display == null) return message
+	const data = nbt.simplify(item.nbt)
+	const display = data.display
+	if (display == null) return message
 
-  const lore = display.Lore
-  if (lore == null) return message
-  for (const line of lore) {
-    message += new ChatMessage(line).toString()
-    message += '\n'
-  }
+	const lore = display.Lore
+	if (lore == null) return message
+	for (const line of lore) {
+		message += new ChatMessage(line).toString()
+		message += "\n"
+	}
 
-  return message
+	return message
 }
 ```
 
@@ -127,34 +133,39 @@ Note that the order in which plugins are loaded is dynamic, so you should never 
 ### How can I use a socks5 proxy?
 
 In the options object for `mineflayer.createBot(options)`, remove your `host` option from the options object, have the following variables declared `PROXY_IP, PROXY_PORT, PROXY_USERNAME, PROXY_PASSWORD, MC_SERVER_ADDRESS, MC_SERVER_PORT` and add this to your options object:
+
 ```js
 connect: (client) => {
-    socks.createConnection({
-      proxy: {
-        host: PROXY_IP,
-        port: PROXY_PORT,
-        type: 5,
-        userId: PROXY_USERNAME,
-        password: PROXY_PASSWORD
-      },
-      command: 'connect',
-      destination: {
-        host: MC_SERVER_ADDRESS,
-        port: MC_SERVER_PORT
-      }
-    }, (err, info) => {
-      if (err) {
-        console.log(err)
-        return
-      }
-      client.setSocket(info.socket)
-      client.emit('connect')
-    })
-  }
-  ```
-  `socks` is declared with `const socks = require('socks').SocksClient` and uses [this](https://www.npmjs.com/package/socks) package.
-  Some servers might reject the connection. If that happens try adding `fakeHost: MC_SERVER_ADDRESS` to your createBot options.
-  
+	socks.createConnection(
+		{
+			proxy: {
+				host: PROXY_IP,
+				port: PROXY_PORT,
+				type: 5,
+				userId: PROXY_USERNAME,
+				password: PROXY_PASSWORD,
+			},
+			command: "connect",
+			destination: {
+				host: MC_SERVER_ADDRESS,
+				port: MC_SERVER_PORT,
+			},
+		},
+		(err, info) => {
+			if (err) {
+				console.log(err)
+				return
+			}
+			client.setSocket(info.socket)
+			client.emit("connect")
+		},
+	)
+}
+```
+
+`socks` is declared with `const socks = require('socks').SocksClient` and uses [this](https://www.npmjs.com/package/socks) package.
+Some servers might reject the connection. If that happens try adding `fakeHost: MC_SERVER_ADDRESS` to your createBot options.
+
 # Common Errors
 
 ### `UnhandledPromiseRejectionWarning: Error: Failed to read asymmetric key`
@@ -172,4 +183,3 @@ Update your node version.
 ### The bot can't break/place blocks or open chests
 
 Check that spawn protection isn't stopping the bot from it's action
-
