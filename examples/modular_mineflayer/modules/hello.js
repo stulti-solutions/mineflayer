@@ -5,9 +5,9 @@ const mineflayer = require("mineflayer") // eslint-disable-line
  */
 
 module.exports = (bot) => {
-	bot.addChatPattern("hello", /<(.+)> (?:Hello|hello)/, { parse: true })
+    bot.addChatPattern("hello", /<(.+)> (?:Hello|hello)/, { parse: true })
 
-	bot.on("chat:hello", ([[playerIgn]]) => {
-		bot.chat(`Hi, ${playerIgn}`)
-	})
+    bot.on("chat:hello", ([[playerIgn]]) => {
+        bot.chat(`Hi, ${playerIgn}`)
+    })
 }

@@ -2,34 +2,34 @@
 
 **Table of Contents**
 
-- [Basics](#basics)
-  - [Javascript basics](#javascript-basics)
-    - [Installing Node](#installing-node)
-    - [Javascript variables](#javascript-variables)
-    - [Show output](#show-output)
-    - [Javascript functions](#javascript-functions)
-    - [Javascript types](#javascript-types)
-    - [If-statements](#if-statements)
-    - [Loops](#loops)
-    - [Node Package manager](#node-package-manager)
-  - [Creating a bot](#creating-a-bot)
-    - [Javascript objects](#javascript-objects)
-    - [Logging in](#logging-in)
-  - [Passing along functions](#passing-along-functions)
-  - [Listening for an event](#listening-for-an-event)
-  - [Promises](#promises)
-    - [Correct and incorrect approach](#correct-and-incorrect-approach)
-- [Advanced](#advanced)
-  - [Asynchronousy](#asynchronousy)
-  - [Loop over an object](#loop-over-an-object)
-  - [Creating an event from chat](#creating-an-event-from-chat)
-    - [Answer Hello Bot](#answer-hello-bot)
-    - [Custom Chat](#custom-chat)
-- [FAQ](#faq)
-  - [How to run a bot on android](#how-to-run-a-bot-on-android)
-    - [Install Termux](#install-termux)
-    - [Setup](#setup)
-    - [Start your bot](#start-your-bot)
+-   [Basics](#basics)
+    -   [Javascript basics](#javascript-basics)
+        -   [Installing Node](#installing-node)
+        -   [Javascript variables](#javascript-variables)
+        -   [Show output](#show-output)
+        -   [Javascript functions](#javascript-functions)
+        -   [Javascript types](#javascript-types)
+        -   [If-statements](#if-statements)
+        -   [Loops](#loops)
+        -   [Node Package manager](#node-package-manager)
+    -   [Creating a bot](#creating-a-bot)
+        -   [Javascript objects](#javascript-objects)
+        -   [Logging in](#logging-in)
+    -   [Passing along functions](#passing-along-functions)
+    -   [Listening for an event](#listening-for-an-event)
+    -   [Promises](#promises)
+        -   [Correct and incorrect approach](#correct-and-incorrect-approach)
+-   [Advanced](#advanced)
+    -   [Asynchronousy](#asynchronousy)
+    -   [Loop over an object](#loop-over-an-object)
+    -   [Creating an event from chat](#creating-an-event-from-chat)
+        -   [Answer Hello Bot](#answer-hello-bot)
+        -   [Custom Chat](#custom-chat)
+-   [FAQ](#faq)
+    -   [How to run a bot on android](#how-to-run-a-bot-on-android)
+        -   [Install Termux](#install-termux)
+        -   [Setup](#setup)
+        -   [Start your bot](#start-your-bot)
 
 ## Introduction
 
@@ -115,7 +115,7 @@ These can be useful because you don't have to type something multiple times.
 
 ```js
 const addition = (a, b) => {
-	return a + b
+    return a + b
 }
 
 const test1 = addition(5, 10)
@@ -152,39 +152,39 @@ The above should output the following:
 
 So far we have only worked with numbers, but Javascript can work with more variable types:
 
-- A string is a piece of text that can contain multiple characters. Strings are defined by using the quotes `''`
+-   A string is a piece of text that can contain multiple characters. Strings are defined by using the quotes `''`
 
 ```js
 const string = "This is a string" // string type
 ```
 
-- An array is a type that can hold multiple variables inside itself. Arrays are defined by using the square brackets `[]`
+-   An array is a type that can hold multiple variables inside itself. Arrays are defined by using the square brackets `[]`
 
 ```js
 const array = [1, 2, 3] // array type
 ```
 
-- Object are basically advanced arrays, you will learn more about it later in this tutorial. Their defined by curly brackets `{}`
+-   Object are basically advanced arrays, you will learn more about it later in this tutorial. Their defined by curly brackets `{}`
 
 ```js
 const object = {} // object type
 ```
 
-- Functions are also their own type.
+-   Functions are also their own type.
 
 ```js
 const adder = (a, b) => {
-	return a + b
+    return a + b
 } // function type
 ```
 
-- A boolean is a type that can only be `true` or `false`
+-   A boolean is a type that can only be `true` or `false`
 
 ```js
 const boolean = true // boolean type
 ```
 
-- When something is not (yet) defined, its type is `undefined`
+-   When something is not (yet) defined, its type is `undefined`
 
 ```js
 let nothing // undefined type
@@ -200,11 +200,11 @@ This can be achieved using if-statements.
 const name = "Bob"
 
 if (name === "Bob") {
-	console.log("Your name is Bob")
+    console.log("Your name is Bob")
 } else if (name === "Alice") {
-	console.log("Your name is Alice")
+    console.log("Your name is Alice")
 } else {
-	console.log("Your name is not Bob or Alice")
+    console.log("Your name is not Bob or Alice")
 }
 ```
 
@@ -224,8 +224,8 @@ Loops are used to repeat certain code until a certain conditional is met.
 let countDown = 5
 
 while (countDown > 0) {
-	console.log(countDown)
-	countDown = countDown - 1 // Decrement countDown by 1
+    console.log(countDown)
+    countDown = countDown - 1 // Decrement countDown by 1
 }
 
 console.log("Finished!")
@@ -253,7 +253,7 @@ A `for` loop is also often used, and differs slightly from a `while` loop.
 
 ```js
 for (let countDown = 5; countDown > 0; countDown = countDown - 1) {
-	console.log(countDown)
+    console.log(countDown)
 }
 ```
 
@@ -269,7 +269,7 @@ If you want to do something for every item in an array, a `for of` loop can be u
 const array = [1, 2, 3]
 
 for (const item of array) {
-	console.log(item)
+    console.log(item)
 }
 ```
 
@@ -314,8 +314,8 @@ If you want to choose which server you want your bot to connect to, you have to 
 const mineflayer = require("mineflayer")
 
 const options = {
-	host: "localhost", // Change this to the ip you want.
-	port: 25565, // Change this to the port you want.
+    host: "localhost", // Change this to the ip you want.
+    port: 25565, // Change this to the port you want.
 }
 
 const bot = mineflayer.createBot(options)
@@ -331,8 +331,8 @@ You can have multiple key-value pairs by separating them by commas.
 
 ```js
 const object = {
-	number: 10,
-	another: 5,
+    number: 10,
+    another: 5,
 }
 
 console.log(object.number) // This will print the value 10
@@ -355,10 +355,10 @@ To log into a specific account, you have to supply both the `username` and the `
 
 ```js
 const bot = mineflayer.createBot({
-	host: "localhost",
-	port: 25565,
-	username: "Player",
-	password: "password",
+    host: "localhost",
+    port: 25565,
+    username: "Player",
+    password: "password",
 })
 ```
 
@@ -370,10 +370,10 @@ To counter this, a lot of people use command line arguments.
 
 ```js
 const bot = mineflayer.createBot({
-	host: process.argv[2],
-	port: parseInt(process.argv[3]),
-	username: process.argv[4],
-	password: process.argv[5],
+    host: process.argv[2],
+    port: parseInt(process.argv[3]),
+    username: process.argv[4],
+    password: process.argv[5],
 })
 ```
 
@@ -395,7 +395,7 @@ Functions can also be passed as a variable.
 
 ```js
 const welcome = () => {
-	bot.chat("hi!")
+    bot.chat("hi!")
 }
 
 bot.once("spawn", welcome)
@@ -413,7 +413,7 @@ They still have to have a parameter list `()` and a function body `{}`, even if 
 
 ```js
 bot.once("spawn", () => {
-	bot.chat("hi!")
+    bot.chat("hi!")
 })
 ```
 
@@ -423,12 +423,12 @@ The bot object has many useful [events](http://prismarinejs.github.io/mineflayer
 You can listen for an event by using either `bot.on()` method or `bot.once()` method of the bot object, which takes the name of an event and a function.
 To remove specific listener you can use `bot.removeListener()` method.
 
-- `bot.on(eventName, listener)`
-  Execute the `listener` function for each time the event named `eventName` triggered.
-- `bot.once(eventName, listener)`
-  Execute the `listener` function, only once, the first time the event named `eventName` triggered.
-- `bot.removeListener(eventName, listener)`
-  Removes the specified `listener` for the event named `eventName`. In order to use this you either need to define your function with `function myNamedFunc() {}` or put your function in a variable with `const myNamedFunc = () => {}`. You can then use `myNamedFunc` in the listener argument.
+-   `bot.on(eventName, listener)`
+    Execute the `listener` function for each time the event named `eventName` triggered.
+-   `bot.once(eventName, listener)`
+    Execute the `listener` function, only once, the first time the event named `eventName` triggered.
+-   `bot.removeListener(eventName, listener)`
+    Removes the specified `listener` for the event named `eventName`. In order to use this you either need to define your function with `function myNamedFunc() {}` or put your function in a variable with `const myNamedFunc = () => {}`. You can then use `myNamedFunc` in the listener argument.
 
 Not only bot object, [`Chest`](http://prismarinejs.github.io/mineflayer/#/api?id=mineflayerchest), [`Furnace`](http://prismarinejs.github.io/mineflayer/#/api?id=mineflayerfurnace), [`Dispenser`](http://prismarinejs.github.io/mineflayer/#/api?id=mineflayerdispenser), [`EnchantmentTable`](http://prismarinejs.github.io/mineflayer/#/api?id=mineflayerenchantmenttable), [`Villager`](http://prismarinejs.github.io/mineflayer/#/api?id=mineflayervillager) object also have their own events!
 
@@ -438,12 +438,12 @@ A [promise](https://nodejs.dev/learn/understanding-javascript-promises) is a fun
 
 ```js
 async function consume(bot) {
-	try {
-		await bot.consume()
-		console.log("Finished consuming")
-	} catch (err) {
-		console.log(error)
-	}
+    try {
+        await bot.consume()
+        console.log("Finished consuming")
+    } catch (err) {
+        console.log(error)
+    }
 }
 ```
 
@@ -460,12 +460,12 @@ Incorrect approach ❌:
 
 ```js
 function craft(bot) {
-	const mcData = require("minecraft-data")(bot.version)
-	const plankRecipe = bot.recipesFor(mcData.itemsByName.oak_planks.id ?? mcData.itemsByName.planks.id)[0] // Get the first recipe for oak planks
-	bot.craft(plankRecipe, 1) // ❌ start crafting oak planks.
+    const mcData = require("minecraft-data")(bot.version)
+    const plankRecipe = bot.recipesFor(mcData.itemsByName.oak_planks.id ?? mcData.itemsByName.planks.id)[0] // Get the first recipe for oak planks
+    bot.craft(plankRecipe, 1) // ❌ start crafting oak planks.
 
-	const stickRecipe = bot.recipesFor(mcData.itemsByName.sticks.id)[0] // Get the first recipe for sticks
-	bot.craft(stickRecipe, 1) // ❌ start crafting sticks.
+    const stickRecipe = bot.recipesFor(mcData.itemsByName.sticks.id)[0] // Get the first recipe for sticks
+    bot.craft(stickRecipe, 1) // ❌ start crafting sticks.
 }
 ```
 
@@ -473,12 +473,12 @@ Correct approach with promises ✔️:
 
 ```js
 async function craft(bot) {
-	const mcData = require("minecraft-data")(bot.version)
-	const plankRecipe = bot.recipesFor(mcData.itemsByName.oak_planks.id ?? mcData.itemsByName.planks.id)[0]
-	await bot.craft(plankRecipe, 1, null)
-	const stickRecipe = bot.recipesFor(mcData.itemsByName.sticks.id)[0]
-	await bot.craft(stickRecipe, 1, null)
-	bot.chat("Crafting Sticks finished")
+    const mcData = require("minecraft-data")(bot.version)
+    const plankRecipe = bot.recipesFor(mcData.itemsByName.oak_planks.id ?? mcData.itemsByName.planks.id)[0]
+    await bot.craft(plankRecipe, 1, null)
+    const stickRecipe = bot.recipesFor(mcData.itemsByName.sticks.id)[0]
+    await bot.craft(stickRecipe, 1, null)
+    bot.chat("Crafting Sticks finished")
 }
 ```
 
@@ -501,9 +501,9 @@ If we have the following object:
 
 ```js
 const obj = {
-	a: 1,
-	b: 2,
-	c: 3,
+    a: 1,
+    b: 2,
+    c: 3,
 }
 ```
 
@@ -511,7 +511,7 @@ The following will loop over all the values of the object.
 
 ```js
 for (const value of Object.values(obj)) {
-	console.log(value)
+    console.log(value)
 }
 ```
 
@@ -525,7 +525,7 @@ This will loop over all the keys of the object.
 
 ```js
 for (const key of Object.keys(obj)) {
-	console.log(key)
+    console.log(key)
 }
 ```
 
@@ -539,7 +539,7 @@ You can also loop over the keys and values at the same time. You will have to de
 
 ```js
 for (const [key, value] of Object.entries(obj)) {
-	console.log(key + ", " + value)
+    console.log(key + ", " + value)
 }
 ```
 
@@ -563,9 +563,9 @@ In general, you'll want to use `for of` instead of `for in` so make sure you don
 You can create your own event from chat using [`bot.chatAddPattern()`](http://prismarinejs.github.io/mineflayer/#/api?id=botchataddpatternpattern-chattype-description) method. Useful for Bukkit servers where the chat format changes a lot.
 [`bot.chatAddPattern()`](http://prismarinejs.github.io/mineflayer/#/api?id=botchataddpatternpattern-chattype-description) method takes three arguments :
 
-- `pattern` - regular expression (regex) to match chat
-- `chatType` - the event the bot emits when the pattern matches. e.g. "chat" or "whisper"
-- `description` - Optional, describes what the pattern is for
+-   `pattern` - regular expression (regex) to match chat
+-   `chatType` - the event the bot emits when the pattern matches. e.g. "chat" or "whisper"
+-   `description` - Optional, describes what the pattern is for
 
 You can add [Groups and Range](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Groups_and_Ranges) into the `pattern`, then the listener will spread the captured groups into arguments of your callback sequentially.
 
@@ -581,7 +581,7 @@ Here we're creating a bot that answer 'hello' from the other player.
 bot.chatAddPattern(/(helo|hello|Hello)/, "hello", "Someone says hello")
 
 const hi = () => {
-	bot.chat("Hi!")
+    bot.chat("Hi!")
 }
 
 bot.on("hello", hi)
@@ -603,7 +603,7 @@ Custom chat example:
 bot.chatAddPattern(/^\[(.+)\] (\S+) > (.+)$/, "my_chat_event", "Custom chat event")
 
 const logger = (rank, username, message) => {
-	console.log(`${username} said ${message}`)
+    console.log(`${username} said ${message}`)
 }
 
 bot.on("my_chat_event", logger)

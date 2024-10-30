@@ -6,38 +6,38 @@ const mineflayer = require("mineflayer")
 const { performance } = require("perf_hooks")
 
 if (process.argv.length < 4 || process.argv.length > 6) {
-	console.log("Usage : node blockfinder.js <host> <port> [<name>] [<password>]")
-	process.exit(1)
+    console.log("Usage : node blockfinder.js <host> <port> [<name>] [<password>]")
+    process.exit(1)
 }
 
 const bot = mineflayer.createBot({
-	host: process.argv[2],
-	port: parseInt(process.argv[3]),
-	username: process.argv[4] ? process.argv[4] : "finder",
-	password: process.argv[5],
+    host: process.argv[2],
+    port: parseInt(process.argv[3]),
+    username: process.argv[4] ? process.argv[4] : "finder",
+    password: process.argv[5],
 })
 
 bot.on("chat", async (username, message) => {
-	if (username === bot.username) return
+    if (username === bot.username) return
 
-	if (message === "loaded") {
-		console.log(bot.entity.position)
-		await bot.waitForChunksToLoad()
-		bot.chat("Ready!")
-	}
+    if (message === "loaded") {
+        console.log(bot.entity.position)
+        await bot.waitForChunksToLoad()
+        bot.chat("Ready!")
+    }
 
-	if (message.startsWith("find")) {
-		const name = message.split(" ")[1]
-		if (bot.registry.blocksByName[name] === undefined) {
-			bot.chat(`${name} is not a block name`)
-			return
-		}
-		const ids = [bot.registry.blocksByName[name].id]
+    if (message.startsWith("find")) {
+        const name = message.split(" ")[1]
+        if (bot.registry.blocksByName[name] === undefined) {
+            bot.chat(`${name} is not a block name`)
+            return
+        }
+        const ids = [bot.registry.blocksByName[name].id]
 
-		const startTime = performance.now()
-		const blocks = bot.findBlocks({ matching: ids, maxDistance: 128, count: 10 })
-		const time = (performance.now() - startTime).toFixed(2)
+        const startTime = performance.now()
+        const blocks = bot.findBlocks({ matching: ids, maxDistance: 128, count: 10 })
+        const time = (performance.now() - startTime).toFixed(2)
 
-		bot.chat(`I found ${blocks.length} ${name} blocks in ${time} ms`)
-	}
+        bot.chat(`I found ${blocks.length} ${name} blocks in ${time} ms`)
+    }
 })

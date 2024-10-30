@@ -17,17 +17,17 @@ Crea bots para Minecraft con una API de JavaScript potente, estable y de alto ni
 
 ## Características
 
-- Soporta Minecraft 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, 1.16, 1.17, 1.18, 1.19 y 1.20.
-- Rastreo e información de entidades.
-- Información sobre bloques. Puedes solicitar información de todo lo que te rodea. Encuentra bloques en milisegundos
-- Físicas y movimientos básicos - maneja todos los cuadros de colisión
-- Atacar entidades y usar vehículos.
-- Gestión del inventario.
-- Crafteo, cofres, dispensadores, mesas de encantamiento.
-- Cavar y contruir.
-- Diversas cosas como saber tu salud y si está lloviendo.
-- Activar bloques y usar ítems.
-- Chatear/Hablar.
+-   Soporta Minecraft 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, 1.16, 1.17, 1.18, 1.19 y 1.20.
+-   Rastreo e información de entidades.
+-   Información sobre bloques. Puedes solicitar información de todo lo que te rodea. Encuentra bloques en milisegundos
+-   Físicas y movimientos básicos - maneja todos los cuadros de colisión
+-   Atacar entidades y usar vehículos.
+-   Gestión del inventario.
+-   Crafteo, cofres, dispensadores, mesas de encantamiento.
+-   Cavar y contruir.
+-   Diversas cosas como saber tu salud y si está lloviendo.
+-   Activar bloques y usar ítems.
+-   Chatear/Hablar.
 
 ### Planes para el futuro
 
@@ -76,17 +76,17 @@ Si no se especifica una versión, la versión del servidor se detectará automá
 const mineflayer = require("mineflayer")
 
 const bot = mineflayer.createBot({
-	host: "localhost", // ip del servidor de minecraft
-	username: "email@example.com", // usuario de la cuenta, e-mail si es premium
-	password: "12345678", // para servidores premium
-	// port: 25565, // modificar solo si es un servidor que no utiliza el puerto predeterminado (25565)
-	// version: false, // modificar solo si se necesita una version específica
-	// auth: 'mojang', // solo modificar si tienes una cuenta microsoft (en ese caso sería auth: 'microsoft')
+    host: "localhost", // ip del servidor de minecraft
+    username: "email@example.com", // usuario de la cuenta, e-mail si es premium
+    password: "12345678", // para servidores premium
+    // port: 25565, // modificar solo si es un servidor que no utiliza el puerto predeterminado (25565)
+    // version: false, // modificar solo si se necesita una version específica
+    // auth: 'mojang', // solo modificar si tienes una cuenta microsoft (en ese caso sería auth: 'microsoft')
 })
 
 bot.on("chat", (username, message) => {
-	if (username === bot.username) return
-	bot.chat(message)
+    if (username === bot.username) return
+    bot.chat(message)
 })
 
 // Imprimir errores y la razón del kickeo si te kickean:
@@ -102,7 +102,7 @@ Solo tienes que ejecutar `npm install prismarine-viewer` y añadir lo siguiente 
 ```js
 const { mineflayer: mineflayerViewer } = require("prismarine-viewer")
 bot.once("spawn", () => {
-	mineflayerViewer(bot, { port: 3007, firstPerson: true }) // el puerto es en que puerto del buscador hostear el plugin, y firstPerson es por si quieres la vista en primera persona o no
+    mineflayerViewer(bot, { port: 3007, firstPerson: true }) // el puerto es en que puerto del buscador hostear el plugin, y firstPerson es por si quieres la vista en primera persona o no
 })
 ```
 
@@ -178,42 +178,42 @@ un API de nivel superior a Mineflayer.
 
 Los más actualizados y útiles son:
 
-- [pathfinder](https://github.com/Karang/mineflayer-pathfinder) - algoritmo de busqueda A\* avanzado con muchas características configurables
-- [prismarine-viewer](https://github.com/PrismarineJS/prismarine-viewer) - visualizador de chunks en la web
-- [web-inventory](https://github.com/ImHarvol/mineflayer-web-inventory) - visualizador de inventario en la web
-- [statemachine](https://github.com/TheDudeFromCI/mineflayer-statemachine) - API para comportamientos más complejos
-- [Armor Manager](https://github.com/G07cha/MineflayerArmorManager) - gestión automática de armaduras
-- [Collect Block](https://github.com/TheDudeFromCI/mineflayer-collectblock) - API rápida y simple para recolectar bloques.
-- [Dashboard](https://github.com/wvffle/mineflayer-dashboard) - Panel de instrumentos para un bot de Mineflayer
-- [PVP](https://github.com/TheDudeFromCI/mineflayer-pvp) - API sencilla para PVP y PVE.
-- [auto-eat](https://github.com/LINKdiscordd/mineflayer-auto-eat) - Plugin para comer automáticamente.
-- [Tool](https://github.com/TheDudeFromCI/mineflayer-tool) - Plugin con un API de alto nivel para seleccionar automáticamente la mejor arma/herramienta.
-- [Hawkeye](https://github.com/sefirosweb/minecraftHawkEye) - Plugin para apuntar automáticamente con arcos.
+-   [pathfinder](https://github.com/Karang/mineflayer-pathfinder) - algoritmo de busqueda A\* avanzado con muchas características configurables
+-   [prismarine-viewer](https://github.com/PrismarineJS/prismarine-viewer) - visualizador de chunks en la web
+-   [web-inventory](https://github.com/ImHarvol/mineflayer-web-inventory) - visualizador de inventario en la web
+-   [statemachine](https://github.com/TheDudeFromCI/mineflayer-statemachine) - API para comportamientos más complejos
+-   [Armor Manager](https://github.com/G07cha/MineflayerArmorManager) - gestión automática de armaduras
+-   [Collect Block](https://github.com/TheDudeFromCI/mineflayer-collectblock) - API rápida y simple para recolectar bloques.
+-   [Dashboard](https://github.com/wvffle/mineflayer-dashboard) - Panel de instrumentos para un bot de Mineflayer
+-   [PVP](https://github.com/TheDudeFromCI/mineflayer-pvp) - API sencilla para PVP y PVE.
+-   [auto-eat](https://github.com/LINKdiscordd/mineflayer-auto-eat) - Plugin para comer automáticamente.
+-   [Tool](https://github.com/TheDudeFromCI/mineflayer-tool) - Plugin con un API de alto nivel para seleccionar automáticamente la mejor arma/herramienta.
+-   [Hawkeye](https://github.com/sefirosweb/minecraftHawkEye) - Plugin para apuntar automáticamente con arcos.
 
 Pero también echa un vistazo a:
 
-- [radar](https://github.com/andrewrk/mineflayer-radar/) - interfaz de radar en la web utilizando canvas y socket.io [Demo en Youtube](https://www.youtube.com/watch?v=FjDmAfcVulQ)
-- [blockfinder](https://github.com/Darthfett/mineflayer-blockFinder) - encuentra bloques en el mundo tridimensional
-- [scaffold](https://github.com/andrewrk/mineflayer-scaffold) - ir a un destino específico incluso si es necesario construir o rompler bloques para lograrlo [Demo en Youtube](http://youtu.be/jkg6psMUSE0)
-- [auto-auth](https://github.com/G07cha/MineflayerAutoAuth) - autentificación automática por chat
-- [Bloodhound](https://github.com/Nixes/mineflayer-bloodhound) - determina quién y/o qué es responsable de dañar a otra entidad
-- [tps](https://github.com/SiebeDW/mineflayer-tps) - obtener el tps actual (tps procesado)
-- [panorama](https://github.com/IceTank/mineflayer-panorama) - toma imágenes panorámicas de tu mundo
+-   [radar](https://github.com/andrewrk/mineflayer-radar/) - interfaz de radar en la web utilizando canvas y socket.io [Demo en Youtube](https://www.youtube.com/watch?v=FjDmAfcVulQ)
+-   [blockfinder](https://github.com/Darthfett/mineflayer-blockFinder) - encuentra bloques en el mundo tridimensional
+-   [scaffold](https://github.com/andrewrk/mineflayer-scaffold) - ir a un destino específico incluso si es necesario construir o rompler bloques para lograrlo [Demo en Youtube](http://youtu.be/jkg6psMUSE0)
+-   [auto-auth](https://github.com/G07cha/MineflayerAutoAuth) - autentificación automática por chat
+-   [Bloodhound](https://github.com/Nixes/mineflayer-bloodhound) - determina quién y/o qué es responsable de dañar a otra entidad
+-   [tps](https://github.com/SiebeDW/mineflayer-tps) - obtener el tps actual (tps procesado)
+-   [panorama](https://github.com/IceTank/mineflayer-panorama) - toma imágenes panorámicas de tu mundo
 
 ## Proyectos que utilizan Mineflayer
 
-- [rom1504/rbot](https://github.com/rom1504/rbot)
-  - [YouTube - construyendo una escalera en espiral](https://www.youtube.com/watch?v=UM1ZV5200S0)
-  - [YouTube - replicando una estructura](https://www.youtube.com/watch?v=0cQxg9uDnzA)
-- [Darthfett/Helperbot](https://github.com/Darthfett/Helperbot)
-- [vogonistic/voxel](https://github.com/vogonistic/mineflayer-voxel) - visualiza que está
-  haciendo el bot, utilizando voxel.js
-- [JonnyD/Skynet](https://github.com/JonnyD/Skynet) - registra la actividad de un jugador en una API en línea
-- [MinecraftChat](https://github.com/rom1504/MinecraftChat) (última versión de código libre, creada por AlexKvazos) - Interfaz de chat en la web para Minecraft <https://minecraftchat.net/>
-- [Cheese Bot](https://github.com/Minecheesecraft/Cheese-Bot) - bot con una interfaz limpia. Hecho con Node-Webkit. http://bot.ezcha.net/
-- [Chaoscraft](https://github.com/schematical/chaoscraft) - bot de Minecraft que utiliza algoritmos genéticos, ver [sus videos de youtube](https://www.youtube.com/playlist?list=PLLkpLgU9B5xJ7Qy4kOyBJl5J6zsDIMceH)
-- [hexatester/minetelegram](https://github.com/hexatester/minetelegram) - puente para Telegram, hecho con Mineflayer y Telegraf.
-- [and hundreds more](https://github.com/PrismarineJS/mineflayer/network/dependents) - todos los proyectos que usan mineflayer y que han sido detectados por github
+-   [rom1504/rbot](https://github.com/rom1504/rbot)
+    -   [YouTube - construyendo una escalera en espiral](https://www.youtube.com/watch?v=UM1ZV5200S0)
+    -   [YouTube - replicando una estructura](https://www.youtube.com/watch?v=0cQxg9uDnzA)
+-   [Darthfett/Helperbot](https://github.com/Darthfett/Helperbot)
+-   [vogonistic/voxel](https://github.com/vogonistic/mineflayer-voxel) - visualiza que está
+    haciendo el bot, utilizando voxel.js
+-   [JonnyD/Skynet](https://github.com/JonnyD/Skynet) - registra la actividad de un jugador en una API en línea
+-   [MinecraftChat](https://github.com/rom1504/MinecraftChat) (última versión de código libre, creada por AlexKvazos) - Interfaz de chat en la web para Minecraft <https://minecraftchat.net/>
+-   [Cheese Bot](https://github.com/Minecheesecraft/Cheese-Bot) - bot con una interfaz limpia. Hecho con Node-Webkit. http://bot.ezcha.net/
+-   [Chaoscraft](https://github.com/schematical/chaoscraft) - bot de Minecraft que utiliza algoritmos genéticos, ver [sus videos de youtube](https://www.youtube.com/playlist?list=PLLkpLgU9B5xJ7Qy4kOyBJl5J6zsDIMceH)
+-   [hexatester/minetelegram](https://github.com/hexatester/minetelegram) - puente para Telegram, hecho con Mineflayer y Telegraf.
+-   [and hundreds more](https://github.com/PrismarineJS/mineflayer/network/dependents) - todos los proyectos que usan mineflayer y que han sido detectados por github
 
 ## Pruebas
 

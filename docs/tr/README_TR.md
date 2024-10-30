@@ -18,17 +18,17 @@ JavaScript ile güçlü, stabil ve üst seviye Minecraft botları oluşturabilec
 
 ## Özellikler
 
-- Minecraft 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, 1.16, 1.17, 1.18, 1.19 ve 1.20 sürümlerini destekler.
-- Varlık bilgisi ve takibi.
-- Blok bilgisi. Etrafını inceleyebilirsin. Bir bloğu bulmak milisaniyeler sürer.
-- Fizik ve hareket - bütün hayali kutucukları ele alabilirsin
-- Canlılara saldırma ve taşıtları kullanma.
-- Envanter düzenleme.
-- Çalışma masaları, sandıklar, fırlatıcılar, büyü masaları.
-- Blok kazma ve koyma.
-- Can sayını ve yağmur yağıp yapmadığını öğrenmek gibi ekstra özellikler.
-- Eşyaları kullanma ve blokları aktifleştirme.
-- Sohbet.
+-   Minecraft 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, 1.16, 1.17, 1.18, 1.19 ve 1.20 sürümlerini destekler.
+-   Varlık bilgisi ve takibi.
+-   Blok bilgisi. Etrafını inceleyebilirsin. Bir bloğu bulmak milisaniyeler sürer.
+-   Fizik ve hareket - bütün hayali kutucukları ele alabilirsin
+-   Canlılara saldırma ve taşıtları kullanma.
+-   Envanter düzenleme.
+-   Çalışma masaları, sandıklar, fırlatıcılar, büyü masaları.
+-   Blok kazma ve koyma.
+-   Can sayını ve yağmur yağıp yapmadığını öğrenmek gibi ekstra özellikler.
+-   Eşyaları kullanma ve blokları aktifleştirme.
+-   Sohbet.
 
 ### Yol Haritası
 
@@ -75,17 +75,17 @@ Eğer sürüm belirtilmezse otomatik olarak ayarlanacaktır. Kimlik doğrulama t
 const mineflayer = require("mineflayer")
 
 const bot = mineflayer.createBot({
-	host: "localhost", // sunucu IP adresi
-	username: "email@example.com", // Minecraft kullanıcı adı / e-posta adresi
-	password: "12345678", // Minecraft şifresi, korsan sunucular için boş bırakabilirsin
-	// port: 25565,                // sadece port 25565 olmadığında kullan
-	// version: false,             // özellikle bir sürüm belirteceğin zaman burayı değiştirebilirsin
-	// auth: 'mojang'              // Microsoft kullanıyorsan 'microsoft' olarak değiştirebilirsin
+    host: "localhost", // sunucu IP adresi
+    username: "email@example.com", // Minecraft kullanıcı adı / e-posta adresi
+    password: "12345678", // Minecraft şifresi, korsan sunucular için boş bırakabilirsin
+    // port: 25565,                // sadece port 25565 olmadığında kullan
+    // version: false,             // özellikle bir sürüm belirteceğin zaman burayı değiştirebilirsin
+    // auth: 'mojang'              // Microsoft kullanıyorsan 'microsoft' olarak değiştirebilirsin
 })
 
 bot.on("chat", (username, message) => {
-	if (username === bot.username) return
-	bot.chat(message)
+    if (username === bot.username) return
+    bot.chat(message)
 })
 
 // Hataları ve sunucudan atılma sebeplerini konsola yansıt:
@@ -100,7 +100,7 @@ bot.on("error", console.log)
 ```js
 const { mineflayer: mineflayerViewer } = require("prismarine-viewer")
 bot.once("spawn", () => {
-	mineflayerViewer(bot, { port: 3007, firstPerson: true }) // port: yayın yapılacak port, firstPerson: true yaparsan botun gözünden, false yaparsan kuş bakışı görüntü elde edersin.
+    mineflayerViewer(bot, { port: 3007, firstPerson: true }) // port: yayın yapılacak port, firstPerson: true yaparsan botun gözünden, false yaparsan kuş bakışı görüntü elde edersin.
 })
 ```
 
@@ -175,45 +175,45 @@ mineflayer eklenti desteği sağlar; isteyen herkes mineflayer'ın üstüne daha
 
 En çok güncellenen ve en kullanışlı olan bazıları:
 
-- [pathfinder](https://github.com/Karang/mineflayer-pathfinder) - konfigüre edilebilen tonlarca özellik ile gelişmiş A\* yön bulma
-- [prismarine-viewer](https://github.com/PrismarineJS/prismarine-viewer) - basit tarayıcı chunk gösterici
-- [web-inventory](https://github.com/ImHarvol/mineflayer-web-inventory) - web bazlı envanter gösterici
-- [statemachine](https://github.com/TheDudeFromCI/mineflayer-statemachine) - daha kompleks bot eventleri için bir API
-- [Armor Manager](https://github.com/G07cha/MineflayerArmorManager) - otomatik zırh düzenleyici
-- [Collect Block](https://github.com/TheDudeFromCI/mineflayer-collectblock) - basit ve hızlı bir blok toplama API'ı
-- [Dashboard](https://github.com/wvffle/mineflayer-dashboard) - mineflayer botları için kontrol paneli
-- [PVP](https://github.com/TheDudeFromCI/mineflayer-pvp) - PVP ve PVE için basit bir API
-- [auto-eat](https://github.com/LINKdiscordd/mineflayer-auto-eat) - otomatik yemek yeme
-- [Tool](https://github.com/TheDudeFromCI/mineflayer-tool) - otomatik eşya seçimi için üst seviye bir API
-- [Hawkeye](https://github.com/sefirosweb/minecraftHawkEye) - yaylarla otomatik eğim için bir API
+-   [pathfinder](https://github.com/Karang/mineflayer-pathfinder) - konfigüre edilebilen tonlarca özellik ile gelişmiş A\* yön bulma
+-   [prismarine-viewer](https://github.com/PrismarineJS/prismarine-viewer) - basit tarayıcı chunk gösterici
+-   [web-inventory](https://github.com/ImHarvol/mineflayer-web-inventory) - web bazlı envanter gösterici
+-   [statemachine](https://github.com/TheDudeFromCI/mineflayer-statemachine) - daha kompleks bot eventleri için bir API
+-   [Armor Manager](https://github.com/G07cha/MineflayerArmorManager) - otomatik zırh düzenleyici
+-   [Collect Block](https://github.com/TheDudeFromCI/mineflayer-collectblock) - basit ve hızlı bir blok toplama API'ı
+-   [Dashboard](https://github.com/wvffle/mineflayer-dashboard) - mineflayer botları için kontrol paneli
+-   [PVP](https://github.com/TheDudeFromCI/mineflayer-pvp) - PVP ve PVE için basit bir API
+-   [auto-eat](https://github.com/LINKdiscordd/mineflayer-auto-eat) - otomatik yemek yeme
+-   [Tool](https://github.com/TheDudeFromCI/mineflayer-tool) - otomatik eşya seçimi için üst seviye bir API
+-   [Hawkeye](https://github.com/sefirosweb/minecraftHawkEye) - yaylarla otomatik eğim için bir API
 
 Şunlara da göz at:
 
-- [radar](https://github.com/andrewrk/mineflayer-radar/) - canvas ve socket.io kullanan tarayıcı bazlı bir radar arayüzü. [YouTube Demo](https://www.youtube.com/watch?v=FjDmAfcVulQ)
-- [blockfinder](https://github.com/Darthfett/mineflayer-blockFinder) - 3 boyutlu dünyada blok bulun
-- [scaffold](https://github.com/andrewrk/mineflayer-scaffold) - bir hedefe blok koyarak
-  veya kırarak ulaşın [YouTube Demo](http://youtu.be/jkg6psMUSE0)
-- [auto-auth](https://github.com/G07cha/MineflayerAutoAuth) - sohbet-bazlı bot giriş sistemi
-- [Bloodhound](https://github.com/Nixes/mineflayer-bloodhound) - başka bir varlığa gelen hasardan kimin ve neyin sorumlu olduğu hakkında bilgi alın
-- [tps](https://github.com/SiebeDW/mineflayer-tps) - tps değerini elde edin
+-   [radar](https://github.com/andrewrk/mineflayer-radar/) - canvas ve socket.io kullanan tarayıcı bazlı bir radar arayüzü. [YouTube Demo](https://www.youtube.com/watch?v=FjDmAfcVulQ)
+-   [blockfinder](https://github.com/Darthfett/mineflayer-blockFinder) - 3 boyutlu dünyada blok bulun
+-   [scaffold](https://github.com/andrewrk/mineflayer-scaffold) - bir hedefe blok koyarak
+    veya kırarak ulaşın [YouTube Demo](http://youtu.be/jkg6psMUSE0)
+-   [auto-auth](https://github.com/G07cha/MineflayerAutoAuth) - sohbet-bazlı bot giriş sistemi
+-   [Bloodhound](https://github.com/Nixes/mineflayer-bloodhound) - başka bir varlığa gelen hasardan kimin ve neyin sorumlu olduğu hakkında bilgi alın
+-   [tps](https://github.com/SiebeDW/mineflayer-tps) - tps değerini elde edin
 
-* [panorama](https://github.com/IceTank/mineflayer-panorama) - dünyanın panorama fotoğraflarını çekin
+*   [panorama](https://github.com/IceTank/mineflayer-panorama) - dünyanın panorama fotoğraflarını çekin
 
 ## Mineflayer Kullanan Projeler
 
-- [rom1504/rbot](https://github.com/rom1504/rbot)
-  - [YouTube - spiral bir merdiven inşa etme](https://www.youtube.com/watch?v=UM1ZV5200S0)
-  - [YouTube - bir yapıyı taklit etme](https://www.youtube.com/watch?v=0cQxg9uDnzA)
-- [Darthfett/Helperbot](https://github.com/Darthfett/Helperbot)
-- [vogonistic/voxel](https://github.com/vogonistic/mineflayer-voxel) - voxel.js ile
-  botun ne yaptığını gör
-- [JonnyD/Skynet](https://github.com/JonnyD/Skynet) - bot aktivitesini online bir API'a gönder
-- [MinecraftChat](https://github.com/rom1504/MinecraftChat) (son açık kaynak sürümü, AlexKvazos tarafından yapıldı) - Minecraft internet tabanlı sohbet <https://minecraftchat.net/>
-- [Cheese Bot](https://github.com/Minecheesecraft/Cheese-Bot) - node-webkit ile yapılan eklenti bazlı, temiz bir arayüze sahip bir bot
-- [Chaoscraft](https://github.com/schematical/chaoscraft) - genetik algoritmalar kullanan bir Minecraft botu, [videoları burada](https://www.youtube.com/playlist?list=PLLkpLgU9B5xJ7Qy4kOyBJl5J6zsDIMceH)
-- [hexatester/minetelegram](https://github.com/hexatester/minetelegram) - mineflayer & telegraf üstüne kurulu Minecraft - Telegram köprüsü
-- [PrismarineJS/mineflayer-builder](https://github.com/PrismarineJS/mineflayer-builder) - Minecraft şemalarını hayatta kalma modunda inşa eden bir proje
-- [ve daha niceleri](https://github.com/PrismarineJS/mineflayer/network/dependents) - mineflayer kullanıyor olup GitHub tarafından tespit edilen tüm projeler.
+-   [rom1504/rbot](https://github.com/rom1504/rbot)
+    -   [YouTube - spiral bir merdiven inşa etme](https://www.youtube.com/watch?v=UM1ZV5200S0)
+    -   [YouTube - bir yapıyı taklit etme](https://www.youtube.com/watch?v=0cQxg9uDnzA)
+-   [Darthfett/Helperbot](https://github.com/Darthfett/Helperbot)
+-   [vogonistic/voxel](https://github.com/vogonistic/mineflayer-voxel) - voxel.js ile
+    botun ne yaptığını gör
+-   [JonnyD/Skynet](https://github.com/JonnyD/Skynet) - bot aktivitesini online bir API'a gönder
+-   [MinecraftChat](https://github.com/rom1504/MinecraftChat) (son açık kaynak sürümü, AlexKvazos tarafından yapıldı) - Minecraft internet tabanlı sohbet <https://minecraftchat.net/>
+-   [Cheese Bot](https://github.com/Minecheesecraft/Cheese-Bot) - node-webkit ile yapılan eklenti bazlı, temiz bir arayüze sahip bir bot
+-   [Chaoscraft](https://github.com/schematical/chaoscraft) - genetik algoritmalar kullanan bir Minecraft botu, [videoları burada](https://www.youtube.com/playlist?list=PLLkpLgU9B5xJ7Qy4kOyBJl5J6zsDIMceH)
+-   [hexatester/minetelegram](https://github.com/hexatester/minetelegram) - mineflayer & telegraf üstüne kurulu Minecraft - Telegram köprüsü
+-   [PrismarineJS/mineflayer-builder](https://github.com/PrismarineJS/mineflayer-builder) - Minecraft şemalarını hayatta kalma modunda inşa eden bir proje
+-   [ve daha niceleri](https://github.com/PrismarineJS/mineflayer/network/dependents) - mineflayer kullanıyor olup GitHub tarafından tespit edilen tüm projeler.
 
 ## Test etme
 

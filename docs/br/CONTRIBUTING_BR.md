@@ -6,9 +6,9 @@ O Mineflayer foi originalmente criado principalmente por [andrewrk](http://githu
 
 Temos 3 etiquetas para 3 fases de organização de problemas:
 
-- Estágio 1: (Fase 1) criado por alguém novo no projeto, não sabemos se merece uma implementação / solução
-- Estágio 2: (Fase 2) ideia promissora, mas é necessário pensar mais sobre o assunto antes de implementá-lo
-- Estágio 3: (Fase 3) a ideia é muito precisa, só precisa ser programada
+-   Estágio 1: (Fase 1) criado por alguém novo no projeto, não sabemos se merece uma implementação / solução
+-   Estágio 2: (Fase 2) ideia promissora, mas é necessário pensar mais sobre o assunto antes de implementá-lo
+-   Estágio 3: (Fase 3) a ideia é muito precisa, só precisa ser programada
 
 Links como https://github.com/PrismarineJS/mineflayer/issues?q=is%3Aopen+is%3Aissue+-label%3AStage1 podem ser usados como filtro para a fase 1 se você estiver procurando coisas prontas para serem contribuídas.
 
@@ -16,8 +16,8 @@ Links como https://github.com/PrismarineJS/mineflayer/issues?q=is%3Aopen+is%3Ais
 
 O Mineflayer possui dois tipos de testes:
 
-- [Testes internos](test/internalTest.js): testes feitos com um servidor simples criado com o node-minecraft-protocol
-- [Testes externos](test/externalTests/): testes feitos com um servidor Vanilla
+-   [Testes internos](test/internalTest.js): testes feitos com um servidor simples criado com o node-minecraft-protocol
+-   [Testes externos](test/externalTests/): testes feitos com um servidor Vanilla
 
 O objetivo desses testes é determinar automaticamente o que funciona e o que não funciona no Mineflayer, tornando mais fácil a correção de problemas.
 
@@ -52,10 +52,10 @@ O Mineflayer funciona bem na maioria das situações, mas às vezes ainda pode t
 
 Ao encontrar um bug, é melhor relatar o erro fornecendo as seguintes informações:
 
-- O que você está tentando fazer (o objetivo em inglês).
-- O que você tentou (o código).
-- O que aconteceu.
-- O que você esperava que acontecesse.
+-   O que você está tentando fazer (o objetivo em inglês).
+-   O que você tentou (o código).
+-   O que aconteceu.
+-   O que você esperava que acontecesse.
 
 ## Código do Mineflayer
 
@@ -71,14 +71,14 @@ Por exemplo:
 
 ```js
 function myfunction(param1, callback) {
-	let toDo = 1
-	toDo = 2
-	if (toDo === 2) {
-		// everything worked (todo está funcionado)
-		callback()
-	} else {
-		callback(new Error("something failed")) // (algo falhou)
-	}
+    let toDo = 1
+    toDo = 2
+    if (toDo === 2) {
+        // everything worked (todo está funcionado)
+        callback()
+    } else {
+        callback(new Error("something failed")) // (algo falhou)
+    }
 }
 ```
 

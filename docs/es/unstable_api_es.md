@@ -3,8 +3,8 @@
 
 **Tabla de contenidos** _generado con [DocToc](https://github.com/thlorenz/doctoc)_
 
-- [API inestable : bot.\_](#api-instable--bot_)
-  - [bot.\_client](#bot_client)
+-   [API inestable : bot.\_](#api-instable--bot_)
+    -   [bot.\_client](#bot_client)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

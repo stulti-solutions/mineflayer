@@ -3,8 +3,8 @@
 
 **Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
-- [unstable API : bot.\_](#unstable-api--bot_)
-  - [bot.\_client](#bot_client)
+-   [unstable API : bot.\_](#unstable-api--bot_)
+    -   [bot.\_client](#bot_client)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

@@ -1,6 +1,6 @@
 # Using mineflayer in Python
 
-- Checkout the tutorial on Google Colab 👉 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/PrismarineJS/mineflayer/blob/master/docs/mineflayer.ipynb)
+-   Checkout the tutorial on Google Colab 👉 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/PrismarineJS/mineflayer/blob/master/docs/mineflayer.ipynb)
 
 Thanks to [JSPyBridge](https://github.com/extremeheat/JSPyBridge), it is possible to use mineflayer in python!
 
@@ -25,9 +25,9 @@ mineflayer = require('mineflayer')
 
 ### Examples
 
-- [gps](https://github.com/PrismarineJS/mineflayer/blob/master/examples/python/basic.py) (based on [js version](https://github.com/PrismarineJS/mineflayer/blob/master/examples/pathfinder/gps.js))
-- [chatterbot](https://github.com/PrismarineJS/mineflayer/blob/master/examples/python/chatterbox.py) (based on [js version](https://github.com/PrismarineJS/mineflayer/blob/py/examples/chatterbox.js))
+-   [gps](https://github.com/PrismarineJS/mineflayer/blob/master/examples/python/basic.py) (based on [js version](https://github.com/PrismarineJS/mineflayer/blob/master/examples/pathfinder/gps.js))
+-   [chatterbot](https://github.com/PrismarineJS/mineflayer/blob/master/examples/python/chatterbox.py) (based on [js version](https://github.com/PrismarineJS/mineflayer/blob/py/examples/chatterbox.js))
 
 ### See also
 
-- [javascript pip package docs](https://github.com/extremeheat/JSPyBridge/blob/master/docs/python.md)
+-   [javascript pip package docs](https://github.com/extremeheat/JSPyBridge/blob/master/docs/python.md)

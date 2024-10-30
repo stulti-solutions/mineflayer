@@ -18,124 +18,124 @@
 const mineflayer = require("mineflayer")
 
 if (process.argv.length < 4 || process.argv.length > 6) {
-	console.log("Usage : node anvil.js <host> <port> [<name>] [<password>]")
-	process.exit(1)
+    console.log("Usage : node anvil.js <host> <port> [<name>] [<password>]")
+    process.exit(1)
 }
 
 const bot = mineflayer.createBot({
-	host: process.argv[2],
-	port: parseInt(process.argv[3]),
-	username: process.argv[4] ? process.argv[4] : "anvilman",
-	password: process.argv[5],
+    host: process.argv[2],
+    port: parseInt(process.argv[3]),
+    username: process.argv[4] ? process.argv[4] : "anvilman",
+    password: process.argv[5],
 })
 
 bot.on("chat", async (username, message) => {
-	const command = message.split(" ")
+    const command = message.split(" ")
 
-	switch (true) {
-		case /^list$/.test(message):
-			sayItems()
-			break
-		case /^toss \w+$/.test(message):
-			// toss name
-			// ex: toss diamond
-			tossItem(command[1])
-			break
-		case /^xp$/.test(message):
-			bot.chat(bot.experience.level)
-			break
-		case /^gamemode$/.test(message):
-			bot.chat(bot.game.gameMode)
-			break
-		case /^anvil combine \w+ \w+$/.test(message): // anvil firstSlot secondSlot
-			combine(bot, command[2], command[3])
-			break
-		case /^anvil combine \w+ \w+ (.+)$/.test(message): // anvil firstSlot secondSlot name
-			combine(bot, command[2], command[3], command.slice(4).join(" "))
-			break
-		case /^anvil rename \w+ (.+)/.test(message):
-			rename(bot, command[2], command.slice(3).join(" "))
-			break
-	}
+    switch (true) {
+        case /^list$/.test(message):
+            sayItems()
+            break
+        case /^toss \w+$/.test(message):
+            // toss name
+            // ex: toss diamond
+            tossItem(command[1])
+            break
+        case /^xp$/.test(message):
+            bot.chat(bot.experience.level)
+            break
+        case /^gamemode$/.test(message):
+            bot.chat(bot.game.gameMode)
+            break
+        case /^anvil combine \w+ \w+$/.test(message): // anvil firstSlot secondSlot
+            combine(bot, command[2], command[3])
+            break
+        case /^anvil combine \w+ \w+ (.+)$/.test(message): // anvil firstSlot secondSlot name
+            combine(bot, command[2], command[3], command.slice(4).join(" "))
+            break
+        case /^anvil rename \w+ (.+)/.test(message):
+            rename(bot, command[2], command.slice(3).join(" "))
+            break
+    }
 })
 
 async function tossItem(name, amount) {
-	amount = parseInt(amount, 10)
-	const item = itemByName(name)
-	if (!item) {
-		bot.chat(`I have no ${name}`)
-	} else {
-		try {
-			if (amount) {
-				await bot.toss(item.type, null, amount)
-				bot.chat(`tossed ${amount} x ${name}`)
-			} else {
-				await bot.tossStack(item)
-				bot.chat(`tossed ${name}`)
-			}
-		} catch (err) {
-			bot.chat(`unable to toss: ${err.message}`)
-		}
-	}
+    amount = parseInt(amount, 10)
+    const item = itemByName(name)
+    if (!item) {
+        bot.chat(`I have no ${name}`)
+    } else {
+        try {
+            if (amount) {
+                await bot.toss(item.type, null, amount)
+                bot.chat(`tossed ${amount} x ${name}`)
+            } else {
+                await bot.tossStack(item)
+                bot.chat(`tossed ${name}`)
+            }
+        } catch (err) {
+            bot.chat(`unable to toss: ${err.message}`)
+        }
+    }
 }
 
 function itemByName(name) {
-	return bot.inventory.items().filter((item) => item.name === name)[0]
+    return bot.inventory.items().filter((item) => item.name === name)[0]
 }
 
 function itemToString(item) {
-	if (item) {
-		return `${item.name} x ${item.count}`
-	} else {
-		return "(nothing)"
-	}
+    if (item) {
+        return `${item.name} x ${item.count}`
+    } else {
+        return "(nothing)"
+    }
 }
 
 function sayItems(items = bot.inventory.items()) {
-	const output = items.map(itemToString).join(", ")
-	if (output) {
-		bot.chat(output)
-	} else {
-		bot.chat("empty")
-	}
+    const output = items.map(itemToString).join(", ")
+    if (output) {
+        bot.chat(output)
+    } else {
+        bot.chat("empty")
+    }
 }
 
 function getAnvilIds() {
-	const matchingBlocks = [bot.registry.blocksByName.anvil.id]
-	if (bot.registry.blocksByName?.chipped_anvil) {
-		matchingBlocks.push(bot.registry.blocksByName.chipped_anvil.id)
-		matchingBlocks.push(bot.registry.blocksByName.damaged_anvil.id)
-	}
-	return matchingBlocks
+    const matchingBlocks = [bot.registry.blocksByName.anvil.id]
+    if (bot.registry.blocksByName?.chipped_anvil) {
+        matchingBlocks.push(bot.registry.blocksByName.chipped_anvil.id)
+        matchingBlocks.push(bot.registry.blocksByName.damaged_anvil.id)
+    }
+    return matchingBlocks
 }
 
 async function rename(bot, itemName, name) {
-	const anvilBlock = bot.findBlock({
-		matching: getAnvilIds(),
-	})
-	const anvil = await bot.openAnvil(anvilBlock)
-	try {
-		await anvil.rename(itemByName(itemName), name)
-		bot.chat("Anvil used successfully.")
-	} catch (err) {
-		bot.chat(err.message)
-	}
-	anvil.close()
+    const anvilBlock = bot.findBlock({
+        matching: getAnvilIds(),
+    })
+    const anvil = await bot.openAnvil(anvilBlock)
+    try {
+        await anvil.rename(itemByName(itemName), name)
+        bot.chat("Anvil used successfully.")
+    } catch (err) {
+        bot.chat(err.message)
+    }
+    anvil.close()
 }
 
 async function combine(bot, itemName1, itemName2, name) {
-	const anvilBlock = bot.findBlock({
-		matching: getAnvilIds(),
-	})
-	const anvil = await bot.openAnvil(anvilBlock)
-	try {
-		bot.chat("Using the anvil...")
-		await anvil.combine(itemByName(itemName1), itemByName(itemName2), name)
-		bot.chat("Anvil used successfully.")
-	} catch (err) {
-		bot.chat(err.message)
-	}
-	anvil.close()
+    const anvilBlock = bot.findBlock({
+        matching: getAnvilIds(),
+    })
+    const anvil = await bot.openAnvil(anvilBlock)
+    try {
+        bot.chat("Using the anvil...")
+        await anvil.combine(itemByName(itemName1), itemByName(itemName2), name)
+        bot.chat("Anvil used successfully.")
+    } catch (err) {
+        bot.chat(err.message)
+    }
+    anvil.close()
 }
 
 bot.on("error", console.log)

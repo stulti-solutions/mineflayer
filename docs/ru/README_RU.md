@@ -17,17 +17,17 @@
 
 ## Возможности
 
-- Поддержка 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, 1.16, 1.17, 1.18, 1.19 и 1.20.
-- Поддержка энтити и их отслеживание.
-- Вы можете полностью взаимодействовать с миром. Миллисекунды на поиск любого блока.
-- Физика и управление.
-- Атака энтити и использование транспортных средств.
-- Взаимодействие с инвентарем.
-- Взаимодействие с крафтом, сундуками, раздатчиками и чаровальными столами.
-- Вы можете копать и строить.
-- Мелкие функции, такие как отслеживание здоровья и погоды.
-- Активация блоков и использование предметов.
-- Взаимодействие с чатом.
+-   Поддержка 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, 1.16, 1.17, 1.18, 1.19 и 1.20.
+-   Поддержка энтити и их отслеживание.
+-   Вы можете полностью взаимодействовать с миром. Миллисекунды на поиск любого блока.
+-   Физика и управление.
+-   Атака энтити и использование транспортных средств.
+-   Взаимодействие с инвентарем.
+-   Взаимодействие с крафтом, сундуками, раздатчиками и чаровальными столами.
+-   Вы можете копать и строить.
+-   Мелкие функции, такие как отслеживание здоровья и погоды.
+-   Активация блоков и использование предметов.
+-   Взаимодействие с чатом.
 
 ### Наши цели
 
@@ -79,17 +79,17 @@
 const mineflayer = require("mineflayer")
 
 const bot = mineflayer.createBot({
-	host: "localhost", // айпи майнкрафт сервера
-	username: "email@example.com", // ник бота
-	auth: "microsoft", // для пираток нужно заменить на 'offline'
-	// port: 25565,                // прописывайте, если порт не 25565
-	// version: false,             // прописывайте, если нужна конкретная версия или снапшот (например: "1.8.9" или "1.16.5"), иначе версия будет выбрана автоматически
-	// password: '12345678'        // прописывайте, если хотите использовать аутентификацию через пароль (может быть ненадёжно)
+    host: "localhost", // айпи майнкрафт сервера
+    username: "email@example.com", // ник бота
+    auth: "microsoft", // для пираток нужно заменить на 'offline'
+    // port: 25565,                // прописывайте, если порт не 25565
+    // version: false,             // прописывайте, если нужна конкретная версия или снапшот (например: "1.8.9" или "1.16.5"), иначе версия будет выбрана автоматически
+    // password: '12345678'        // прописывайте, если хотите использовать аутентификацию через пароль (может быть ненадёжно)
 })
 
 bot.on("chat", (username, message) => {
-	if (username === bot.username) return
-	bot.chat(message)
+    if (username === bot.username) return
+    bot.chat(message)
 })
 
 // Логирование ошибок и причин отключения от сервера:
@@ -105,7 +105,7 @@ bot.on("error", console.log)
 ```js
 const { mineflayer: mineflayerViewer } = require("prismarine-viewer")
 bot.once("spawn", () => {
-	mineflayerViewer(bot, { port: 3007, firstPerson: true }) // port - это порт сервера майнкрафт, если значение firstPerson: false, вы получите вид с высоты птичьего полета
+    mineflayerViewer(bot, { port: 3007, firstPerson: true }) // port - это порт сервера майнкрафт, если значение firstPerson: false, вы получите вид с высоты птичьего полета
 })
 ```
 
@@ -174,46 +174,46 @@ Mineflayer поддерживает сторонние плагины. Любо�
 
 Наиболее обновлённые и полезные:
 
-- [pathfinder](https://github.com/Karang/mineflayer-pathfinder) - Продвинутый A\* поиск пути с множеством настраиваемых функций
-- [prismarine-viewer](https://github.com/PrismarineJS/prismarine-viewer) - Простой web клиент для просмотра чанков
-- [web-inventory](https://github.com/ImHarvol/mineflayer-web-inventory) - Веб клиент для взаимодействия с инвентарём
-- [statemachine](https://github.com/PrismarineJS/mineflayer-statemachine) - API для более сложного поведения бота
-- [Armor Manager](https://github.com/G07cha/MineflayerArmorManager) - Автоматическое взаимодействие с бронёй
-- [Dashboard](https://github.com/wvffle/mineflayer-dashboard) - Панель управления для бота
-- [PVP](https://github.com/PrismarineJS/mineflayer-pvp) - Простой API для базовых PVP и PVE сражений
-- [Auto Eat](https://github.com/link-discord/mineflayer-auto-eat) - Автоматическое поедание пищи
-- [Auto Crystal](https://github.com/link-discord/mineflayer-autocrystal) - Автоматическое размещение и взрыв кристалов края
-- [Tool](https://github.com/TheDudeFromCI/mineflayer-tool) - Утилита для автоматического выбора инструмента/оружия с высокоуровневым API
-- [Hawkeye](https://github.com/sefirosweb/minecraftHawkEye) - Утилита для использования автоматического прицеливания из луков
-- [GUI](https://github.com/firejoust/mineflayer-GUI) - Взаимодействие с окнами по типу инвентаря, используя async/await
-- [Projectile](https://github.com/firejoust/mineflayer-projectile) - Получение необходимого угола запуска снарядов
-- [Movement](https://github.com/firejoust/mineflayer-movement) - Плавные и реалистичные движения игрока, лучше всего подходящие для PvP
-- [Collect Block](https://github.com/PrismarineJS/mineflayer-collectblock) - API для простого способа для подбора блоков
+-   [pathfinder](https://github.com/Karang/mineflayer-pathfinder) - Продвинутый A\* поиск пути с множеством настраиваемых функций
+-   [prismarine-viewer](https://github.com/PrismarineJS/prismarine-viewer) - Простой web клиент для просмотра чанков
+-   [web-inventory](https://github.com/ImHarvol/mineflayer-web-inventory) - Веб клиент для взаимодействия с инвентарём
+-   [statemachine](https://github.com/PrismarineJS/mineflayer-statemachine) - API для более сложного поведения бота
+-   [Armor Manager](https://github.com/G07cha/MineflayerArmorManager) - Автоматическое взаимодействие с бронёй
+-   [Dashboard](https://github.com/wvffle/mineflayer-dashboard) - Панель управления для бота
+-   [PVP](https://github.com/PrismarineJS/mineflayer-pvp) - Простой API для базовых PVP и PVE сражений
+-   [Auto Eat](https://github.com/link-discord/mineflayer-auto-eat) - Автоматическое поедание пищи
+-   [Auto Crystal](https://github.com/link-discord/mineflayer-autocrystal) - Автоматическое размещение и взрыв кристалов края
+-   [Tool](https://github.com/TheDudeFromCI/mineflayer-tool) - Утилита для автоматического выбора инструмента/оружия с высокоуровневым API
+-   [Hawkeye](https://github.com/sefirosweb/minecraftHawkEye) - Утилита для использования автоматического прицеливания из луков
+-   [GUI](https://github.com/firejoust/mineflayer-GUI) - Взаимодействие с окнами по типу инвентаря, используя async/await
+-   [Projectile](https://github.com/firejoust/mineflayer-projectile) - Получение необходимого угола запуска снарядов
+-   [Movement](https://github.com/firejoust/mineflayer-movement) - Плавные и реалистичные движения игрока, лучше всего подходящие для PvP
+-   [Collect Block](https://github.com/PrismarineJS/mineflayer-collectblock) - API для простого способа для подбора блоков
 
 Вы также можете изучить:
 
-- [radar](https://github.com/andrewrk/mineflayer-radar/) - Веб радар, созданный с помощью
-- [auto-auth](https://github.com/G07cha/MineflayerAutoAuth) - Аутентификация на пиратских серверах
-- [Bloodhound](https://github.com/Nixes/mineflayer-bloodhound) - Отслеживание получаемого урона в пределах видимости
-- [tps](https://github.com/SiebeDW/mineflayer-tps) - Получение TPS сервера
-- [panorama](https://github.com/IceTank/mineflayer-panorama) - Создание панорамных снимков вашего мира
-- [player-death-event](https://github.com/tuanzisama/mineflayer-death-event) - Создание события смерти игрока в Mineflayer.
+-   [radar](https://github.com/andrewrk/mineflayer-radar/) - Веб радар, созданный с помощью
+-   [auto-auth](https://github.com/G07cha/MineflayerAutoAuth) - Аутентификация на пиратских серверах
+-   [Bloodhound](https://github.com/Nixes/mineflayer-bloodhound) - Отслеживание получаемого урона в пределах видимости
+-   [tps](https://github.com/SiebeDW/mineflayer-tps) - Получение TPS сервера
+-   [panorama](https://github.com/IceTank/mineflayer-panorama) - Создание панорамных снимков вашего мира
+-   [player-death-event](https://github.com/tuanzisama/mineflayer-death-event) - Создание события смерти игрока в Mineflayer.
 
 ## Проекты, созданные с помощью Mineflayer
 
-- [Voyager](https://github.com/MineDojo/Voyager) - Открытый агент с большими языковыми моделями
-- [rom1504/rbot](https://github.com/rom1504/rbot)
-  - [YouTube - постройка спиральной лестницы](https://www.youtube.com/watch?v=UM1ZV5200S0)
-  - [YouTube - дублирование постройки](https://www.youtube.com/watch?v=0cQxg9uDnzA)
-- [Darthfett/Helperbot](https://github.com/Darthfett/Helperbot)
-- [vogonistic/voxel](https://github.com/vogonistic/mineflayer-voxel) - Визуализация от первого лица бота, созданная с помощью voxel.js
-- [JonnyD/Skynet](https://github.com/JonnyD/Skynet) - Логирование активности игрока в онлайн-API
-- [MinecraftChat](https://github.com/rom1504/MinecraftChat) (последняя версия с открытым исходным кодом, созданная AlexKvazos) - Веб чат майнкрафт сервера
-- [Cheese Bot](https://github.com/Minecheesecraft/Cheese-Bot) - Плагин с чистым GUI. Создан с помощью Node-Webkit. http://bot.ezcha.net/
-- [Chaoscraft](https://github.com/schematical/chaoscraft) - Бот Minecraft, использующий генетические алгоритмы, посмотрите [эти видео](https://www.youtube.com/playlist?list=PLLkpLgU9B5xJ7Qy4kOyBJl5J6zsDIMceH)
-- [hexatester/minetelegram](https://github.com/hexatester/minetelegram) - Мост между Minecraft и Telegram, созданный при помощи Mineflayer & Telegraf
-- [PrismarineJS/mineflayer-builder](https://github.com/PrismarineJS/mineflayer-builder) - Строит схемы в режиме выживания, сохраняя направление
-- [и многие другие](https://github.com/PrismarineJS/mineflayer/network/dependents) - Все проекты, обнаруженные GitHub, в которых используется Mineflayer
+-   [Voyager](https://github.com/MineDojo/Voyager) - Открытый агент с большими языковыми моделями
+-   [rom1504/rbot](https://github.com/rom1504/rbot)
+    -   [YouTube - постройка спиральной лестницы](https://www.youtube.com/watch?v=UM1ZV5200S0)
+    -   [YouTube - дублирование постройки](https://www.youtube.com/watch?v=0cQxg9uDnzA)
+-   [Darthfett/Helperbot](https://github.com/Darthfett/Helperbot)
+-   [vogonistic/voxel](https://github.com/vogonistic/mineflayer-voxel) - Визуализация от первого лица бота, созданная с помощью voxel.js
+-   [JonnyD/Skynet](https://github.com/JonnyD/Skynet) - Логирование активности игрока в онлайн-API
+-   [MinecraftChat](https://github.com/rom1504/MinecraftChat) (последняя версия с открытым исходным кодом, созданная AlexKvazos) - Веб чат майнкрафт сервера
+-   [Cheese Bot](https://github.com/Minecheesecraft/Cheese-Bot) - Плагин с чистым GUI. Создан с помощью Node-Webkit. http://bot.ezcha.net/
+-   [Chaoscraft](https://github.com/schematical/chaoscraft) - Бот Minecraft, использующий генетические алгоритмы, посмотрите [эти видео](https://www.youtube.com/playlist?list=PLLkpLgU9B5xJ7Qy4kOyBJl5J6zsDIMceH)
+-   [hexatester/minetelegram](https://github.com/hexatester/minetelegram) - Мост между Minecraft и Telegram, созданный при помощи Mineflayer & Telegraf
+-   [PrismarineJS/mineflayer-builder](https://github.com/PrismarineJS/mineflayer-builder) - Строит схемы в режиме выживания, сохраняя направление
+-   [и многие другие](https://github.com/PrismarineJS/mineflayer/network/dependents) - Все проекты, обнаруженные GitHub, в которых используется Mineflayer
 
 ## Тестирование
 

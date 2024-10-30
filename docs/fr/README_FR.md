@@ -18,17 +18,17 @@ Si c'est la première fois que vous utilisez Node.js, il vaut mieux commencer av
 
 ## Caractéristiques:
 
-- Compatible avec Minecraft 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, 1.16, 1.17, 1.18, 1.19 et 1.20.
-- Reconnaissante et pistage des entités.
-- Identification des blocs. Vous pouvez passer en revue le monde autour de vous. Quelques millisecondes suffisent pour trouver n'importe quel bloc.
-- Information sur la physique et mouvements, données sur la taille des blocs...
-- Peut attaquer des entitées et utiliser des véhicules.
-- Gestion d'inventaire.
-- Gestion de l'établi, coffre, distributeur, table d'enchantement.
-- creuser et construire.
-- Autres actions diverses, telle que connaitre tes points de vie ou si il pleut.
-- Utiliser les blocs et items.
-- Discuter avec le chat.
+-   Compatible avec Minecraft 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, 1.16, 1.17, 1.18, 1.19 et 1.20.
+-   Reconnaissante et pistage des entités.
+-   Identification des blocs. Vous pouvez passer en revue le monde autour de vous. Quelques millisecondes suffisent pour trouver n'importe quel bloc.
+-   Information sur la physique et mouvements, données sur la taille des blocs...
+-   Peut attaquer des entitées et utiliser des véhicules.
+-   Gestion d'inventaire.
+-   Gestion de l'établi, coffre, distributeur, table d'enchantement.
+-   creuser et construire.
+-   Autres actions diverses, telle que connaitre tes points de vie ou si il pleut.
+-   Utiliser les blocs et items.
+-   Discuter avec le chat.
 
 ### Projets à venir:
 
@@ -79,17 +79,17 @@ Par exemple `version:"1.16.5"`.
 const mineflayer = require("mineflayer")
 
 const bot = mineflayer.createBot({
-	host: "localhost", // optionel
-	port: 25565, // optionel
-	username: "email@example.com", // l'email et le mot de passe sont requis seulement pour les serveurs
-	password: "12345678", // online-mode=true
-	version: false, // faux, corresponds pour la detection automatique(par défaut), met "1.8.8" par exemple si tu a besoin d'une version specifique
-	auth: "mojang", // optionel; par defaut utilise mojang, si vous utilisez un compte microsoft, preciser 'microsoft'
+    host: "localhost", // optionel
+    port: 25565, // optionel
+    username: "email@example.com", // l'email et le mot de passe sont requis seulement pour les serveurs
+    password: "12345678", // online-mode=true
+    version: false, // faux, corresponds pour la detection automatique(par défaut), met "1.8.8" par exemple si tu a besoin d'une version specifique
+    auth: "mojang", // optionel; par defaut utilise mojang, si vous utilisez un compte microsoft, preciser 'microsoft'
 })
 
 bot.on("chat", function (username, message) {
-	if (username === bot.username) return
-	bot.chat(message)
+    if (username === bot.username) return
+    bot.chat(message)
 })
 
 // erreur de code, ou raison de kick:
@@ -105,7 +105,7 @@ Il suffit de lancer `npm install prismarine-viewer` dans votre console et d'ajou
 ```js
 const mineflayerViewer = require("prismarine-viewer").mineflayer
 bot.once("spawn", () => {
-	mineflayerViewer(bot, { port: 3007, firstPerson: true })
+    mineflayerViewer(bot, { port: 3007, firstPerson: true })
 })
 ```
 
@@ -180,43 +180,43 @@ Mineflayer peut être amélioré avec plusieurs plugins; tout le monde peut cré
 
 Les plugins les plus récents et les plus utiles sont :
 
-- [pathfinder](https://github.com/PrismarineJS/mineflayer-pathfinder) - advanced A\* pathfinding avec de nombres paramètres configurables
-- [prismarine-viewer](https://github.com/PrismarineJS/prismarine-viewer) - Un simple inspecteur web de chunk
-- [web-inventory](https://github.com/ImHarvol/mineflayer-web-inventory) - un inspecteur d'inventaire en ligne
-- [statemachine](https://github.com/PrismarineJS/mineflayer-statemachine) - Une API pour state machine pour robots aux comportements complexes
-- [Armor Manager](https://github.com/PrismarineJS/MineflayerArmorManager) - gestion d'armure automatique
-- [Collect Block](https://github.com/PrismarineJS/mineflayer-collectblock) - Une API rapide et flexible pour colleter des blocs.
-- [Dashboard](https://github.com/wvffle/mineflayer-dashboard) - intertace en ligne pour robots mineflayer
-- [PVP](https://github.com/PrismarineJS/mineflayer-pvp) - Une API facile pour les combats contre les entités et les joueurs.
-- [auto-eat](https://github.com/LINKdiscordd/mineflayer-auto-eat) - pour manger automatiquement de la nouriture.
-- [Tool](https://github.com/PrismarineJS/mineflayer-tool) - Un plugin pour choisir automatiquement le meilleur outil pour une tâche donnée
-- [Hawkeye](https://github.com/sefirosweb/minecraftHawkEye) - Un plugin pour viser à la perfection avec des arcs.
+-   [pathfinder](https://github.com/PrismarineJS/mineflayer-pathfinder) - advanced A\* pathfinding avec de nombres paramètres configurables
+-   [prismarine-viewer](https://github.com/PrismarineJS/prismarine-viewer) - Un simple inspecteur web de chunk
+-   [web-inventory](https://github.com/ImHarvol/mineflayer-web-inventory) - un inspecteur d'inventaire en ligne
+-   [statemachine](https://github.com/PrismarineJS/mineflayer-statemachine) - Une API pour state machine pour robots aux comportements complexes
+-   [Armor Manager](https://github.com/PrismarineJS/MineflayerArmorManager) - gestion d'armure automatique
+-   [Collect Block](https://github.com/PrismarineJS/mineflayer-collectblock) - Une API rapide et flexible pour colleter des blocs.
+-   [Dashboard](https://github.com/wvffle/mineflayer-dashboard) - intertace en ligne pour robots mineflayer
+-   [PVP](https://github.com/PrismarineJS/mineflayer-pvp) - Une API facile pour les combats contre les entités et les joueurs.
+-   [auto-eat](https://github.com/LINKdiscordd/mineflayer-auto-eat) - pour manger automatiquement de la nouriture.
+-   [Tool](https://github.com/PrismarineJS/mineflayer-tool) - Un plugin pour choisir automatiquement le meilleur outil pour une tâche donnée
+-   [Hawkeye](https://github.com/sefirosweb/minecraftHawkEye) - Un plugin pour viser à la perfection avec des arcs.
 
 Laissez un coup d'oeil à ses projets :
 
-- [radar](https://github.com/andrewrk/mineflayer-radar/) - interface web utilisant un canvas et une communication socket.io. [YouTube Demo](https://www.youtube.com/watch?v=FjDmAfcVulQ)
-- [blockfinder](https://github.com/Darthfett/mineflayer-blockFinder) - trouver des blocs dans un monde 3D
-- [scaffold](https://github.com/PrismarineJS/mineflayer-scaffold) - trouver le meilleur chemin vers une destination précise en cassant et dispoant des blocs
-  [YouTube Demo](http://youtu.be/jkg6psMUSE0)
-- [auto-auth](https://github.com/G07cha/MineflayerAutoAuth) - remplissage de compte de capchat pour serveur hors-ligne
-- [Bloodhound](https://github.com/Nixes/mineflayer-bloodhound) - determiner ce qui a attaqué une autre entité.
-- [tps](https://github.com/SiebeDW/mineflayer-tps) - trouver le tps du serveur
-- [panorama](https://github.com/IceTank/mineflayer-panorama) - prendre des photos panoramiques de vos mondes.
+-   [radar](https://github.com/andrewrk/mineflayer-radar/) - interface web utilisant un canvas et une communication socket.io. [YouTube Demo](https://www.youtube.com/watch?v=FjDmAfcVulQ)
+-   [blockfinder](https://github.com/Darthfett/mineflayer-blockFinder) - trouver des blocs dans un monde 3D
+-   [scaffold](https://github.com/PrismarineJS/mineflayer-scaffold) - trouver le meilleur chemin vers une destination précise en cassant et dispoant des blocs
+    [YouTube Demo](http://youtu.be/jkg6psMUSE0)
+-   [auto-auth](https://github.com/G07cha/MineflayerAutoAuth) - remplissage de compte de capchat pour serveur hors-ligne
+-   [Bloodhound](https://github.com/Nixes/mineflayer-bloodhound) - determiner ce qui a attaqué une autre entité.
+-   [tps](https://github.com/SiebeDW/mineflayer-tps) - trouver le tps du serveur
+-   [panorama](https://github.com/IceTank/mineflayer-panorama) - prendre des photos panoramiques de vos mondes.
 
 ## Projets utilisant Mineflayer
 
-- [rom1504/rbot](https://github.com/rom1504/rbot)
-  - [YouTube - créé un escalier en collimasson](https://www.youtube.com/watch?v=UM1ZV5200S0)
-  - [YouTube - réplicé une contruction](https://www.youtube.com/watch?v=0cQxg9uDnzA)
-- [Darthfett/Helperbot](https://github.com/Darthfett/Helperbot)
-- [vogonistic/voxel](https://github.com/vogonistic/mineflayer-voxel) - visualiser se qui se passe avec son robot grâce à [voxel.js](https://www.voxeljs.com/)
-- [JonnyD/Skynet](https://github.com/JonnyD/Skynet) - Afficher les info des joueurs sur une API en ligne
-- [MinecraftChat](https://github.com/rom1504/MinecraftChat) (derniere version open source, par AlexKvazos) - Un client minecraft basé seulement sur le chat<https://minecraftchat.net/>
-- [Cheese Bot](https://github.com/Minecheesecraft/Cheese-Bot) - Un robot basé sur les plugins, qui a une jolie interface. Réalisée avec Node-Webkit. http://bot.ezcha.net/
-- [Chaoscraft](https://github.com/schematical/chaoscraft) - Des robots minecraft qui utilisent des algorithmes génétiques, regarder [ces videos youtube](https://www.youtube.com/playlist?list=PLLkpLgU9B5xJ7Qy4kOyBJl5J6zsDIMceH)
-- [hexatester/minetelegram](https://github.com/hexatester/minetelegram) - Minecraft - une API telgram, construite sur Mineflayer et Telegraf.
-- [ProZedd/mineflayer-builder](https://github.com/PrismarineJS/mineflayer-builder) - "Imprimme" un .schematic dans Minecraft
-- [et beaucoup plus](https://github.com/PrismarineJS/mineflayer/network/dependents) - Tous les les projets utilisant Mineflayer
+-   [rom1504/rbot](https://github.com/rom1504/rbot)
+    -   [YouTube - créé un escalier en collimasson](https://www.youtube.com/watch?v=UM1ZV5200S0)
+    -   [YouTube - réplicé une contruction](https://www.youtube.com/watch?v=0cQxg9uDnzA)
+-   [Darthfett/Helperbot](https://github.com/Darthfett/Helperbot)
+-   [vogonistic/voxel](https://github.com/vogonistic/mineflayer-voxel) - visualiser se qui se passe avec son robot grâce à [voxel.js](https://www.voxeljs.com/)
+-   [JonnyD/Skynet](https://github.com/JonnyD/Skynet) - Afficher les info des joueurs sur une API en ligne
+-   [MinecraftChat](https://github.com/rom1504/MinecraftChat) (derniere version open source, par AlexKvazos) - Un client minecraft basé seulement sur le chat<https://minecraftchat.net/>
+-   [Cheese Bot](https://github.com/Minecheesecraft/Cheese-Bot) - Un robot basé sur les plugins, qui a une jolie interface. Réalisée avec Node-Webkit. http://bot.ezcha.net/
+-   [Chaoscraft](https://github.com/schematical/chaoscraft) - Des robots minecraft qui utilisent des algorithmes génétiques, regarder [ces videos youtube](https://www.youtube.com/playlist?list=PLLkpLgU9B5xJ7Qy4kOyBJl5J6zsDIMceH)
+-   [hexatester/minetelegram](https://github.com/hexatester/minetelegram) - Minecraft - une API telgram, construite sur Mineflayer et Telegraf.
+-   [ProZedd/mineflayer-builder](https://github.com/PrismarineJS/mineflayer-builder) - "Imprimme" un .schematic dans Minecraft
+-   [et beaucoup plus](https://github.com/PrismarineJS/mineflayer/network/dependents) - Tous les les projets utilisant Mineflayer
 
 ## Test
 

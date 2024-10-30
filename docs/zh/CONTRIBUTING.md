@@ -8,9 +8,9 @@ Mineflayer 最初主要是由 [andrewrk](http://github.com/andrewrk) 制作的
 
 我们有3个阶段标签来尝试组织Issue:
 
-- Stage 1: 只是由项目新手创建的，我们还不知道它是否值得实现/修复
-- Stage 2: 有希望的想法，但在实施前需要更多思考
-- Stage 3: 想法被精确地指定了，就剩写代码了
+-   Stage 1: 只是由项目新手创建的，我们还不知道它是否值得实现/修复
+-   Stage 2: 有希望的想法，但在实施前需要更多思考
+-   Stage 3: 想法被精确地指定了，就剩写代码了
 
 链接如 https://github.com/PrismarineJS/mineflayer/issues?q=is%3Aopen+is%3Aissue+-label%3AStage1 can be used to filter out stage 1 if you're looking for things that are ready for contribution
 
@@ -18,8 +18,8 @@ Mineflayer 最初主要是由 [andrewrk](http://github.com/andrewrk) 制作的
 
 Mineflayer 有两种测试 :
 
-- [internal tests](test/internalTest.js) : 针对使用node-minecraft-protocol创建的简单服务器进行的测试
-- [external tests](test/externalTests/) : 针对原版服务器进行的测试
+-   [internal tests](test/internalTest.js) : 针对使用node-minecraft-protocol创建的简单服务器进行的测试
+-   [external tests](test/externalTests/) : 针对原版服务器进行的测试
 
 The objective of these tests is to know automatically what works and what doesn't in mineflayer, so it's easier to make mineflayer work.
 
@@ -55,10 +55,10 @@ Mineflayer 在大多数情况下都能很好地工作，但有时仍然存在bug
 
 找到一个问题时，最好报告一个提供这些信息的问题 :
 
-- 你想做什么 (英语目标)
-- 你尝试过什么 (代码)
-- 发生了什么事
-- 你期望会发生什么
+-   你想做什么 (英语目标)
+-   你尝试过什么 (代码)
+-   发生了什么事
+-   你期望会发生什么
 
 ## Mineflayer 代码
 
@@ -74,15 +74,15 @@ Mineflayer 在大多数情况下都能很好地工作，但有时仍然存在bug
 
 ```js
 function myfunction(param1, callback) {
-	// do stuff
-	let toDo = 1
-	toDo = 2
-	if (toDo === 2) {
-		// 一切正常
-		callback()
-	} else {
-		callback(new Error("什么东西出错了"))
-	}
+    // do stuff
+    let toDo = 1
+    toDo = 2
+    if (toDo === 2) {
+        // 一切正常
+        callback()
+    } else {
+        callback(new Error("什么东西出错了"))
+    }
 }
 ```
 

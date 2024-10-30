@@ -17,17 +17,17 @@ First time using Node.js? You may want to start with the [tutorial](tutorial.md)
 
 ## Features
 
-- Supports Minecraft 1.8 to 1.20.5 (1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, 1.16, 1.17, 1.18, 1.19 and 1.20 upto 1.20.6)
-- Entity knowledge and tracking.
-- Block knowledge. You can query the world around you. Milliseconds to find any block.
-- Physics and movement - handle all bounding boxes
-- Attacking entities and using vehicles.
-- Inventory management.
-- Crafting, chests, dispensers, enchantment tables.
-- Digging and building.
-- Miscellaneous stuff such as knowing your health and whether it is raining.
-- Activating blocks and using items.
-- Chat.
+-   Supports Minecraft 1.8 to 1.20.5 (1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, 1.16, 1.17, 1.18, 1.19 and 1.20 upto 1.20.6)
+-   Entity knowledge and tracking.
+-   Block knowledge. You can query the world around you. Milliseconds to find any block.
+-   Physics and movement - handle all bounding boxes
+-   Attacking entities and using vehicles.
+-   Inventory management.
+-   Crafting, chests, dispensers, enchantment tables.
+-   Digging and building.
+-   Miscellaneous stuff such as knowing your health and whether it is raining.
+-   Activating blocks and using items.
+-   Chat.
 
 ### Roadmap
 
@@ -85,17 +85,17 @@ Without auth specified, the mojang auth style will be guessed.
 const mineflayer = require("mineflayer")
 
 const bot = mineflayer.createBot({
-	host: "localhost", // minecraft server ip
-	username: "Bot", // username to join as if auth is `offline`, else a unique identifier for this account. Switch if you want to change accounts
-	auth: "microsoft", // for offline mode servers, you can set this to 'offline'
-	// port: 25565,              // set if you need a port that isn't 25565
-	// version: false,           // only set if you need a specific version or snapshot (ie: "1.8.9" or "1.16.5"), otherwise it's set automatically
-	// password: '12345678'      // set if you want to use password-based auth (may be unreliable). If specified, the `username` must be an email
+    host: "localhost", // minecraft server ip
+    username: "Bot", // username to join as if auth is `offline`, else a unique identifier for this account. Switch if you want to change accounts
+    auth: "microsoft", // for offline mode servers, you can set this to 'offline'
+    // port: 25565,              // set if you need a port that isn't 25565
+    // version: false,           // only set if you need a specific version or snapshot (ie: "1.8.9" or "1.16.5"), otherwise it's set automatically
+    // password: '12345678'      // set if you want to use password-based auth (may be unreliable). If specified, the `username` must be an email
 })
 
 bot.on("chat", (username, message) => {
-	if (username === bot.username) return
-	bot.chat(message)
+    if (username === bot.username) return
+    bot.chat(message)
 })
 
 // Log errors and kick reasons:
@@ -115,12 +115,12 @@ To join a Realm that your Minecraft account has been invited to, you can pass a 
 
 ```js
 const client = mineflayer.createBot({
-	username: "email@example.com", // minecraft username
-	realms: {
-		// This function is called with an array of Realms the account can join. It should return the one it wants to join.
-		pickRealm: (realms) => realms[0],
-	},
-	auth: "microsoft",
+    username: "email@example.com", // minecraft username
+    realms: {
+        // This function is called with an array of Realms the account can join. It should return the one it wants to join.
+        pickRealm: (realms) => realms[0],
+    },
+    auth: "microsoft",
 })
 ```
 
@@ -132,7 +132,7 @@ Just run `npm install prismarine-viewer` and add this to your bot:
 ```js
 const { mineflayer: mineflayerViewer } = require("prismarine-viewer")
 bot.once("spawn", () => {
-	mineflayerViewer(bot, { port: 3007, firstPerson: true }) // port is the minecraft server port, if first person is false, you get a bird's-eye view
+    mineflayerViewer(bot, { port: 3007, firstPerson: true }) // port is the minecraft server port, if first person is false, you get a bird's-eye view
 })
 ```
 
@@ -208,49 +208,49 @@ higher level API on top of Mineflayer.
 
 The most updated and useful are :
 
-- [pathfinder](https://github.com/Karang/mineflayer-pathfinder) - advanced A\* pathfinding with a lot of configurable features
-- [prismarine-viewer](https://github.com/PrismarineJS/prismarine-viewer) - simple web chunk viewer
-- [web-inventory](https://github.com/ImHarvol/mineflayer-web-inventory) - web based inventory viewer
-- [statemachine](https://github.com/PrismarineJS/mineflayer-statemachine) - A state machine API for more complex bot behaviors
-- [Armor Manager](https://github.com/G07cha/MineflayerArmorManager) - automatic armor management
-- [Dashboard](https://github.com/wvffle/mineflayer-dashboard) - Frontend dashboard for mineflayer bot
-- [PVP](https://github.com/PrismarineJS/mineflayer-pvp) - Easy API for basic PVP and PVE.
-- [Auto Eat](https://github.com/link-discord/mineflayer-auto-eat) - Automatic eating of food.
-- [Auto Crystal](https://github.com/link-discord/mineflayer-autocrystal) - Automatic placing & breaking of end crystals.
-- [Tool](https://github.com/TheDudeFromCI/mineflayer-tool) - A utility for automatic tool/weapon selection with a high level API.
-- [Hawkeye](https://github.com/sefirosweb/minecraftHawkEye) - A utility for using auto-aim with bows.
-- [GUI](https://github.com/firejoust/mineflayer-GUI) - Interact with nested GUI windows using async/await
-- [Projectile](https://github.com/firejoust/mineflayer-projectile) - Get the required launch angle for projectiles
-- [Movement](https://github.com/firejoust/mineflayer-movement) - Smooth and realistic player movement, best suited for PvP
-- [Collect Block](https://github.com/PrismarineJS/mineflayer-collectblock) - Quick and simple block collection API.
+-   [pathfinder](https://github.com/Karang/mineflayer-pathfinder) - advanced A\* pathfinding with a lot of configurable features
+-   [prismarine-viewer](https://github.com/PrismarineJS/prismarine-viewer) - simple web chunk viewer
+-   [web-inventory](https://github.com/ImHarvol/mineflayer-web-inventory) - web based inventory viewer
+-   [statemachine](https://github.com/PrismarineJS/mineflayer-statemachine) - A state machine API for more complex bot behaviors
+-   [Armor Manager](https://github.com/G07cha/MineflayerArmorManager) - automatic armor management
+-   [Dashboard](https://github.com/wvffle/mineflayer-dashboard) - Frontend dashboard for mineflayer bot
+-   [PVP](https://github.com/PrismarineJS/mineflayer-pvp) - Easy API for basic PVP and PVE.
+-   [Auto Eat](https://github.com/link-discord/mineflayer-auto-eat) - Automatic eating of food.
+-   [Auto Crystal](https://github.com/link-discord/mineflayer-autocrystal) - Automatic placing & breaking of end crystals.
+-   [Tool](https://github.com/TheDudeFromCI/mineflayer-tool) - A utility for automatic tool/weapon selection with a high level API.
+-   [Hawkeye](https://github.com/sefirosweb/minecraftHawkEye) - A utility for using auto-aim with bows.
+-   [GUI](https://github.com/firejoust/mineflayer-GUI) - Interact with nested GUI windows using async/await
+-   [Projectile](https://github.com/firejoust/mineflayer-projectile) - Get the required launch angle for projectiles
+-   [Movement](https://github.com/firejoust/mineflayer-movement) - Smooth and realistic player movement, best suited for PvP
+-   [Collect Block](https://github.com/PrismarineJS/mineflayer-collectblock) - Quick and simple block collection API.
 
 But also check out :
 
-- [radar](https://github.com/andrewrk/mineflayer-radar/) - web based radar
-  interface using canvas and socket.io. [YouTube Demo](https://www.youtube.com/watch?v=FjDmAfcVulQ)
-- [auto-auth](https://github.com/G07cha/MineflayerAutoAuth) - chat-based bot authentication
-- [Bloodhound](https://github.com/Nixes/mineflayer-bloodhound) - determine who and what is responsible for damage to another entity
-- [tps](https://github.com/SiebeDW/mineflayer-tps) - get the current tps (processed tps)
-- [panorama](https://github.com/IceTank/mineflayer-panorama) - take Panorama Images of your world
-- [player-death-event](https://github.com/tuanzisama/mineflayer-death-event) - emit player death event in Mineflayer.
+-   [radar](https://github.com/andrewrk/mineflayer-radar/) - web based radar
+    interface using canvas and socket.io. [YouTube Demo](https://www.youtube.com/watch?v=FjDmAfcVulQ)
+-   [auto-auth](https://github.com/G07cha/MineflayerAutoAuth) - chat-based bot authentication
+-   [Bloodhound](https://github.com/Nixes/mineflayer-bloodhound) - determine who and what is responsible for damage to another entity
+-   [tps](https://github.com/SiebeDW/mineflayer-tps) - get the current tps (processed tps)
+-   [panorama](https://github.com/IceTank/mineflayer-panorama) - take Panorama Images of your world
+-   [player-death-event](https://github.com/tuanzisama/mineflayer-death-event) - emit player death event in Mineflayer.
 
 ## Projects Using Mineflayer
 
-- [Voyager](https://github.com/MineDojo/Voyager) An Open-Ended Embodied Agent with Large Language Models
-- [rom1504/rbot](https://github.com/rom1504/rbot)
-  - [YouTube - building a spiral staircase](https://www.youtube.com/watch?v=UM1ZV5200S0)
-  - [YouTube - replicating a building](https://www.youtube.com/watch?v=0cQxg9uDnzA)
-- [Darthfett/Helperbot](https://github.com/Darthfett/Helperbot)
-- [vogonistic/voxel](https://github.com/vogonistic/mineflayer-voxel) - visualize what
-  the bot is up to using voxel.js
-- [JonnyD/Skynet](https://github.com/JonnyD/Skynet) - log player activity onto an online API
-- [MinecraftChat](https://github.com/rom1504/MinecraftChat) (last open source version, built by AlexKvazos) - Minecraft web based chat client
-- [Cheese Bot](https://github.com/Minecheesecraft/Cheese-Bot) - Plugin based bot with a clean GUI. Made with Node-Webkit.
-- [Chaoscraft](https://github.com/schematical/chaoscraft) - Minecraft bot using genetic algorithms, see [its youtube videos](https://www.youtube.com/playlist?list=PLLkpLgU9B5xJ7Qy4kOyBJl5J6zsDIMceH)
-- [hexatester/minetelegram](https://github.com/hexatester/minetelegram) - Minecraft - Telegram bridge, build on top of mineflayer & telegraf.
-- [PrismarineJS/mineflayer-builder](https://github.com/PrismarineJS/mineflayer-builder) - Prints minecraft schematics in survival, keeping orientation
-- [SilkePilon/OpenDeliveryBot](https://github.com/SilkePilon/OpenDeliveryBot) - Minecraft bot in python to deliver items from place to place.
-- [and hundreds more](https://github.com/PrismarineJS/mineflayer/network/dependents) - All the projects that github detected are using mineflayer
+-   [Voyager](https://github.com/MineDojo/Voyager) An Open-Ended Embodied Agent with Large Language Models
+-   [rom1504/rbot](https://github.com/rom1504/rbot)
+    -   [YouTube - building a spiral staircase](https://www.youtube.com/watch?v=UM1ZV5200S0)
+    -   [YouTube - replicating a building](https://www.youtube.com/watch?v=0cQxg9uDnzA)
+-   [Darthfett/Helperbot](https://github.com/Darthfett/Helperbot)
+-   [vogonistic/voxel](https://github.com/vogonistic/mineflayer-voxel) - visualize what
+    the bot is up to using voxel.js
+-   [JonnyD/Skynet](https://github.com/JonnyD/Skynet) - log player activity onto an online API
+-   [MinecraftChat](https://github.com/rom1504/MinecraftChat) (last open source version, built by AlexKvazos) - Minecraft web based chat client
+-   [Cheese Bot](https://github.com/Minecheesecraft/Cheese-Bot) - Plugin based bot with a clean GUI. Made with Node-Webkit.
+-   [Chaoscraft](https://github.com/schematical/chaoscraft) - Minecraft bot using genetic algorithms, see [its youtube videos](https://www.youtube.com/playlist?list=PLLkpLgU9B5xJ7Qy4kOyBJl5J6zsDIMceH)
+-   [hexatester/minetelegram](https://github.com/hexatester/minetelegram) - Minecraft - Telegram bridge, build on top of mineflayer & telegraf.
+-   [PrismarineJS/mineflayer-builder](https://github.com/PrismarineJS/mineflayer-builder) - Prints minecraft schematics in survival, keeping orientation
+-   [SilkePilon/OpenDeliveryBot](https://github.com/SilkePilon/OpenDeliveryBot) - Minecraft bot in python to deliver items from place to place.
+-   [and hundreds more](https://github.com/PrismarineJS/mineflayer/network/dependents) - All the projects that github detected are using mineflayer
 
 ## Testing
 

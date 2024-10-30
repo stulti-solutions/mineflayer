@@ -6,13 +6,13 @@ labels: possible bug,Stage1
 assignees: ""
 ---
 
-- [ ] The [FAQ](https://github.com/PrismarineJS/mineflayer/blob/master/docs/FAQ.md) doesn't contain a resolution to my issue
+-   [ ] The [FAQ](https://github.com/PrismarineJS/mineflayer/blob/master/docs/FAQ.md) doesn't contain a resolution to my issue
 
 ## Versions
 
-- mineflayer: #.#.#
-- server: vanilla/spigot/paper #.#.#
-- node: #.#.#
+-   mineflayer: #.#.#
+-   server: vanilla/spigot/paper #.#.#
+-   node: #.#.#
 
 ## Detailed description of a problem
 

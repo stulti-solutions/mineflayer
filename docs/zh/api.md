@@ -3,329 +3,329 @@
 
 **Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
-- [API](#api)
-  - [Enums](#enums)
-    - [minecraft-data](#minecraft-data)
-    - [mcdata.blocks](#mcdatablocks)
-    - [mcdata.items](#mcdataitems)
-    - [mcdata.materials](#mcdatamaterials)
-    - [mcdata.recipes](#mcdatarecipes)
-    - [mcdata.instruments](#mcdatainstruments)
-    - [mcdata.biomes](#mcdatabiomes)
-    - [mcdata.entities](#mcdataentities)
-  - [Classes](#classes)
-    - [vec3](#vec3)
-    - [mineflayer.Location](#mineflayerlocation)
-    - [Entity](#entity)
-    - [Block](#block)
-    - [Biome](#biome)
-    - [Item](#item)
-    - [windows.Window (base class)](#windowswindow-base-class)
-      - [window.deposit(itemType, metadata, count, [callback])](#windowdeposititemtype-metadata-count-callback)
-      - [window.withdraw(itemType, metadata, count, [callback])](#windowwithdrawitemtype-metadata-count-callback)
-      - [window.close()](#windowclose)
-    - [Recipe](#recipe)
-    - [mineflayer.Container](#mineflayercontainer)
-    - [mineflayer.Furnace](#mineflayerfurnace)
-      - [furnace "update"](#furnace-update)
-      - [furnace.takeInput([callback])](#furnacetakeinputcallback)
-      - [furnace.takeFuel([callback])](#furnacetakefuelcallback)
-      - [furnace.takeOutput([callback])](#furnacetakeoutputcallback)
-      - [furnace.putInput(itemType, metadata, count, [cb])](#furnaceputinputitemtype-metadata-count-cb)
-      - [furnace.putFuel(itemType, metadata, count, [cb])](#furnaceputfuelitemtype-metadata-count-cb)
-      - [furnace.inputItem()](#furnaceinputitem)
-      - [furnace.fuelItem()](#furnacefuelitem)
-      - [furnace.outputItem()](#furnaceoutputitem)
-      - [furnace.fuel](#furnacefuel)
-      - [furnace.progress](#furnaceprogress)
-    - [mineflayer.EnchantmentTable](#mineflayerenchantmenttable)
-      - [enchantmentTable "ready"](#enchantmenttable-ready)
-      - [enchantmentTable.targetItem()](#enchantmenttabletargetitem)
-      - [enchantmentTable.xpseed](#enchantmenttablexpseed)
-      - [enchantmentTable.enchantments](#enchantmenttableenchantments)
-      - [enchantmentTable.enchant(choice, [callback])](#enchantmenttableenchantchoice-callback)
-      - [enchantmentTable.takeTargetItem([callback])](#enchantmenttabletaketargetitemcallback)
-      - [enchantmentTable.putTargetItem(item, [callback])](#enchantmenttableputtargetitemitem-callback)
-      - [enchantmentTable.putLapis(item, [callback])](#enchantmenttableputlapisitem-callback)
-    - [mineflayer.anvil](#mineflayeranvil)
-      - [anvil.combine(itemOne, itemTwo[, name, callback])](#anvilcombineitemone-itemtwo-name-callback)
-      - [anvil.combine(item[, name, callback])](#anvilcombineitem-name-callback)
-      - [villager "ready"](#villager-ready)
-      - [villager.trades](#villagertrades)
-      - [villager.trade(tradeIndex, [times], [cb])](#villagertradetradeindex-times-cb)
-    - [mineflayer.ScoreBoard](#mineflayerscoreboard)
-      - [ScoreBoard.name](#scoreboardname)
-      - [ScoreBoard.title](#scoreboardtitle)
-      - [ScoreBoard.itemsMap](#scoreboarditemsmap)
-      - [ScoreBoard.items](#scoreboarditems)
-    - [mineflayer.Team](#mineflayerteam)
-      - [Team.name](#teamname)
-      - [Team.friendlyFire](#teamfriendlyfire)
-      - [Team.nameTagVisibility](#teamnametagvisibility)
-      - [Team.collisionRule](#teamcollisionrule)
-      - [Team.color](#teamcolor)
-      - [Team.prefix](#teamprefix)
-      - [Team.suffix](#teamsuffix)
-      - [Team.members](#teammembers)
-    - [mineflayer.BossBar](#mineflayerbossbar)
-      - [BossBar.title](#bossbartitle)
-      - [BossBar.health](#bossbarhealth)
-      - [BossBar.dividers](#bossbardividers)
-      - [BossBar.entityUUID](#bossbarentityuuid)
-      - [BossBar.shouldDarkenSky](#bossbarshoulddarkensky)
-      - [BossBar.isDragonBar](#bossbarisdragonbar)
-      - [BossBar.createFog](#bossbarcreatefog)
-      - [BossBar.color](#bossbarcolor)
-  - [Bot](#bot)
-    - [mineflayer.createBot(options)](#mineflayercreatebotoptions)
-    - [Properties](#properties)
-      - [bot.world](#botworld)
-        - [world "blockUpdate" (oldBlock, newBlock)](#world-blockupdate-oldblock-newblock)
-        - [world "blockUpdate:(x, y, z)" (oldBlock, newBlock)](#world-blockupdatex-y-z-oldblock-newblock)
-      - [bot.entity](#botentity)
-      - [bot.entities](#botentities)
-      - [bot.username](#botusername)
-      - [bot.spawnPoint](#botspawnpoint)
-      - [bot.heldItem](#bothelditem)
-      - [bot.usingHeldItem](#botusinghelditem)
-      - [bot.game.levelType](#botgameleveltype)
-      - [bot.game.dimension](#botgamedimension)
-      - [bot.game.difficulty](#botgamedifficulty)
-      - [bot.game.gameMode](#botgamegamemode)
-      - [bot.game.hardcore](#botgamehardcore)
-      - [bot.game.maxPlayers](#botgamemaxplayers)
-      - [bot.game.serverBrand](#botgameserverbrand)
-    - [bot.physicsEnabled](#botphysicsenabled)
-    - [bot.player](#botplayer)
-      - [bot.players](#botplayers)
-      - [bot.isRaining](#botisraining)
-      - [bot.rainState](#botrainstate)
-      - [bot.thunderState](#botthunderstate)
-      - [bot.chatPatterns](#botchatpatterns)
-      - [bot.settings.chat](#botsettingschat)
-      - [bot.settings.colorsEnabled](#botsettingscolorsenabled)
-      - [bot.settings.viewDistance](#botsettingsviewdistance)
-      - [bot.settings.difficulty](#botsettingsdifficulty)
-      - [bot.settings.skinParts](#botsettingsskinparts)
-        - [bot.settings.skinParts.showCape - boolean](#botsettingsskinpartsshowcape---boolean)
-        - [bot.settings.skinParts.showJacket - boolean](#botsettingsskinpartsshowjacket---boolean)
-        - [bot.settings.skinParts.showLeftSleeve - boolean](#botsettingsskinpartsshowleftsleeve---boolean)
-        - [bot.settings.skinParts.showRightSleeve - boolean](#botsettingsskinpartsshowrightsleeve---boolean)
-        - [bot.settings.skinParts.showLeftPants - boolean](#botsettingsskinpartsshowleftpants---boolean)
-        - [bot.settings.skinParts.showRightPants - boolean](#botsettingsskinpartsshowrightpants---boolean)
-        - [bot.settings.skinParts.showHat - boolean](#botsettingsskinpartsshowhat---boolean)
-      - [bot.experience.level](#botexperiencelevel)
-      - [bot.experience.points](#botexperiencepoints)
-      - [bot.experience.progress](#botexperienceprogress)
-      - [bot.health](#bothealth)
-      - [bot.food](#botfood)
-      - [bot.foodSaturation](#botfoodsaturation)
-      - [bot.oxygenLevel](#botoxygenlevel)
-      - [bot.physics](#botphysics)
-      - [bot.simpleClick.leftMouse (slot)](#botsimpleclickleftmouse-slot)
-      - [bot.simpleClick.rightMouse (slot)](#botsimpleclickrightmouse-slot)
-      - [bot.time.doDaylightCycle](#bottimedodaylightcycle)
-      - [bot.time.bigTime](#bottimebigtime)
-      - [bot.time.time](#bottimetime)
-      - [bot.time.timeOfDay](#bottimetimeofday)
-      - [bot.time.day](#bottimeday)
-      - [bot.time.isDay](#bottimeisday)
-      - [bot.time.moonPhase](#bottimemoonphase)
-      - [bot.time.bigAge](#bottimebigage)
-      - [bot.time.age](#bottimeage)
-      - [bot.quickBarSlot](#botquickbarslot)
-      - [bot.inventory](#botinventory)
-      - [bot.targetDigBlock](#bottargetdigblock)
-      - [bot.isSleeping](#botissleeping)
-      - [bot.scoreboards](#botscoreboards)
-      - [bot.scoreboard](#botscoreboard)
-      - [bot.teams](#botteams)
-      - [bot.teamMap](#botteammap)
-      - [bot.controlState](#botcontrolstate)
-    - [Events](#events)
-      - ["chat" (username, message, translate, jsonMsg, matches)](#chat-username-message-translate-jsonmsg-matches)
-      - ["whisper" (username, message, translate, jsonMsg, matches)](#whisper-username-message-translate-jsonmsg-matches)
-      - ["actionBar" (jsonMsg)](#actionbar-jsonmsg)
-      - ["message" (jsonMsg, position)](#message-jsonmsg-position)
-      - ["messagestr" (message, messagePosition, jsonMsg)](#messagestr-message-messageposition-jsonmsg)
-      - ["inject_allowed"](#inject_allowed)
-      - ["login"](#login)
-      - ["spawn"](#spawn)
-      - ["respawn"](#respawn)
-      - ["game"](#game)
-      - ["resourcePack" (url, hash)](#resourcepack-url-hash)
-      - ["title"](#title)
-      - ["rain"](#rain)
-      - ["weatherUpdate"](#weatherupdate)
-      - ["time"](#time)
-      - ["kicked" (reason, loggedIn)](#kicked-reason-loggedin)
-      - ["end" (reason)](#end-reason)
-      - ["error" (err)](#error-err)
-      - ["spawnReset"](#spawnreset)
-      - ["death"](#death)
-      - ["health"](#health)
-      - ["breath"](#breath)
-      - ["entityAttributes" (entity)](#entityattributes-entity)
-      - ["entitySwingArm" (entity)](#entityswingarm-entity)
-      - ["entityHurt" (entity)](#entityhurt-entity)
-      - ["entityDead" (entity)](#entitydead-entity)
-      - ["entityTaming" (entity)](#entitytaming-entity)
-      - ["entityTamed" (entity)](#entitytamed-entity)
-      - ["entityShakingOffWater" (entity)](#entityshakingoffwater-entity)
-      - ["entityEatingGrass" (entity)](#entityeatinggrass-entity)
-      - ["entityWake" (entity)](#entitywake-entity)
-      - ["entityEat" (entity)](#entityeat-entity)
-      - ["entityCriticalEffect" (entity)](#entitycriticaleffect-entity)
-      - ["entityMagicCriticalEffect" (entity)](#entitymagiccriticaleffect-entity)
-      - ["entityCrouch" (entity)](#entitycrouch-entity)
-      - ["entityUncrouch" (entity)](#entityuncrouch-entity)
-      - ["entityEquip" (entity)](#entityequip-entity)
-      - ["entitySleep" (entity)](#entitysleep-entity)
-      - ["entitySpawn" (entity)](#entityspawn-entity)
-      - ["itemDrop" (entity)](#itemdrop-entity)
-      - ["playerCollect" (collector, collected)](#playercollect-collector-collected)
-      - ["entityGone" (entity)](#entitygone-entity)
-      - ["entityMoved" (entity)](#entitymoved-entity)
-      - ["entityDetach" (entity, vehicle)](#entitydetach-entity-vehicle)
-      - ["entityAttach" (entity, vehicle)](#entityattach-entity-vehicle)
-      - ["entityUpdate" (entity)](#entityupdate-entity)
-      - ["entityEffect" (entity, effect)](#entityeffect-entity-effect)
-      - ["entityEffectEnd" (entity, effect)](#entityeffectend-entity-effect)
-      - ["playerJoined" (player)](#playerjoined-player)
-      - ["playerUpdated" (player)](#playerupdated-player)
-      - ["playerLeft" (player)](#playerleft-player)
-      - ["blockUpdate" (oldBlock, newBlock)](#blockupdate-oldblock-newblock)
-      - ["blockUpdate:(x, y, z)" (oldBlock, newBlock)](#blockupdatex-y-z-oldblock-newblock)
-      - ["blockPlaced" (oldBlock, newBlock)](#blockplaced-oldblock-newblock)
-      - ["chunkColumnLoad" (point)](#chunkcolumnload-point)
-      - ["chunkColumnUnload" (point)](#chunkcolumnunload-point)
-      - ["soundEffectHeard" (soundName, position, volume, pitch)](#soundeffectheard-soundname-position-volume-pitch)
-      - ["hardcodedSoundEffectHeard" (soundId, soundCategory, position, volume, pitch)](#hardcodedsoundeffectheard-soundid-soundcategory-position-volume-pitch)
-      - ["noteHeard" (block, instrument, pitch)](#noteheard-block-instrument-pitch)
-      - ["pistonMove" (block, isPulling, direction)](#pistonmove-block-ispulling-direction)
-      - ["chestLidMove" (block, isOpen, block2)](#chestlidmove-block-isopen-block2)
-      - ["blockBreakProgressObserved" (block, destroyStage)](#blockbreakprogressobserved-block-destroystage)
-      - ["blockBreakProgressEnd" (block)](#blockbreakprogressend-block)
-      - ["diggingCompleted" (block)](#diggingcompleted-block)
-      - ["diggingAborted" (block)](#diggingaborted-block)
-      - ["move"](#move)
-      - ["forcedMove"](#forcedmove)
-      - ["mount"](#mount)
-      - ["dismount" (vehicle)](#dismount-vehicle)
-      - ["windowOpen" (window)](#windowopen-window)
-      - ["windowClose" (window)](#windowclose-window)
-      - ["sleep"](#sleep)
-      - ["wake"](#wake)
-      - ["experience"](#experience)
-      - ["scoreboardCreated" (scoreboard)](#scoreboardcreated-scoreboard)
-      - ["scoreboardDeleted" (scoreboard)](#scoreboarddeleted-scoreboard)
-      - ["scoreboardTitleChanged" (scoreboard)](#scoreboardtitlechanged-scoreboard)
-      - ["scoreUpdated" (scoreboard, item)](#scoreupdated-scoreboard-item)
-      - ["scoreRemoved" (scoreboard, item)](#scoreremoved-scoreboard-item)
-      - ["scoreboardPosition" (position, scoreboard)](#scoreboardposition-position-scoreboard)
-      - ["teamCreated" (team)](#teamcreated-team)
-      - ["teamRemoved" (team)](#teamremoved-team)
-      - ["teamUpdated" (team)](#teamupdated-team)
-      - ["teamMemberAdded" (team)](#teammemberadded-team)
-      - ["teamMemberRemoved" (team)](#teammemberremoved-team)
-      - ["bossBarCreated" (bossBar)](#bossbarcreated-bossbar)
-      - ["bossBarDeleted" (bossBar)](#bossbardeleted-bossbar)
-      - ["bossBarUpdated" (bossBar)](#bossbarupdated-bossbar)
-      - ["heldItemChanged" (heldItem)](#helditemchanged-helditem)
-      - ["physicsTick" ()](#physicstick-)
-      - ["chat:name" (matches)](#chatname-matches)
-    - [Functions](#functions)
-      - [bot.blockAt(point, extraInfos=true)](#botblockatpoint-extrainfostrue)
-      - [bot.waitForChunksToLoad(cb)](#botwaitforchunkstoloadcb)
-      - [bot.blockInSight(maxSteps, vectorLength)](#botblockinsightmaxsteps-vectorlength)
-      - [bot.blockAtCursor(maxDistance=256)](#botblockatcursormaxdistance256)
-      - [bot.blockAtEntityCursor(entity=bot.entity, maxDistance=256)](#botblockatentitycursorentitybotentity-maxdistance256)
-      - [bot.canSeeBlock(block)](#botcanseeblockblock)
-      - [bot.findBlocks(options)](#botfindblocksoptions)
-      - [bot.findBlock(options)](#botfindblockoptions)
-      - [bot.canDigBlock(block)](#botcandigblockblock)
-      - [bot.recipesFor(itemType, metadata, minResultCount, craftingTable)](#botrecipesforitemtype-metadata-minresultcount-craftingtable)
-      - [bot.recipesAll(itemType, metadata, craftingTable)](#botrecipesallitemtype-metadata-craftingtable)
-      - [bot.nearestEntity(match = (entity) => { return true })](#botnearestentitymatch--entity---return-true-)
-    - [Methods](#methods)
-      - [bot.end(reason)](#botendreason)
-      - [bot.quit(reason)](#botquitreason)
-      - [bot.tabComplete(str, cb, [assumeCommand], [sendBlockInSight])](#bottabcompletestr-cb-assumecommand-sendblockinsight)
-      - [bot.chat(message)](#botchatmessage)
-      - [bot.whisper(username, message)](#botwhisperusername-message)
-      - [bot.chatAddPattern(pattern, chatType, description)](#botchataddpatternpattern-chattype-description)
-      - [bot.addChatPattern(name, pattern, chatPatternOptions)](#botaddchatpatternname-pattern-chatpatternoptions)
-      - [bot.addChatPatternSet(name, patterns, chatPatternOptions)](#botaddchatpatternsetname-patterns-chatpatternoptions)
-      - [bot.removeChatPattern(name)](#botremovechatpatternname)
-      - [bot.awaitMessage(...args)](#botawaitmessageargs)
-      - [bot.setSettings(options)](#botsetsettingsoptions)
-      - [bot.loadPlugin(plugin)](#botloadpluginplugin)
-      - [bot.loadPlugins(plugins)](#botloadpluginsplugins)
-      - [bot.hasPlugin(plugin)](#bothaspluginplugin)
-      - [bot.sleep(bedBlock, [cb])](#botsleepbedblock-cb)
-      - [bot.isABed(bedBlock)](#botisabedbedblock)
-      - [bot.wake([cb])](#botwakecb)
-      - [bot.setControlState(control, state)](#botsetcontrolstatecontrol-state)
-      - [bot.getControlState(control)](#botgetcontrolstatecontrol)
-      - [bot.clearControlStates()](#botclearcontrolstates)
-      - [bot.getExplosionDamages(entity, position, radius, [rawDamages])](#botgetexplosiondamagesentity-position-radius-rawdamages)
-      - [bot.lookAt(point, [force], [callback])](#botlookatpoint-force-callback)
-      - [bot.look(yaw, pitch, [force], [callback])](#botlookyaw-pitch-force-callback)
-      - [bot.updateSign(block, text)](#botupdatesignblock-text)
-      - [bot.equip(item, destination, [callback])](#botequipitem-destination-callback)
-      - [bot.unequip(destination, [callback])](#botunequipdestination-callback)
-      - [bot.tossStack(item, [callback])](#bottossstackitem-callback)
-      - [bot.toss(itemType, metadata, count, [callback])](#bottossitemtype-metadata-count-callback)
-      - [bot.dig(block, [forceLook = true], [digFace], [callback])](#botdigblock-forcelook--true-digface-callback)
-      - [bot.stopDigging()](#botstopdigging)
-      - [bot.digTime(block)](#botdigtimeblock)
-      - [bot.acceptResourcePack()](#botacceptresourcepack)
-      - [bot.denyResourcePack()](#botdenyresourcepack)
-      - [bot.placeBlock(referenceBlock, faceVector, cb)](#botplaceblockreferenceblock-facevector-cb)
-      - [bot.placeEntity(referenceBlock, faceVector)](#botplaceentityreferenceblock-facevector)
-      - [bot.activateBlock(block, [callback])](#botactivateblockblock-callback)
-      - [bot.activateEntity(entity, [callback])](#botactivateentityentity-callback)
-      - [bot.activateEntityAt(entity, position, [callback])](#botactivateentityatentity-position-callback)
-      - [bot.consume(callback)](#botconsumecallback)
-      - [bot.fish(callback)](#botfishcallback)
-      - [bot.activateItem(offHand=false)](#botactivateitemoffhandfalse)
-      - [bot.deactivateItem()](#botdeactivateitem)
-      - [bot.useOn(targetEntity)](#botuseontargetentity)
-      - [bot.attack(entity, swing = true)](#botattackentity-swing--true)
-      - [bot.swingArm([hand], showHand)](#botswingarmhand-showhand)
-      - [bot.mount(entity)](#botmountentity)
-      - [bot.dismount()](#botdismount)
-      - [bot.moveVehicle(left,forward)](#botmovevehicleleftforward)
-      - [bot.setQuickBarSlot(slot)](#botsetquickbarslotslot)
-      - [bot.craft(recipe, count, craftingTable, [callback])](#botcraftrecipe-count-craftingtable-callback)
-      - [bot.writeBook(slot, pages, [callback])](#botwritebookslot-pages-callback)
-      - [bot.openContainer(containerBlock or containerEntity)](#botopencontainercontainerblock-or-containerentity)
-      - [bot.openChest(chestBlock or minecartchestEntity)](#botopenchestchestblock-or-minecartchestentity)
-      - [bot.openFurnace(furnaceBlock)](#botopenfurnacefurnaceblock)
-      - [bot.openDispenser(dispenserBlock)](#botopendispenserdispenserblock)
-      - [bot.openEnchantmentTable(enchantmentTableBlock)](#botopenenchantmenttableenchantmenttableblock)
-      - [bot.openAnvil(anvilBlock)](#botopenanvilanvilblock)
-      - [bot.openVillager(villagerEntity)](#botopenvillagervillagerentity)
-      - [bot.trade(villagerInstance, tradeIndex, [times], [cb])](#bottradevillagerinstance-tradeindex-times-cb)
-      - [bot.setCommandBlock(pos, command, [options])](#botsetcommandblockpos-command-options)
-      - [bot.supportFeature(name)](#botsupportfeaturename)
-      - [bot.waitForTicks(ticks)](#botwaitforticksticks)
-    - [Lower level inventory methods](#lower-level-inventory-methods)
-      - [bot.clickWindow(slot, mouseButton, mode, cb)](#botclickwindowslot-mousebutton-mode-cb)
-      - [bot.putSelectedItemRange(start, end, window, slot)](#botputselecteditemrangestart-end-window-slot)
-      - [bot.putAway(slot)](#botputawayslot)
-      - [bot.closeWindow(window)](#botclosewindowwindow)
-      - [bot.transfer(options, cb)](#bottransferoptions-cb)
-      - [bot.openBlock(block)](#botopenblockblock)
-      - [bot.openEntity(entity)](#botopenentityentity)
-      - [bot.moveSlotItem(sourceSlot, destSlot, cb)](#botmoveslotitemsourceslot-destslot-cb)
-      - [bot.updateHeldItem()](#botupdatehelditem)
-      - [bot.getEquipmentDestSlot(destination)](#botgetequipmentdestslotdestination)
-    - [bot.creative](#botcreative)
-      - [bot.creative.setInventorySlot(slot, item, [callback])](#botcreativesetinventoryslotslot-item-callback)
-      - [bot.creative.flyTo(destination, [cb])](#botcreativeflytodestination-cb)
-      - [bot.creative.startFlying()](#botcreativestartflying)
-      - [bot.creative.stopFlying()](#botcreativestopflying)
+-   [API](#api)
+    -   [Enums](#enums)
+        -   [minecraft-data](#minecraft-data)
+        -   [mcdata.blocks](#mcdatablocks)
+        -   [mcdata.items](#mcdataitems)
+        -   [mcdata.materials](#mcdatamaterials)
+        -   [mcdata.recipes](#mcdatarecipes)
+        -   [mcdata.instruments](#mcdatainstruments)
+        -   [mcdata.biomes](#mcdatabiomes)
+        -   [mcdata.entities](#mcdataentities)
+    -   [Classes](#classes)
+        -   [vec3](#vec3)
+        -   [mineflayer.Location](#mineflayerlocation)
+        -   [Entity](#entity)
+        -   [Block](#block)
+        -   [Biome](#biome)
+        -   [Item](#item)
+        -   [windows.Window (base class)](#windowswindow-base-class)
+            -   [window.deposit(itemType, metadata, count, [callback])](#windowdeposititemtype-metadata-count-callback)
+            -   [window.withdraw(itemType, metadata, count, [callback])](#windowwithdrawitemtype-metadata-count-callback)
+            -   [window.close()](#windowclose)
+        -   [Recipe](#recipe)
+        -   [mineflayer.Container](#mineflayercontainer)
+        -   [mineflayer.Furnace](#mineflayerfurnace)
+            -   [furnace "update"](#furnace-update)
+            -   [furnace.takeInput([callback])](#furnacetakeinputcallback)
+            -   [furnace.takeFuel([callback])](#furnacetakefuelcallback)
+            -   [furnace.takeOutput([callback])](#furnacetakeoutputcallback)
+            -   [furnace.putInput(itemType, metadata, count, [cb])](#furnaceputinputitemtype-metadata-count-cb)
+            -   [furnace.putFuel(itemType, metadata, count, [cb])](#furnaceputfuelitemtype-metadata-count-cb)
+            -   [furnace.inputItem()](#furnaceinputitem)
+            -   [furnace.fuelItem()](#furnacefuelitem)
+            -   [furnace.outputItem()](#furnaceoutputitem)
+            -   [furnace.fuel](#furnacefuel)
+            -   [furnace.progress](#furnaceprogress)
+        -   [mineflayer.EnchantmentTable](#mineflayerenchantmenttable)
+            -   [enchantmentTable "ready"](#enchantmenttable-ready)
+            -   [enchantmentTable.targetItem()](#enchantmenttabletargetitem)
+            -   [enchantmentTable.xpseed](#enchantmenttablexpseed)
+            -   [enchantmentTable.enchantments](#enchantmenttableenchantments)
+            -   [enchantmentTable.enchant(choice, [callback])](#enchantmenttableenchantchoice-callback)
+            -   [enchantmentTable.takeTargetItem([callback])](#enchantmenttabletaketargetitemcallback)
+            -   [enchantmentTable.putTargetItem(item, [callback])](#enchantmenttableputtargetitemitem-callback)
+            -   [enchantmentTable.putLapis(item, [callback])](#enchantmenttableputlapisitem-callback)
+        -   [mineflayer.anvil](#mineflayeranvil)
+            -   [anvil.combine(itemOne, itemTwo[, name, callback])](#anvilcombineitemone-itemtwo-name-callback)
+            -   [anvil.combine(item[, name, callback])](#anvilcombineitem-name-callback)
+            -   [villager "ready"](#villager-ready)
+            -   [villager.trades](#villagertrades)
+            -   [villager.trade(tradeIndex, [times], [cb])](#villagertradetradeindex-times-cb)
+        -   [mineflayer.ScoreBoard](#mineflayerscoreboard)
+            -   [ScoreBoard.name](#scoreboardname)
+            -   [ScoreBoard.title](#scoreboardtitle)
+            -   [ScoreBoard.itemsMap](#scoreboarditemsmap)
+            -   [ScoreBoard.items](#scoreboarditems)
+        -   [mineflayer.Team](#mineflayerteam)
+            -   [Team.name](#teamname)
+            -   [Team.friendlyFire](#teamfriendlyfire)
+            -   [Team.nameTagVisibility](#teamnametagvisibility)
+            -   [Team.collisionRule](#teamcollisionrule)
+            -   [Team.color](#teamcolor)
+            -   [Team.prefix](#teamprefix)
+            -   [Team.suffix](#teamsuffix)
+            -   [Team.members](#teammembers)
+        -   [mineflayer.BossBar](#mineflayerbossbar)
+            -   [BossBar.title](#bossbartitle)
+            -   [BossBar.health](#bossbarhealth)
+            -   [BossBar.dividers](#bossbardividers)
+            -   [BossBar.entityUUID](#bossbarentityuuid)
+            -   [BossBar.shouldDarkenSky](#bossbarshoulddarkensky)
+            -   [BossBar.isDragonBar](#bossbarisdragonbar)
+            -   [BossBar.createFog](#bossbarcreatefog)
+            -   [BossBar.color](#bossbarcolor)
+    -   [Bot](#bot)
+        -   [mineflayer.createBot(options)](#mineflayercreatebotoptions)
+        -   [Properties](#properties)
+            -   [bot.world](#botworld)
+                -   [world "blockUpdate" (oldBlock, newBlock)](#world-blockupdate-oldblock-newblock)
+                -   [world "blockUpdate:(x, y, z)" (oldBlock, newBlock)](#world-blockupdatex-y-z-oldblock-newblock)
+            -   [bot.entity](#botentity)
+            -   [bot.entities](#botentities)
+            -   [bot.username](#botusername)
+            -   [bot.spawnPoint](#botspawnpoint)
+            -   [bot.heldItem](#bothelditem)
+            -   [bot.usingHeldItem](#botusinghelditem)
+            -   [bot.game.levelType](#botgameleveltype)
+            -   [bot.game.dimension](#botgamedimension)
+            -   [bot.game.difficulty](#botgamedifficulty)
+            -   [bot.game.gameMode](#botgamegamemode)
+            -   [bot.game.hardcore](#botgamehardcore)
+            -   [bot.game.maxPlayers](#botgamemaxplayers)
+            -   [bot.game.serverBrand](#botgameserverbrand)
+        -   [bot.physicsEnabled](#botphysicsenabled)
+        -   [bot.player](#botplayer)
+            -   [bot.players](#botplayers)
+            -   [bot.isRaining](#botisraining)
+            -   [bot.rainState](#botrainstate)
+            -   [bot.thunderState](#botthunderstate)
+            -   [bot.chatPatterns](#botchatpatterns)
+            -   [bot.settings.chat](#botsettingschat)
+            -   [bot.settings.colorsEnabled](#botsettingscolorsenabled)
+            -   [bot.settings.viewDistance](#botsettingsviewdistance)
+            -   [bot.settings.difficulty](#botsettingsdifficulty)
+            -   [bot.settings.skinParts](#botsettingsskinparts)
+                -   [bot.settings.skinParts.showCape - boolean](#botsettingsskinpartsshowcape---boolean)
+                -   [bot.settings.skinParts.showJacket - boolean](#botsettingsskinpartsshowjacket---boolean)
+                -   [bot.settings.skinParts.showLeftSleeve - boolean](#botsettingsskinpartsshowleftsleeve---boolean)
+                -   [bot.settings.skinParts.showRightSleeve - boolean](#botsettingsskinpartsshowrightsleeve---boolean)
+                -   [bot.settings.skinParts.showLeftPants - boolean](#botsettingsskinpartsshowleftpants---boolean)
+                -   [bot.settings.skinParts.showRightPants - boolean](#botsettingsskinpartsshowrightpants---boolean)
+                -   [bot.settings.skinParts.showHat - boolean](#botsettingsskinpartsshowhat---boolean)
+            -   [bot.experience.level](#botexperiencelevel)
+            -   [bot.experience.points](#botexperiencepoints)
+            -   [bot.experience.progress](#botexperienceprogress)
+            -   [bot.health](#bothealth)
+            -   [bot.food](#botfood)
+            -   [bot.foodSaturation](#botfoodsaturation)
+            -   [bot.oxygenLevel](#botoxygenlevel)
+            -   [bot.physics](#botphysics)
+            -   [bot.simpleClick.leftMouse (slot)](#botsimpleclickleftmouse-slot)
+            -   [bot.simpleClick.rightMouse (slot)](#botsimpleclickrightmouse-slot)
+            -   [bot.time.doDaylightCycle](#bottimedodaylightcycle)
+            -   [bot.time.bigTime](#bottimebigtime)
+            -   [bot.time.time](#bottimetime)
+            -   [bot.time.timeOfDay](#bottimetimeofday)
+            -   [bot.time.day](#bottimeday)
+            -   [bot.time.isDay](#bottimeisday)
+            -   [bot.time.moonPhase](#bottimemoonphase)
+            -   [bot.time.bigAge](#bottimebigage)
+            -   [bot.time.age](#bottimeage)
+            -   [bot.quickBarSlot](#botquickbarslot)
+            -   [bot.inventory](#botinventory)
+            -   [bot.targetDigBlock](#bottargetdigblock)
+            -   [bot.isSleeping](#botissleeping)
+            -   [bot.scoreboards](#botscoreboards)
+            -   [bot.scoreboard](#botscoreboard)
+            -   [bot.teams](#botteams)
+            -   [bot.teamMap](#botteammap)
+            -   [bot.controlState](#botcontrolstate)
+        -   [Events](#events)
+            -   ["chat" (username, message, translate, jsonMsg, matches)](#chat-username-message-translate-jsonmsg-matches)
+            -   ["whisper" (username, message, translate, jsonMsg, matches)](#whisper-username-message-translate-jsonmsg-matches)
+            -   ["actionBar" (jsonMsg)](#actionbar-jsonmsg)
+            -   ["message" (jsonMsg, position)](#message-jsonmsg-position)
+            -   ["messagestr" (message, messagePosition, jsonMsg)](#messagestr-message-messageposition-jsonmsg)
+            -   ["inject_allowed"](#inject_allowed)
+            -   ["login"](#login)
+            -   ["spawn"](#spawn)
+            -   ["respawn"](#respawn)
+            -   ["game"](#game)
+            -   ["resourcePack" (url, hash)](#resourcepack-url-hash)
+            -   ["title"](#title)
+            -   ["rain"](#rain)
+            -   ["weatherUpdate"](#weatherupdate)
+            -   ["time"](#time)
+            -   ["kicked" (reason, loggedIn)](#kicked-reason-loggedin)
+            -   ["end" (reason)](#end-reason)
+            -   ["error" (err)](#error-err)
+            -   ["spawnReset"](#spawnreset)
+            -   ["death"](#death)
+            -   ["health"](#health)
+            -   ["breath"](#breath)
+            -   ["entityAttributes" (entity)](#entityattributes-entity)
+            -   ["entitySwingArm" (entity)](#entityswingarm-entity)
+            -   ["entityHurt" (entity)](#entityhurt-entity)
+            -   ["entityDead" (entity)](#entitydead-entity)
+            -   ["entityTaming" (entity)](#entitytaming-entity)
+            -   ["entityTamed" (entity)](#entitytamed-entity)
+            -   ["entityShakingOffWater" (entity)](#entityshakingoffwater-entity)
+            -   ["entityEatingGrass" (entity)](#entityeatinggrass-entity)
+            -   ["entityWake" (entity)](#entitywake-entity)
+            -   ["entityEat" (entity)](#entityeat-entity)
+            -   ["entityCriticalEffect" (entity)](#entitycriticaleffect-entity)
+            -   ["entityMagicCriticalEffect" (entity)](#entitymagiccriticaleffect-entity)
+            -   ["entityCrouch" (entity)](#entitycrouch-entity)
+            -   ["entityUncrouch" (entity)](#entityuncrouch-entity)
+            -   ["entityEquip" (entity)](#entityequip-entity)
+            -   ["entitySleep" (entity)](#entitysleep-entity)
+            -   ["entitySpawn" (entity)](#entityspawn-entity)
+            -   ["itemDrop" (entity)](#itemdrop-entity)
+            -   ["playerCollect" (collector, collected)](#playercollect-collector-collected)
+            -   ["entityGone" (entity)](#entitygone-entity)
+            -   ["entityMoved" (entity)](#entitymoved-entity)
+            -   ["entityDetach" (entity, vehicle)](#entitydetach-entity-vehicle)
+            -   ["entityAttach" (entity, vehicle)](#entityattach-entity-vehicle)
+            -   ["entityUpdate" (entity)](#entityupdate-entity)
+            -   ["entityEffect" (entity, effect)](#entityeffect-entity-effect)
+            -   ["entityEffectEnd" (entity, effect)](#entityeffectend-entity-effect)
+            -   ["playerJoined" (player)](#playerjoined-player)
+            -   ["playerUpdated" (player)](#playerupdated-player)
+            -   ["playerLeft" (player)](#playerleft-player)
+            -   ["blockUpdate" (oldBlock, newBlock)](#blockupdate-oldblock-newblock)
+            -   ["blockUpdate:(x, y, z)" (oldBlock, newBlock)](#blockupdatex-y-z-oldblock-newblock)
+            -   ["blockPlaced" (oldBlock, newBlock)](#blockplaced-oldblock-newblock)
+            -   ["chunkColumnLoad" (point)](#chunkcolumnload-point)
+            -   ["chunkColumnUnload" (point)](#chunkcolumnunload-point)
+            -   ["soundEffectHeard" (soundName, position, volume, pitch)](#soundeffectheard-soundname-position-volume-pitch)
+            -   ["hardcodedSoundEffectHeard" (soundId, soundCategory, position, volume, pitch)](#hardcodedsoundeffectheard-soundid-soundcategory-position-volume-pitch)
+            -   ["noteHeard" (block, instrument, pitch)](#noteheard-block-instrument-pitch)
+            -   ["pistonMove" (block, isPulling, direction)](#pistonmove-block-ispulling-direction)
+            -   ["chestLidMove" (block, isOpen, block2)](#chestlidmove-block-isopen-block2)
+            -   ["blockBreakProgressObserved" (block, destroyStage)](#blockbreakprogressobserved-block-destroystage)
+            -   ["blockBreakProgressEnd" (block)](#blockbreakprogressend-block)
+            -   ["diggingCompleted" (block)](#diggingcompleted-block)
+            -   ["diggingAborted" (block)](#diggingaborted-block)
+            -   ["move"](#move)
+            -   ["forcedMove"](#forcedmove)
+            -   ["mount"](#mount)
+            -   ["dismount" (vehicle)](#dismount-vehicle)
+            -   ["windowOpen" (window)](#windowopen-window)
+            -   ["windowClose" (window)](#windowclose-window)
+            -   ["sleep"](#sleep)
+            -   ["wake"](#wake)
+            -   ["experience"](#experience)
+            -   ["scoreboardCreated" (scoreboard)](#scoreboardcreated-scoreboard)
+            -   ["scoreboardDeleted" (scoreboard)](#scoreboarddeleted-scoreboard)
+            -   ["scoreboardTitleChanged" (scoreboard)](#scoreboardtitlechanged-scoreboard)
+            -   ["scoreUpdated" (scoreboard, item)](#scoreupdated-scoreboard-item)
+            -   ["scoreRemoved" (scoreboard, item)](#scoreremoved-scoreboard-item)
+            -   ["scoreboardPosition" (position, scoreboard)](#scoreboardposition-position-scoreboard)
+            -   ["teamCreated" (team)](#teamcreated-team)
+            -   ["teamRemoved" (team)](#teamremoved-team)
+            -   ["teamUpdated" (team)](#teamupdated-team)
+            -   ["teamMemberAdded" (team)](#teammemberadded-team)
+            -   ["teamMemberRemoved" (team)](#teammemberremoved-team)
+            -   ["bossBarCreated" (bossBar)](#bossbarcreated-bossbar)
+            -   ["bossBarDeleted" (bossBar)](#bossbardeleted-bossbar)
+            -   ["bossBarUpdated" (bossBar)](#bossbarupdated-bossbar)
+            -   ["heldItemChanged" (heldItem)](#helditemchanged-helditem)
+            -   ["physicsTick" ()](#physicstick-)
+            -   ["chat:name" (matches)](#chatname-matches)
+        -   [Functions](#functions)
+            -   [bot.blockAt(point, extraInfos=true)](#botblockatpoint-extrainfostrue)
+            -   [bot.waitForChunksToLoad(cb)](#botwaitforchunkstoloadcb)
+            -   [bot.blockInSight(maxSteps, vectorLength)](#botblockinsightmaxsteps-vectorlength)
+            -   [bot.blockAtCursor(maxDistance=256)](#botblockatcursormaxdistance256)
+            -   [bot.blockAtEntityCursor(entity=bot.entity, maxDistance=256)](#botblockatentitycursorentitybotentity-maxdistance256)
+            -   [bot.canSeeBlock(block)](#botcanseeblockblock)
+            -   [bot.findBlocks(options)](#botfindblocksoptions)
+            -   [bot.findBlock(options)](#botfindblockoptions)
+            -   [bot.canDigBlock(block)](#botcandigblockblock)
+            -   [bot.recipesFor(itemType, metadata, minResultCount, craftingTable)](#botrecipesforitemtype-metadata-minresultcount-craftingtable)
+            -   [bot.recipesAll(itemType, metadata, craftingTable)](#botrecipesallitemtype-metadata-craftingtable)
+            -   [bot.nearestEntity(match = (entity) => { return true })](#botnearestentitymatch--entity---return-true-)
+        -   [Methods](#methods)
+            -   [bot.end(reason)](#botendreason)
+            -   [bot.quit(reason)](#botquitreason)
+            -   [bot.tabComplete(str, cb, [assumeCommand], [sendBlockInSight])](#bottabcompletestr-cb-assumecommand-sendblockinsight)
+            -   [bot.chat(message)](#botchatmessage)
+            -   [bot.whisper(username, message)](#botwhisperusername-message)
+            -   [bot.chatAddPattern(pattern, chatType, description)](#botchataddpatternpattern-chattype-description)
+            -   [bot.addChatPattern(name, pattern, chatPatternOptions)](#botaddchatpatternname-pattern-chatpatternoptions)
+            -   [bot.addChatPatternSet(name, patterns, chatPatternOptions)](#botaddchatpatternsetname-patterns-chatpatternoptions)
+            -   [bot.removeChatPattern(name)](#botremovechatpatternname)
+            -   [bot.awaitMessage(...args)](#botawaitmessageargs)
+            -   [bot.setSettings(options)](#botsetsettingsoptions)
+            -   [bot.loadPlugin(plugin)](#botloadpluginplugin)
+            -   [bot.loadPlugins(plugins)](#botloadpluginsplugins)
+            -   [bot.hasPlugin(plugin)](#bothaspluginplugin)
+            -   [bot.sleep(bedBlock, [cb])](#botsleepbedblock-cb)
+            -   [bot.isABed(bedBlock)](#botisabedbedblock)
+            -   [bot.wake([cb])](#botwakecb)
+            -   [bot.setControlState(control, state)](#botsetcontrolstatecontrol-state)
+            -   [bot.getControlState(control)](#botgetcontrolstatecontrol)
+            -   [bot.clearControlStates()](#botclearcontrolstates)
+            -   [bot.getExplosionDamages(entity, position, radius, [rawDamages])](#botgetexplosiondamagesentity-position-radius-rawdamages)
+            -   [bot.lookAt(point, [force], [callback])](#botlookatpoint-force-callback)
+            -   [bot.look(yaw, pitch, [force], [callback])](#botlookyaw-pitch-force-callback)
+            -   [bot.updateSign(block, text)](#botupdatesignblock-text)
+            -   [bot.equip(item, destination, [callback])](#botequipitem-destination-callback)
+            -   [bot.unequip(destination, [callback])](#botunequipdestination-callback)
+            -   [bot.tossStack(item, [callback])](#bottossstackitem-callback)
+            -   [bot.toss(itemType, metadata, count, [callback])](#bottossitemtype-metadata-count-callback)
+            -   [bot.dig(block, [forceLook = true], [digFace], [callback])](#botdigblock-forcelook--true-digface-callback)
+            -   [bot.stopDigging()](#botstopdigging)
+            -   [bot.digTime(block)](#botdigtimeblock)
+            -   [bot.acceptResourcePack()](#botacceptresourcepack)
+            -   [bot.denyResourcePack()](#botdenyresourcepack)
+            -   [bot.placeBlock(referenceBlock, faceVector, cb)](#botplaceblockreferenceblock-facevector-cb)
+            -   [bot.placeEntity(referenceBlock, faceVector)](#botplaceentityreferenceblock-facevector)
+            -   [bot.activateBlock(block, [callback])](#botactivateblockblock-callback)
+            -   [bot.activateEntity(entity, [callback])](#botactivateentityentity-callback)
+            -   [bot.activateEntityAt(entity, position, [callback])](#botactivateentityatentity-position-callback)
+            -   [bot.consume(callback)](#botconsumecallback)
+            -   [bot.fish(callback)](#botfishcallback)
+            -   [bot.activateItem(offHand=false)](#botactivateitemoffhandfalse)
+            -   [bot.deactivateItem()](#botdeactivateitem)
+            -   [bot.useOn(targetEntity)](#botuseontargetentity)
+            -   [bot.attack(entity, swing = true)](#botattackentity-swing--true)
+            -   [bot.swingArm([hand], showHand)](#botswingarmhand-showhand)
+            -   [bot.mount(entity)](#botmountentity)
+            -   [bot.dismount()](#botdismount)
+            -   [bot.moveVehicle(left,forward)](#botmovevehicleleftforward)
+            -   [bot.setQuickBarSlot(slot)](#botsetquickbarslotslot)
+            -   [bot.craft(recipe, count, craftingTable, [callback])](#botcraftrecipe-count-craftingtable-callback)
+            -   [bot.writeBook(slot, pages, [callback])](#botwritebookslot-pages-callback)
+            -   [bot.openContainer(containerBlock or containerEntity)](#botopencontainercontainerblock-or-containerentity)
+            -   [bot.openChest(chestBlock or minecartchestEntity)](#botopenchestchestblock-or-minecartchestentity)
+            -   [bot.openFurnace(furnaceBlock)](#botopenfurnacefurnaceblock)
+            -   [bot.openDispenser(dispenserBlock)](#botopendispenserdispenserblock)
+            -   [bot.openEnchantmentTable(enchantmentTableBlock)](#botopenenchantmenttableenchantmenttableblock)
+            -   [bot.openAnvil(anvilBlock)](#botopenanvilanvilblock)
+            -   [bot.openVillager(villagerEntity)](#botopenvillagervillagerentity)
+            -   [bot.trade(villagerInstance, tradeIndex, [times], [cb])](#bottradevillagerinstance-tradeindex-times-cb)
+            -   [bot.setCommandBlock(pos, command, [options])](#botsetcommandblockpos-command-options)
+            -   [bot.supportFeature(name)](#botsupportfeaturename)
+            -   [bot.waitForTicks(ticks)](#botwaitforticksticks)
+        -   [Lower level inventory methods](#lower-level-inventory-methods)
+            -   [bot.clickWindow(slot, mouseButton, mode, cb)](#botclickwindowslot-mousebutton-mode-cb)
+            -   [bot.putSelectedItemRange(start, end, window, slot)](#botputselecteditemrangestart-end-window-slot)
+            -   [bot.putAway(slot)](#botputawayslot)
+            -   [bot.closeWindow(window)](#botclosewindowwindow)
+            -   [bot.transfer(options, cb)](#bottransferoptions-cb)
+            -   [bot.openBlock(block)](#botopenblockblock)
+            -   [bot.openEntity(entity)](#botopenentityentity)
+            -   [bot.moveSlotItem(sourceSlot, destSlot, cb)](#botmoveslotitemsourceslot-destslot-cb)
+            -   [bot.updateHeldItem()](#botupdatehelditem)
+            -   [bot.getEquipmentDestSlot(destination)](#botgetequipmentdestslotdestination)
+        -   [bot.creative](#botcreative)
+            -   [bot.creative.setInventorySlot(slot, item, [callback])](#botcreativesetinventoryslotslot-item-callback)
+            -   [bot.creative.flyTo(destination, [cb])](#botcreativeflytodestination-cb)
+            -   [bot.creative.startFlying()](#botcreativestartflying)
+            -   [bot.creative.stopFlying()](#botcreativestopflying)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -379,9 +379,9 @@ See [andrewrk/node-vec3](https://github.com/andrewrk/node-vec3)
 
 All points in mineflayer are supplied as instances of this class.
 
-- x - south
-- y - up
-- z - west
+-   x - south
+-   y - up
+-   z - west
 
 Functions and methods which require a point argument accept `Vec3` instances
 as well as an array with 3 values, and an object with `x`, `y`, and `z`
@@ -432,19 +432,19 @@ See [prismarine-windows](https://github.com/PrismarineJS/prismarine-windows)
 
 This function also returns a `Promise`, with `void` as its argument upon completion.
 
-- `itemType` - numerical item id
-- `metadata` - numerical value. `null` means match anything.
-- `count` - how many to deposit. `null` is an alias to 1.
-- `callback(err)` - (optional) - called when done depositing
+-   `itemType` - numerical item id
+-   `metadata` - numerical value. `null` means match anything.
+-   `count` - how many to deposit. `null` is an alias to 1.
+-   `callback(err)` - (optional) - called when done depositing
 
 #### window.withdraw(itemType, metadata, count, [callback])
 
 This function also returns a `Promise`, with `void` as its argument upon completion.
 
-- `itemType` - numerical item id
-- `metadata` - numerical value. `null` means match anything.
-- `count` - how many to withdraw. `null` is an alias to 1.
-- `callback(err)` - (optional) - called when done withdrawing
+-   `itemType` - numerical item id
+-   `metadata` - numerical value. `null` means match anything.
+-   `count` - how many to withdraw. `null` is an alias to 1.
+-   `callback(err)` - (optional) - called when done withdrawing
 
 #### window.close()
 
@@ -470,19 +470,19 @@ Fires when `furnace.fuel` and/or `furnace.progress` update.
 
 This function also returns a `Promise`, with `item` as its argument upon completion.
 
-- `callback(err, item)`
+-   `callback(err, item)`
 
 #### furnace.takeFuel([callback])
 
 This function also returns a `Promise`, with `item` as its argument upon completion.
 
-- `callback(err, item)`
+-   `callback(err, item)`
 
 #### furnace.takeOutput([callback])
 
 This function also returns a `Promise`, with `item` as its argument upon completion.
 
-- `callback(err, item)`
+-   `callback(err, item)`
 
 #### furnace.putInput(itemType, metadata, count, [cb])
 
@@ -540,15 +540,15 @@ Looks like:
 
 ```js
 ;[
-	{
-		level: 3,
-	},
-	{
-		level: 4,
-	},
-	{
-		level: 9,
-	},
+    {
+        level: 3,
+    },
+    {
+        level: 4,
+    },
+    {
+        level: 9,
+    },
 ]
 ```
 
@@ -556,26 +556,26 @@ Looks like:
 
 This function also returns a `Promise`, with `item` as its argument upon completion.
 
-- `choice` - [0-2], the index of the enchantment you want to pick.
-- `callback(err, item)` - (optional) called when the item has been enchanted
+-   `choice` - [0-2], the index of the enchantment you want to pick.
+-   `callback(err, item)` - (optional) called when the item has been enchanted
 
 #### enchantmentTable.takeTargetItem([callback])
 
 This function also returns a `Promise`, with `item` as its argument upon completion.
 
-- `callback(err, item)`
+-   `callback(err, item)`
 
 #### enchantmentTable.putTargetItem(item, [callback])
 
 This function also returns a `Promise`, with `void` as its argument upon completion.
 
-- `callback(err)`
+-   `callback(err)`
 
 #### enchantmentTable.putLapis(item, [callback])
 
 This function also returns a `Promise`, with `void` as its argument upon completion.
 
-- `callback(err)`
+-   `callback(err)`
 
 ### mineflayer.anvil
 
@@ -586,13 +586,13 @@ See `bot.openAnvil(anvilBlock)`.
 
 This function also returns a `Promise`, with `void` as its argument upon completion.
 
-- `callback(err)` - in order to use callback, pass an empty string ('') for name
+-   `callback(err)` - in order to use callback, pass an empty string ('') for name
 
 #### anvil.combine(item[, name, callback])
 
 This function also returns a `Promise`, with `void` as its argument upon completion.
 
-- `callback(err)`
+-   `callback(err)`
 
 #### villager "ready"
 
@@ -606,33 +606,33 @@ Looks like:
 
 ```js
 ;[
-	{
-		firstInput: Item,
-		output: Item,
-		hasSecondItem: false,
-		secondaryInput: null,
-		disabled: false,
-		tooluses: 0,
-		maxTradeuses: 7,
-	},
-	{
-		firstInput: Item,
-		output: Item,
-		hasSecondItem: false,
-		secondaryInput: null,
-		disabled: false,
-		tooluses: 0,
-		maxTradeuses: 7,
-	},
-	{
-		firstInput: Item,
-		output: Item,
-		hasSecondItem: true,
-		secondaryInput: Item,
-		disabled: false,
-		tooluses: 0,
-		maxTradeuses: 7,
-	},
+    {
+        firstInput: Item,
+        output: Item,
+        hasSecondItem: false,
+        secondaryInput: null,
+        disabled: false,
+        tooluses: 0,
+        maxTradeuses: 7,
+    },
+    {
+        firstInput: Item,
+        output: Item,
+        hasSecondItem: false,
+        secondaryInput: null,
+        disabled: false,
+        tooluses: 0,
+        maxTradeuses: 7,
+    },
+    {
+        firstInput: Item,
+        output: Item,
+        hasSecondItem: true,
+        secondaryInput: Item,
+        disabled: false,
+        tooluses: 0,
+        maxTradeuses: 7,
+    },
 ]
 ```
 
@@ -667,8 +667,8 @@ Is the same as [bot.trade(villagerInstance, tradeIndex, [times], [cb])](#bottrad
 
 ```js
 ;[
-	{ name: "dzikoysk", value: 6 },
-	{ name: "wvffle", value: 3 },
+    { name: "dzikoysk", value: 6 },
+    { name: "wvffle", value: 3 },
 ]
 ```
 
@@ -745,33 +745,33 @@ Determines what color the boss bar color is, `pink`, `blue`, `red`, `green`, `ye
 创建并返回bot类的实例。
 `options` 是包含可选属性的对象 :
 
-- username : 用户名，默认为 'Player'
-- port : 端口，默认为 25565
-- password : 可以省略 (如果token也被省略，那么它将尝试以离线模式连接)
-- host : 默认为 localhost
-- version : 默认为自动猜测服务器的版本。值示例：“1.12.2”
-- auth : 默认为“mojang”，也可以是“microsoft”
-- clientToken : 如果给定密码，则生成
-- accessToken : 如果给定密码，则生成
-- logErrors : 默认情况下为true，捕获错误并记录它们
-- hideErrors : 默认情况下为true，不记录错误（即使logErrors为true）
-- keepAlive : 发送保持活动的数据包：默认为true
-- checkTimeoutInterval : 默认 `30*1000` (30s), 检查是否在此期间收到keepalive，否则断开连接。
-- loadInternalPlugins : 默认为true
-- storageBuilder : 可选功能,将version和worldName作为参数，并返回与prismarine-provider-anvil具有相同API的某个对象的实例 ，将被用来保存世界
-- client : node-minecraft-protocol 实例, 如果未指定，mineflayer将创建自己的客户端.这可用于通过许多客户端的代理或普通客户端和mineflayer客户端来启用mineflayer
-- plugins : object : 默认为{}
-  - pluginName : false : don't load internal plugin with given name ie. `pluginName`
-  - pluginName : true : load internal plugin with given name ie. `pluginName` 即使loadInternalplugins设置为false
-  - pluginName : 外部插件注入函数: 加载外部插件, overrides internal plugin with given name ie. `pluginName`
-- physicsEnabled : 默认为true, 机器人应该受到物理的影响吗？ 以后可以通过 bot.physicsEnabled 修改
-- [chat](#bot.settings.chat)
-- [colorsEnabled](#bot.settings.colorsEnabled)
-- [viewDistance](#bot.settings.viewDistance)
-- [difficulty](#bot.settings.difficulty)
-- [skinParts](#bot.settings.skinParts)
-- chatLengthLimit : 单个消息中可以发送的最大字符数. 如果没有设置， 那么游戏版本在 < 1.11 为100 在 >= 1.11 为256
-- defaultChatPatterns: 默认为true, 设置为false不添加聊天和私信等模式
+-   username : 用户名，默认为 'Player'
+-   port : 端口，默认为 25565
+-   password : 可以省略 (如果token也被省略，那么它将尝试以离线模式连接)
+-   host : 默认为 localhost
+-   version : 默认为自动猜测服务器的版本。值示例：“1.12.2”
+-   auth : 默认为“mojang”，也可以是“microsoft”
+-   clientToken : 如果给定密码，则生成
+-   accessToken : 如果给定密码，则生成
+-   logErrors : 默认情况下为true，捕获错误并记录它们
+-   hideErrors : 默认情况下为true，不记录错误（即使logErrors为true）
+-   keepAlive : 发送保持活动的数据包：默认为true
+-   checkTimeoutInterval : 默认 `30*1000` (30s), 检查是否在此期间收到keepalive，否则断开连接。
+-   loadInternalPlugins : 默认为true
+-   storageBuilder : 可选功能,将version和worldName作为参数，并返回与prismarine-provider-anvil具有相同API的某个对象的实例 ，将被用来保存世界
+-   client : node-minecraft-protocol 实例, 如果未指定，mineflayer将创建自己的客户端.这可用于通过许多客户端的代理或普通客户端和mineflayer客户端来启用mineflayer
+-   plugins : object : 默认为{}
+    -   pluginName : false : don't load internal plugin with given name ie. `pluginName`
+    -   pluginName : true : load internal plugin with given name ie. `pluginName` 即使loadInternalplugins设置为false
+    -   pluginName : 外部插件注入函数: 加载外部插件, overrides internal plugin with given name ie. `pluginName`
+-   physicsEnabled : 默认为true, 机器人应该受到物理的影响吗？ 以后可以通过 bot.physicsEnabled 修改
+-   [chat](#bot.settings.chat)
+-   [colorsEnabled](#bot.settings.colorsEnabled)
+-   [viewDistance](#bot.settings.viewDistance)
+-   [difficulty](#bot.settings.difficulty)
+-   [skinParts](#bot.settings.skinParts)
+-   chatLengthLimit : 单个消息中可以发送的最大字符数. 如果没有设置， 那么游戏版本在 < 1.11 为100 在 >= 1.11 为256
+-   defaultChatPatterns: 默认为true, 设置为false不添加聊天和私信等模式
 
 ### Properties
 
@@ -881,17 +881,17 @@ For thunderstorms, both `bot.rainState` and `bot.thunderState` will change.
 This is an array of pattern objects, of the following format:
 { /regex/, "chattype", "description")
 
-- /regex/ - a regular expression pattern, that should have at least two capture groups
-- 'chattype' - the type of chat the pattern matches, ex "chat" or "whisper", but can be anything.
-- 'description' - description of what the pattern is for, optional.
+-   /regex/ - a regular expression pattern, that should have at least two capture groups
+-   'chattype' - the type of chat the pattern matches, ex "chat" or "whisper", but can be anything.
+-   'description' - description of what the pattern is for, optional.
 
 #### bot.settings.chat
 
 选项:
 
-- `enabled` (默认)
-- `commandsOnly`
-- `disabled`
+-   `enabled` (默认)
+-   `commandsOnly`
+-   `disabled`
 
 #### bot.settings.colorsEnabled
 
@@ -901,10 +901,10 @@ This is an array of pattern objects, of the following format:
 
 选项:
 
-- `far` (默认)
-- `normal`
-- `short`
-- `tiny`
+-   `far` (默认)
+-   `normal`
+-   `short`
+-   `tiny`
 
 #### bot.settings.difficulty
 
@@ -1051,10 +1051,10 @@ All scoreboards known to the bot in an object scoreboard name -> scoreboard.
 
 All scoreboards known to the bot in an object scoreboard displaySlot -> scoreboard.
 
-- `belowName` - scoreboard placed in belowName
-- `sidebar` - scoreboard placed in sidebar
-- `list` - scoreboard placed in list
-- `0-18` - slots defined in [protocol](https://wiki.vg/Protocol#Display_Scoreboard)
+-   `belowName` - scoreboard placed in belowName
+-   `sidebar` - scoreboard placed in sidebar
+-   `list` - scoreboard placed in list
+-   `0-18` - slots defined in [protocol](https://wiki.vg/Protocol#Display_Scoreboard)
 
 #### bot.teams
 
@@ -1076,38 +1076,38 @@ Setting values for this object internally calls [bot.setControlState](#botsetcon
 
 仅在玩家公开聊天时触发
 
-- `username` - who said the message (compare with `bot.username` to ignore your own chat)
-- `message` - stripped of all color and control characters
-- `translate` - chat message type. Null for most bukkit chat messages
-- `jsonMsg` - unmodified JSON message from the server
-- `matches` - array of returned matches from regular expressions. May be null
+-   `username` - who said the message (compare with `bot.username` to ignore your own chat)
+-   `message` - stripped of all color and control characters
+-   `translate` - chat message type. Null for most bukkit chat messages
+-   `jsonMsg` - unmodified JSON message from the server
+-   `matches` - array of returned matches from regular expressions. May be null
 
 #### "whisper" (username, message, translate, jsonMsg, matches)
 
 仅当玩家私下与您聊天时触发
 
-- `username` - 谁发的消息
-- `message` - 去除所有颜色和控制字符
-- `translate` - 聊天信息类型. 大多数bukkit聊天信息为空
-- `jsonMsg` - 来自服务器的未修改的JSON消息
-- `matches` - 返回从正则表达式的匹配项数组。可能为空
+-   `username` - 谁发的消息
+-   `message` - 去除所有颜色和控制字符
+-   `translate` - 聊天信息类型. 大多数bukkit聊天信息为空
+-   `jsonMsg` - 来自服务器的未修改的JSON消息
+-   `matches` - 返回从正则表达式的匹配项数组。可能为空
 
 #### "actionBar" (jsonMsg)
 
 Emitted for every server message which appears on the Action Bar.
 
-- `jsonMsg` - 来自服务器的未修改的JSON消息
+-   `jsonMsg` - 来自服务器的未修改的JSON消息
 
 #### "message" (jsonMsg, position)
 
 Emitted for every server message, including chats.
 
-- `jsonMsg` - unmodified JSON message from the server
+-   `jsonMsg` - unmodified JSON message from the server
 
-- `position` - (>= 1.8.1): 聊天信息的position可以是
-  - chat
-  - system
-  - game_info
+-   `position` - (>= 1.8.1): 聊天信息的position可以是
+    -   chat
+    -   system
+    -   game_info
 
 #### "messagestr" (message, messagePosition, jsonMsg)
 
@@ -1145,7 +1145,7 @@ Emitted for every server message, including chats.
 
 当服务器发送标题时触发
 
-- `text` - 标题文本
+-   `text` - 标题文本
 
 #### "rain"
 
@@ -1247,8 +1247,8 @@ If you join a server where it is already raining, this event will fire.
 
 某实体拾取一个物品
 
-- `collector` - 拾取物品的实体
-- `collected` - 地面上的物品所在的实体
+-   `collector` - 拾取物品的实体
+-   `collected` - 地面上的物品所在的实体
 
 #### "entityGone" (entity)
 
@@ -1262,8 +1262,8 @@ If you join a server where it is already raining, this event will fire.
 
 实体乘骑在交通工具上, 例如矿车和船
 
-- `entity` - 搭便车的实体
-- `vehicle` - 作为车辆的实体
+-   `entity` - 搭便车的实体
+-   `vehicle` - 作为车辆的实体
 
 #### "entityUpdate" (entity)
 
@@ -1314,69 +1314,69 @@ comparison.
 
 当客户端听到指定的音效时触发
 
-- `soundName`: 音效名称
-- `position`: Vec3 实例，声音从哪里发出（译者注：vec3即 x,y,z坐标
-- `volume`: 浮点数音量, 1.0 为100%
-- `pitch`: 整数音高，63为100%
+-   `soundName`: 音效名称
+-   `position`: Vec3 实例，声音从哪里发出（译者注：vec3即 x,y,z坐标
+-   `volume`: 浮点数音量, 1.0 为100%
+-   `pitch`: 整数音高，63为100%
 
 #### "hardcodedSoundEffectHeard" (soundId, soundCategory, position, volume, pitch)
 
 Fires when the client hears a hardcoded sound effect.
 
-- `soundId`: id of the sound effect
-- `soundCategory`: category of the sound effect
-- `position`: a Vec3 instance where the sound originates
-- `volume`: floating point volume, 1.0 is 100%
-- `pitch`: integer pitch, 63 is 100%
+-   `soundId`: id of the sound effect
+-   `soundCategory`: category of the sound effect
+-   `position`: a Vec3 instance where the sound originates
+-   `volume`: floating point volume, 1.0 is 100%
+-   `pitch`: integer pitch, 63 is 100%
 
 #### "noteHeard" (block, instrument, pitch)
 
 当一个音符块在某处响起时触发
 
-- `block`: a Block instance, the block that emitted the noise
-- `instrument`:
-  - `id`: integer id
-  - `name`: one of [`harp`, `doubleBass`, `snareDrum`, `sticks`, `bassDrum`].
-- `pitch`: The pitch of the note (between 0-24 inclusive where 0 is the
-  lowest and 24 is the highest). More information about how the pitch values
-  correspond to notes in real life are available on the
-  [official Minecraft wiki](http://minecraft.wiki/w/Note_Block).
+-   `block`: a Block instance, the block that emitted the noise
+-   `instrument`:
+    -   `id`: integer id
+    -   `name`: one of [`harp`, `doubleBass`, `snareDrum`, `sticks`, `bassDrum`].
+-   `pitch`: The pitch of the note (between 0-24 inclusive where 0 is the
+    lowest and 24 is the highest). More information about how the pitch values
+    correspond to notes in real life are available on the
+    [official Minecraft wiki](http://minecraft.wiki/w/Note_Block).
 
 #### "pistonMove" (block, isPulling, direction)
 
 #### "chestLidMove" (block, isOpen, block2)
 
-- `block`: a Block instance, the block whose lid opened. The right block if it's a double chest
-- `isOpen`: number of players that have the chest open. 0 if it's closed
-- `block2`: a Block instance, the other half of the block whose lid opened. null if it's not a double chest
+-   `block`: a Block instance, the block whose lid opened. The right block if it's a double chest
+-   `isOpen`: number of players that have the chest open. 0 if it's closed
+-   `block2`: a Block instance, the other half of the block whose lid opened. null if it's not a double chest
 
 #### "blockBreakProgressObserved" (block, destroyStage)
 
 Fires when the client observes a block in the process of being broken.
 
-- `block`: a Block instance, the block being broken
-- `destroyStage`: integer corresponding to the destroy progress (0-9)
+-   `block`: a Block instance, the block being broken
+-   `destroyStage`: integer corresponding to the destroy progress (0-9)
 
 #### "blockBreakProgressEnd" (block)
 
 Fires when the client observes a block stops being broken.
 This occurs whether the process was completed or aborted.
 
-- `block`: a Block instance, the block no longer being broken
+-   `block`: a Block instance, the block no longer being broken
 
 #### "diggingCompleted" (block)
 
-- `block` - 方块不再存在
+-   `block` - 方块不再存在
 
 #### "diggingAborted" (block)
 
-- `block` - 方块仍然存在
+-   `block` - 方块仍然存在
 
 #### "usedFirework" (fireworkEntityId)
 
 在机器人在鞘翅飞行时使用烟花火箭时触发
 
-- `fireworkEntityId` - 烟花火箭的实体编号
+-   `fireworkEntityId` - 烟花火箭的实体编号
 
 #### "move"
 
@@ -1508,21 +1508,21 @@ Deprecated, use `blockAtCursor` instead.
 
 Returns the block at which bot is looking at or `null`
 
-- `maxSteps` - Number of steps to raytrace, defaults to 256.
-- `vectorLength` - Length of raytracing vector, defaults to `5/16`.
+-   `maxSteps` - Number of steps to raytrace, defaults to 256.
+-   `vectorLength` - Length of raytracing vector, defaults to `5/16`.
 
 #### bot.blockAtCursor(maxDistance=256)
 
 Returns the block at which bot is looking at or `null`
 
-- `maxDistance` - The maximum distance the block can be from the eye, defaults to 256.
+-   `maxDistance` - The maximum distance the block can be from the eye, defaults to 256.
 
 #### bot.blockAtEntityCursor(entity=bot.entity, maxDistance=256)
 
 Returns the block at which specific entity is looking at or `null`
 
-- `entity` - Entity data as `Object`
-- `maxDistance` - The maximum distance the block can be from the eye, defaults to 256.
+-   `entity` - Entity data as `Object`
+-   `maxDistance` - The maximum distance the block can be from the eye, defaults to 256.
 
 #### bot.canSeeBlock(block)
 
@@ -1532,14 +1532,14 @@ Returns true or false depending on whether the bot can see the specified `block`
 
 Finds the closest blocks from the given point.
 
-- `options` - Options for the search:
-  - `point` - The start position of the search (center). Default is the bot position.
-  - `matching` - A function that returns true if the given block is a match. Also supports this value being a block id or array of block ids.
-  - `useExtraInfo` - To preserve backward compatibility can result in two behavior depending on the type
-    - **boolean** - Provide your `matching` function more data - noticeably slower aproach
-    - **function** - Creates two stage maching, if block passes `matching` function it is passed further to `useExtraInfo` with additional info
-  - `maxDistance` - The furthest distance for the search, defaults to 16.
-  - `count` - Number of blocks to find before returning the search. Default to 1. Can return less if not enough blocks are found exploring the whole area.
+-   `options` - Options for the search:
+    -   `point` - The start position of the search (center). Default is the bot position.
+    -   `matching` - A function that returns true if the given block is a match. Also supports this value being a block id or array of block ids.
+    -   `useExtraInfo` - To preserve backward compatibility can result in two behavior depending on the type
+        -   **boolean** - Provide your `matching` function more data - noticeably slower aproach
+        -   **function** - Creates two stage maching, if block passes `matching` function it is passed further to `useExtraInfo` with additional info
+    -   `maxDistance` - The furthest distance for the search, defaults to 16.
+    -   `count` - Number of blocks to find before returning the search. Default to 1. Can return less if not enough blocks are found exploring the whole area.
 
 Returns an array (possibly empty) with the found block coordinates (not the blocks). The array is sorted (closest first)
 
@@ -1556,14 +1556,14 @@ Returns whether `block` is diggable and within range.
 Returns a list of `Recipe` instances that you could use to craft `itemType`
 with `metadata`.
 
-- `itemType` - numerical item id of the thing you want to craft
-- `metadata` - the numerical metadata value of the item you want to craft
-  `null` matches any metadata.
-- `minResultCount` - based on your current inventory, any recipe from the
-  returned list will be able to produce this many items. `null` is an
-  alias for `1`.
-- `craftingTable` - a `Block` instance. If `null`, only recipes that can
-  be performed in your inventory window will be included in the list.
+-   `itemType` - numerical item id of the thing you want to craft
+-   `metadata` - the numerical metadata value of the item you want to craft
+    `null` matches any metadata.
+-   `minResultCount` - based on your current inventory, any recipe from the
+    returned list will be able to produce this many items. `null` is an
+    alias for `1`.
+-   `craftingTable` - a `Block` instance. If `null`, only recipes that can
+    be performed in your inventory window will be included in the list.
 
 #### bot.recipesAll(itemType, metadata, craftingTable)
 
@@ -1585,7 +1585,7 @@ const cow = bot.nearestEntity((entity) => entity.name.toLowerCase() === "cow") /
 
 End the connection with the server.
 
-- `reason` - Optional string that states the reason of the end.
+-   `reason` - Optional string that states the reason of the end.
 
 #### bot.quit(reason)
 
@@ -1597,11 +1597,11 @@ This function also returns a `Promise`, with `matches` as its argument upon comp
 
 Requests chat completion from the server.
 
-- `str` - String to complete.
-- `callback(matches)`
-  - `matches` - Array of matching strings.
-- `assumeCommand` - Field sent to server, defaults to false.
-- `sendBlockInSight` - Field sent to server, defaults to true. Set this option to false if you want more performance.
+-   `str` - String to complete.
+-   `callback(matches)`
+    -   `matches` - Array of matching strings.
+-   `assumeCommand` - Field sent to server, defaults to false.
+-   `sendBlockInSight` - Field sent to server, defaults to true. Set this option to false if you want more performance.
 
 #### bot.chat(message)
 
@@ -1617,9 +1617,9 @@ Deprecated, use `addChatPattern` instead.
 
 Adds a regex pattern to the bot's chat matching. Useful for bukkit servers where the chat format changes a lot.
 
-- `pattern` - regular expression to match chat
-- `chatType` - the event the bot emits when the pattern matches. Eg: "chat" or "whisper"
-- 'description ' - Optional, describes what the pattern is for
+-   `pattern` - regular expression to match chat
+-   `chatType` - the event the bot emits when the pattern matches. Eg: "chat" or "whisper"
+-   'description ' - Optional, describes what the pattern is for
 
 #### bot.addChatPattern(name, pattern, chatPatternOptions)
 
@@ -1628,12 +1628,12 @@ Adds a regex pattern to the bot's chat matching. Useful for bukkit servers where
 make an event that is called every time the pattern is matched to a message,
 the event will be called `"chat:name"`, with name being the name passed
 
-- `name` - the name used to listen for the event
-- `pattern` - regular expression to match to messages recieved
-- `chatPatternOptions` - object
-  - `repeat` - defaults to true, whether to listen for this event after the first match
-  - `parse` - instead of returning the actual message that was matched, return the capture groups from the regex
-  - `deprecated` - (**unstable**) used by bot.chatAddPattern to keep compatability, likely to be removed
+-   `name` - the name used to listen for the event
+-   `pattern` - regular expression to match to messages recieved
+-   `chatPatternOptions` - object
+    -   `repeat` - defaults to true, whether to listen for this event after the first match
+    -   `parse` - instead of returning the actual message that was matched, return the capture groups from the regex
+    -   `deprecated` - (**unstable**) used by bot.chatAddPattern to keep compatability, likely to be removed
 
 returns a number which can be used with bot.removeChatPattern() to only delete this pattern
 
@@ -1642,11 +1642,11 @@ returns a number which can be used with bot.removeChatPattern() to only delete t
 make an event that is called every time all patterns havee been matched to messages,
 the event will be called `"chat:name"`, with name being the name passed
 
-- `name` - the name used to listen for the event
-- `patterns` - array of regular expression to match to messages recieved
-- `chatPatternOptions` - object
-  - `repeat` - defaults to true, whether to listen for this event after the first match
-  - `parse` - instead of returning the actual message that was matched, return the capture groups from the regex
+-   `name` - the name used to listen for the event
+-   `patterns` - array of regular expression to match to messages recieved
+-   `chatPatternOptions` - object
+    -   `repeat` - defaults to true, whether to listen for this event after the first match
+    -   `parse` - instead of returning the actual message that was matched, return the capture groups from the regex
 
 returns a number which can be used with bot.removeChatPattern() to only delete this patternset
 
@@ -1654,7 +1654,7 @@ returns a number which can be used with bot.removeChatPattern() to only delete t
 
 removes a chat pattern(s)
 
-- `name` : string or number
+-   `name` : string or number
 
 if name is a string, all patterns that have that name will be removed
 else if name is a number, only that exact pattern will be removed
@@ -1667,11 +1667,11 @@ Example:
 
 ```js
 async function wait() {
-	await bot.awaitMessage("<flatbot> hello world") // resolves on "hello world" in chat by flatbot
-	await bot.awaitMessage(["<flatbot> hello", "<flatbot> world"]) // resolves on "hello" or "world" in chat by flatbot
-	await bot.awaitMessage(["<flatbot> hello", "<flatbot> world"], ["<flatbot> im", "<flatbot> batman"]) // resolves on "hello" or "world" or "im" or "batman" in chat by flatbot
-	await bot.awaitMessage("<flatbot> hello", "<flatbot> world") // resolves on "hello" or "world" in chat by flatbot
-	await bot.awaitMessage(/<flatbot> (.+)/) // resolves on first message matching the regex
+    await bot.awaitMessage("<flatbot> hello world") // resolves on "hello world" in chat by flatbot
+    await bot.awaitMessage(["<flatbot> hello", "<flatbot> world"]) // resolves on "hello" or "world" in chat by flatbot
+    await bot.awaitMessage(["<flatbot> hello", "<flatbot> world"], ["<flatbot> im", "<flatbot> batman"]) // resolves on "hello" or "world" or "im" or "batman" in chat by flatbot
+    await bot.awaitMessage("<flatbot> hello", "<flatbot> world") // resolves on "hello" or "world" in chat by flatbot
+    await bot.awaitMessage(/<flatbot> (.+)/) // resolves on first message matching the regex
 }
 ```
 
@@ -1683,22 +1683,22 @@ See the `bot.settings` property.
 
 Injects a Plugin. Does nothing if the plugin is already loaded.
 
-- `plugin` - function
+-   `plugin` - function
 
 ```js
 function somePlugin(bot, options) {
-	function someFunction() {
-		bot.chat("Yay!")
-	}
+    function someFunction() {
+        bot.chat("Yay!")
+    }
 
-	bot.myPlugin = {} // Good practice to namespace plugin API
-	bot.myPlugin.someFunction = someFunction
+    bot.myPlugin = {} // Good practice to namespace plugin API
+    bot.myPlugin.someFunction = someFunction
 }
 
 const bot = mineflayer.createBot({})
 bot.loadPlugin(somePlugin)
 bot.once("login", function () {
-	bot.myPlugin.someFunction() // Yay!
+    bot.myPlugin.someFunction() // Yay!
 })
 ```
 
@@ -1706,7 +1706,7 @@ bot.once("login", function () {
 
 Injects plugins see `bot.loadPlugin`.
 
-- `plugins` - array of functions
+-   `plugins` - array of functions
 
 #### bot.hasPlugin(plugin)
 
@@ -1734,14 +1734,14 @@ This is the main method controlling the bot movements. It works similarly to pre
 For example forward with state true will make the bot move forward. Forward with state false will make the bot stop moving forward.
 You may use bot.lookAt in conjunction with this to control movement. The jumper.js example shows how to use this.
 
-- `control` - one of ['forward', 'back', 'left', 'right', 'jump', 'sprint', 'sneak']
-- `state` - `true` or `false`
+-   `control` - one of ['forward', 'back', 'left', 'right', 'jump', 'sprint', 'sneak']
+-   `state` - `true` or `false`
 
 #### bot.getControlState(control)
 
 Returns true if a control state is toggled.
 
-- `control` - one of ['forward', 'back', 'left', 'right', 'jump', 'sprint', 'sneak']
+-   `control` - one of ['forward', 'back', 'left', 'right', 'jump', 'sprint', 'sneak']
 
 #### bot.clearControlStates()
 
@@ -1752,18 +1752,18 @@ Sets all controls to off.
 Returns how much damage will be done to the entity in a radius around the position of the explosion.
 It will return `null` if the entity has no armor and rawDamages is not set to true, since the function can't calculate the damage with armor if there is no armor.
 
-- `entity` - Entity instance
-- `position` - [Vec3](https://github.com/andrewrk/node-vec3) instance
-- `radius` - the explosion radius as a number
-- `rawDamages` - optional, if true it ignores armor in the calculation
+-   `entity` - Entity instance
+-   `position` - [Vec3](https://github.com/andrewrk/node-vec3) instance
+-   `radius` - the explosion radius as a number
+-   `rawDamages` - optional, if true it ignores armor in the calculation
 
 #### bot.lookAt(point, [force], [callback])
 
 This function also returns a `Promise`, with `void` as its argument upon completion.
 
-- `point` [Vec3](https://github.com/andrewrk/node-vec3) instance - tilts your head so that it is directly facing this point.
-- `force` - See `force` in `bot.look`
-- `callback()` optional, called when you are looking at `point`
+-   `point` [Vec3](https://github.com/andrewrk/node-vec3) instance - tilts your head so that it is directly facing this point.
+-   `force` - See `force` in `bot.look`
+-   `callback()` optional, called when you are looking at `point`
 
 #### bot.look(yaw, pitch, [force], [callback])
 
@@ -1771,15 +1771,15 @@ This function also returns a `Promise`, with `void` as its argument upon complet
 
 Set the direction your head is facing.
 
-- `yaw` - The number of radians to rotate around the vertical axis, starting
-  from due east. Counter clockwise.
-- `pitch` - Number of radians to point up or down. 0 means straight forward.
-  pi / 2 means straight up. -pi / 2 means straight down.
-- `force` - If present and true, skips the smooth server-side transition.
-  Specify this to true if you need the server to know exactly where you
-  are looking, such as for dropping items or shooting arrows. This is not
-  needed for client-side calculation such as walking direction.
-- `callback()` optional, called when you are looking at `yaw` and `pitch`
+-   `yaw` - The number of radians to rotate around the vertical axis, starting
+    from due east. Counter clockwise.
+-   `pitch` - Number of radians to point up or down. 0 means straight forward.
+    pi / 2 means straight up. -pi / 2 means straight down.
+-   `force` - If present and true, skips the smooth server-side transition.
+    Specify this to true if you need the server to know exactly where you
+    are looking, such as for dropping items or shooting arrows. This is not
+    needed for client-side calculation such as walking direction.
+-   `callback()` optional, called when you are looking at `yaw` and `pitch`
 
 #### bot.updateSign(block, text)
 
@@ -1791,16 +1791,16 @@ This function also returns a `Promise`, with `void` as its argument upon complet
 
 Equips an item from your inventory. If the argument `item` is of Instance `Item` equip will equip this specific item from its window slot. If the argument `item` is of type `number` equip will equip the first item found with that id searched by rising slot id (Hotbar is searched last. Armor, crafting, crafting result and off-hand slots are excluded).
 
-- `item` - `Item` instance or `number` for item id. See `window.items()`.
-- `destination`
-  - `"hand"` - `null` aliases to this
-  - `"head"`
-  - `"torso"`
-  - `"legs"`
-  - `"feet"`
-  - `"off-hand"` - when available
-- `callback(error)` - optional. called when you have successfully equipped
-  the item or when you learn that you have failed to equip the item.
+-   `item` - `Item` instance or `number` for item id. See `window.items()`.
+-   `destination`
+    -   `"hand"` - `null` aliases to this
+    -   `"head"`
+    -   `"torso"`
+    -   `"legs"`
+    -   `"feet"`
+    -   `"off-hand"` - when available
+-   `callback(error)` - optional. called when you have successfully equipped
+    the item or when you learn that you have failed to equip the item.
 
 #### bot.unequip(destination, [callback])
 
@@ -1812,19 +1812,19 @@ Remove an article of equipment.
 
 This function also returns a `Promise`, with `void` as its argument upon completion.
 
-- `item` - the stack of items you wish to toss
-- `callback(error)` - optional, called when tossing is done. if error is
-  truthy, you were not able to complete the toss.
+-   `item` - the stack of items you wish to toss
+-   `callback(error)` - optional, called when tossing is done. if error is
+    truthy, you were not able to complete the toss.
 
 #### bot.toss(itemType, metadata, count, [callback])
 
 This function also returns a `Promise`, with `void` as its argument upon completion.
 
-- `itemType` - numerical id of the item you wish to toss
-- `metadata` - metadata of the item you wish to toss. Use `null`
-  to match any metadata
-- `count` - how many you want to toss. `null` is an alias for `1`.
-- `callback(err)` - (optional) called once tossing is complete
+-   `itemType` - numerical id of the item you wish to toss
+-   `metadata` - metadata of the item you wish to toss. Use `null`
+    to match any metadata
+-   `count` - how many you want to toss. `null` is an alias for `1`.
+-   `callback(err)` - (optional) called once tossing is complete
 
 #### bot.dig(block, [forceLook = true], [digFace], [callback])
 
@@ -1837,12 +1837,12 @@ Note that once you begin digging into a block, you may not
 dig any other blocks until the block has been broken, or you call
 `bot.stopDigging()`.
 
-- `block` - the block to start digging into
-- `forceLook` - (optional) if true, look at the block and start mining instantly. If false, the bot will slowly turn to the block to mine. Additionally, this can be assigned to 'ignore' to prevent the bot from moving it's head at all. Also, this can be assigned to 'raycast' to raycast from the bots head to place where the bot is looking.
-- `digFace` - (optional) Default is 'auto' looks at the center of the block and mines the top face. Can also be a vec3 vector
-  of the face the bot should be looking at when digging the block. For example: `vec3(0, 1, 0)` when mining the top. Can also be 'raycast' raycast checks if there is a face visible by the bot and mines that face. Useful for servers with anti cheat.
-- `callback(err)` - (optional) called when the block is broken or you
-  are interrupted.
+-   `block` - the block to start digging into
+-   `forceLook` - (optional) if true, look at the block and start mining instantly. If false, the bot will slowly turn to the block to mine. Additionally, this can be assigned to 'ignore' to prevent the bot from moving it's head at all. Also, this can be assigned to 'raycast' to raycast from the bots head to place where the bot is looking.
+-   `digFace` - (optional) Default is 'auto' looks at the center of the block and mines the top face. Can also be a vec3 vector
+    of the face the bot should be looking at when digging the block. For example: `vec3(0, 1, 0)` when mining the top. Can also be 'raycast' raycast checks if there is a face visible by the bot and mines that face. Useful for servers with anti cheat.
+-   `callback(err)` - (optional) called when the block is broken or you
+    are interrupted.
 
 If you call bot.dig twice before the first dig is finished, you will get a fatal 'diggingAborted' error.
 
@@ -1864,10 +1864,10 @@ Denies resource pack.
 
 This function also returns a `Promise`, with `void` as its argument upon completion.
 
-- `referenceBlock` - the block you want to place a new block next to
-- `faceVector` - one of the six cardinal directions, such as `new Vec3(0, 1, 0)` for the top face,
-  indicating which face of the `referenceBlock` to place the block against.
-- `cb` will be called when the server confirms that the block has indeed been placed
+-   `referenceBlock` - the block you want to place a new block next to
+-   `faceVector` - one of the six cardinal directions, such as `new Vec3(0, 1, 0)` for the top face,
+    indicating which face of the `referenceBlock` to place the block against.
+-   `cb` will be called when the server confirms that the block has indeed been placed
 
 The new block will be placed at `referenceBlock.position.plus(faceVector)`.
 
@@ -1875,9 +1875,9 @@ The new block will be placed at `referenceBlock.position.plus(faceVector)`.
 
 This function also returns a `Promise`, with `Entity` as its argument upon completion.
 
-- `referenceBlock` - the block you want to place the entity next to
-- `faceVector` - one of the six cardinal directions, such as `new Vec3(0, 1, 0)` for the top face,
-  indicating which face of the `referenceBlock` to place the block against.
+-   `referenceBlock` - the block you want to place the entity next to
+-   `faceVector` - one of the six cardinal directions, such as `new Vec3(0, 1, 0)` for the top face,
+    indicating which face of the `referenceBlock` to place the block against.
 
 The new block will be placed at `referenceBlock.position.plus(faceVector)`.
 
@@ -1887,8 +1887,8 @@ This function also returns a `Promise`, with `void` as its argument upon complet
 
 Punch a note block, open a door, etc.
 
-- `block` - the block to activate
-- `callback(err)` - (optional) called when the block has been activated
+-   `block` - the block to activate
+-   `callback(err)` - (optional) called when the block has been activated
 
 #### bot.activateEntity(entity, [callback])
 
@@ -1896,8 +1896,8 @@ This function also returns a `Promise`, with `void` as its argument upon complet
 
 Activate an entity, useful for villager for example.
 
-- `entity` - the entity to activate
-- `callback(err)` - (optional) called when the entity has been activated
+-   `entity` - the entity to activate
+-   `callback(err)` - (optional) called when the entity has been activated
 
 #### bot.activateEntityAt(entity, position, [callback])
 
@@ -1905,9 +1905,9 @@ This function also returns a `Promise`, with `void` as its argument upon complet
 
 Activate an entity at the given position, useful for armor stands.
 
-- `entity` - the entity to activate
-- `position` - the world position to click at
-- `callback(err)` - (optional) called when the entity has been activated
+-   `entity` - the entity to activate
+-   `position` - the world position to click at
+-   `callback(err)` - (optional) called when the entity has been activated
 
 #### bot.consume(callback)
 
@@ -1915,7 +1915,7 @@ This function also returns a `Promise`, with `void` as its argument upon complet
 
 Eat / drink currently held item
 
-- `callback(error)` - called when consume ends
+-   `callback(error)` - called when consume ends
 
 #### bot.fish(callback)
 
@@ -1923,7 +1923,7 @@ This function also returns a `Promise`, with `void` as its argument upon complet
 
 Use fishing rod
 
-- `callback(error)` - called when fishing ends
+-   `callback(error)` - called when fishing ends
 
 #### bot.activateItem(offHand=false)
 
@@ -1943,15 +1943,15 @@ use shears.
 
 Attack a player or a mob.
 
-- `entity` is a type of entity. To get a specific entity use [bot.nearestEntity()](#botnearestentitymatch--entity---return-true-) or [bot.entities](#botentities).
-- `swing` Default `true`. If false the bot does not swing is arm when attacking.
+-   `entity` is a type of entity. To get a specific entity use [bot.nearestEntity()](#botnearestentitymatch--entity---return-true-) or [bot.entities](#botentities).
+-   `swing` Default `true`. If false the bot does not swing is arm when attacking.
 
 #### bot.swingArm([hand], showHand)
 
 Play an arm swing animation.
 
-- `hand` can take `left` or `right` which is arm that is animated. Default: `right`
-- `showHand` is a boolean whether to add the hand to the packet, Default: `true`
+-   `hand` can take `left` or `right` which is arm that is animated. Default: `right`
+-   `showHand` is a boolean whether to add the hand to the packet, Default: `true`
 
 #### bot.mount(entity)
 
@@ -1965,36 +1965,36 @@ Dismounts from the vehicle you are in.
 
 Moves the vehicle :
 
-- left can take -1 or 1 : -1 means right, 1 means left
-- forward can take -1 or 1 : -1 means backward, 1 means forward
+-   left can take -1 or 1 : -1 means right, 1 means left
+-   forward can take -1 or 1 : -1 means backward, 1 means forward
 
 All the direction are relative to where the bot is looking at
 
 #### bot.setQuickBarSlot(slot)
 
-- `slot` - 0-8 the quick bar slot to select.
+-   `slot` - 0-8 the quick bar slot to select.
 
 #### bot.craft(recipe, count, craftingTable, [callback])
 
 This function also returns a `Promise`, with `void` as its argument upon completion.
 
-- `recipe` - A `Recipe` instance. See `bot.recipesFor`.
-- `count` - How many times you wish to perform the operation.
-  If you want to craft planks into `8` sticks, you would set
-  `count` to `2`. `null` is an alias for `1`.
-- `craftingTable` - A `Block` instance, the crafting table you wish to
-  use. If the recipe does not require a crafting table, you may use
-  `null` for this argument.
-- `callback` - (optional) Called when the crafting is complete and your
-  inventory is updated.
+-   `recipe` - A `Recipe` instance. See `bot.recipesFor`.
+-   `count` - How many times you wish to perform the operation.
+    If you want to craft planks into `8` sticks, you would set
+    `count` to `2`. `null` is an alias for `1`.
+-   `craftingTable` - A `Block` instance, the crafting table you wish to
+    use. If the recipe does not require a crafting table, you may use
+    `null` for this argument.
+-   `callback` - (optional) Called when the crafting is complete and your
+    inventory is updated.
 
 #### bot.writeBook(slot, pages, [callback])
 
 This function also returns a `Promise`, with `void` as its argument upon completion.
 
-- `slot` is in inventory window coordinates (where 36 is the first quickbar slot, etc.).
-- `pages` is an array of strings represents the pages.
-- `callback(error)` - optional. called when the writing was successfully or an error occurred.
+-   `slot` is in inventory window coordinates (where 36 is the first quickbar slot, etc.).
+-   `pages` is an array of strings represents the pages.
+-   `callback(error)` - optional. called when the writing was successfully or an error occurred.
 
 #### bot.openContainer(containerBlock or containerEntity)
 
@@ -2091,25 +2091,25 @@ This function also returns a `Promise`, with `void` as its argument upon complet
 
 Transfer some kind of item from one range to an other. `options` is an object containing :
 
-- `window` : the window where the item will be moved
-- `itemType` : the type of the moved items
-- `metadata` : the metadata of the moved items
-- `sourceStart` and `sourceEnd` : the source range
-- `destStart` and `destEnd` : the dest Range
-- `count` : the amount of items to transfer. Default: `1`
-- `nbt` : nbt data of the item to transfer. Default: `nullish` (ignores nbt)
+-   `window` : the window where the item will be moved
+-   `itemType` : the type of the moved items
+-   `metadata` : the metadata of the moved items
+-   `sourceStart` and `sourceEnd` : the source range
+-   `destStart` and `destEnd` : the dest Range
+-   `count` : the amount of items to transfer. Default: `1`
+-   `nbt` : nbt data of the item to transfer. Default: `nullish` (ignores nbt)
 
 #### bot.openBlock(block)
 
 Open a block, for example a chest, returns a promise on the opening `Window`.
 
-- `block` is the block the bot will open
+-   `block` is the block the bot will open
 
 #### bot.openEntity(entity)
 
 Open an entity with an inventory, for example a villager, returns a promise on the opening `Window`.
 
-- `entity` is the entity the bot will open
+-   `entity` is the entity the bot will open
 
 #### bot.moveSlotItem(sourceSlot, destSlot, cb)
 
@@ -2127,12 +2127,12 @@ Gets the inventory equipment slot id for the given equipment destination name.
 
 Available destinations are:
 
-- head
-- torso
-- legs
-- feet
-- hand
-- off-hand
+-   head
+-   torso
+-   legs
+-   feet
+-   hand
+-   off-hand
 
 ### bot.creative
 
@@ -2147,10 +2147,10 @@ This function also returns a `Promise`, with `void` as its argument upon complet
 Gives the bot the specified item in the specified inventory slot.
 If called twice on the same slot before first callback exceeds, first callback will have an error parameter
 
-- `slot` is in inventory window coordinates (where 36 is the first quickbar slot, etc.).
-- `item` is a [prismarine-item](https://github.com/PrismarineJS/prismarine-item) instance specified with arbitrary metadata, nbtdata, etc.
-  If `item` is `null`, the item at the specified slot is deleted.
-- `callback(err)` (optional) is a callback which gets fired when the servers sets the slot
+-   `slot` is in inventory window coordinates (where 36 is the first quickbar slot, etc.).
+-   `item` is a [prismarine-item](https://github.com/PrismarineJS/prismarine-item) instance specified with arbitrary metadata, nbtdata, etc.
+    If `item` is `null`, the item at the specified slot is deleted.
+-   `callback(err)` (optional) is a callback which gets fired when the servers sets the slot
 
 If this method changes anything, you can be notified via `bot.inventory.on("updateSlot")`.
 

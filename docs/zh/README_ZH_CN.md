@@ -19,17 +19,17 @@
 
 ## 特点
 
-- 支持版本：Minecraft 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, 1.16, 1.17, 1.18, 1.19 和 1.20
-- 实体感知与追踪
-- 方块感知，你可以在几毫秒内查找到bot周围的任何方块
-- 物理和运动引擎 - 支持所有的碰撞箱
-- 攻击实体，使用交通工具
-- 背包管理
-- 使用工作台、箱子、酿造台、附魔台
-- 挖掘和建造
-- 各种各样的的信息接口，比如查看你的血量或是否下雨
-- 激活方块和使用物品
-- 进行聊天
+-   支持版本：Minecraft 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, 1.16, 1.17, 1.18, 1.19 和 1.20
+-   实体感知与追踪
+-   方块感知，你可以在几毫秒内查找到bot周围的任何方块
+-   物理和运动引擎 - 支持所有的碰撞箱
+-   攻击实体，使用交通工具
+-   背包管理
+-   使用工作台、箱子、酿造台、附魔台
+-   挖掘和建造
+-   各种各样的的信息接口，比如查看你的血量或是否下雨
+-   激活方块和使用物品
+-   进行聊天
 
 ### 路线图
 
@@ -81,17 +81,17 @@
 const mineflayer = require("mineflayer")
 
 const bot = mineflayer.createBot({
-	host: "localhost", // minecraft 服务器的 IP 地址
-	username: "email@example.com", // minecraft 用户名
-	password: "12345678", // minecraft 密码, 如果你玩的是不需要正版验证的服务器，请注释掉。
-	// port: 25565,                // 默认使用 25565，如果你的服务器端口不是这个请取消注释并填写。
-	// version: false,             // 如果需要指定使用一个版本或快照时，请取消注释并手动填写（如："1.8.9" 或 "1.16.5"），否则会自动设置。
-	// auth: 'mojang'              // 如果需要使用微软账号登录时，请取消注释，然后将值设置为 'microsoft'，否则会自动设置为 'mojang'。
+    host: "localhost", // minecraft 服务器的 IP 地址
+    username: "email@example.com", // minecraft 用户名
+    password: "12345678", // minecraft 密码, 如果你玩的是不需要正版验证的服务器，请注释掉。
+    // port: 25565,                // 默认使用 25565，如果你的服务器端口不是这个请取消注释并填写。
+    // version: false,             // 如果需要指定使用一个版本或快照时，请取消注释并手动填写（如："1.8.9" 或 "1.16.5"），否则会自动设置。
+    // auth: 'mojang'              // 如果需要使用微软账号登录时，请取消注释，然后将值设置为 'microsoft'，否则会自动设置为 'mojang'。
 })
 
 bot.on("chat", (username, message) => {
-	if (username === bot.username) return
-	bot.chat(message)
+    if (username === bot.username) return
+    bot.chat(message)
 })
 
 // 记录错误和被踢出服务器的原因:
@@ -107,7 +107,7 @@ bot.on("error", console.log)
 ```js
 const { mineflayer: mineflayerViewer } = require("prismarine-viewer")
 bot.once("spawn", () => {
-	mineflayerViewer(bot, { port: 3007, firstPerson: true }) // port 是本地网页运行的端口 ，如果 firstPerson: false，那么将会显示鸟瞰图。
+    mineflayerViewer(bot, { port: 3007, firstPerson: true }) // port 是本地网页运行的端口 ，如果 firstPerson: false，那么将会显示鸟瞰图。
 })
 ```
 
@@ -182,46 +182,46 @@ mineflayer 支持插件；任何人都可以创建一个插件，在 mineflayer 
 
 最新和最有用的有：
 
-- [pathfinder](https://github.com/Karang/mineflayer-pathfinder) - 具有许多可配置功能的高级 A\* 寻路
-- [prismarine-viewer](https://github.com/PrismarineJS/prismarine-viewer) - 简单的在线区块查看器
-- [web-inventory](https://github.com/ImHarvol/mineflayer-web-inventory) - 在线背包查看器
-- [statemachine](https://github.com/TheDudeFromCI/mineflayer-statemachine) - 用于更复杂机器人行为的状态机 API
-- [Armor Manager](https://github.com/G07cha/MineflayerArmorManager) - 自动护甲管理
-- [Collect Block](https://github.com/TheDudeFromCI/mineflayer-collectblock) - 快速简单的块收集 API
-- [Dashboard](https://github.com/wvffle/mineflayer-dashboard) - mineflayer bot 的前端仪表板
-- [PVP](https://github.com/TheDudeFromCI/mineflayer-pvp) - 用于基本 PVP 和 PVE 的简单 API
-- [auto-eat](https://github.com/LINKdiscordd/mineflayer-auto-eat) - 自动进食
-- [Auto Crystal](https://github.com/link-discord/mineflayer-autocrystal) - 自动放置和破碎结
-- [Tool](https://github.com/TheDudeFromCI/mineflayer-tool) - 一个具有高级API的工具/武器自动选择工具的工具
-- [Hawkeye](https://github.com/sefirosweb/minecraftHawkEye) - 一个使用自动瞄准弓的工具
-- [GUI](https://github.com/firejoust/mineflayer-GUI) - 简化了嵌套箱子GUI窗口的导航和管理
-- [Projectile](https://github.com/firejoust/mineflayer-projectile) - 以投射物为基础的战斗的可配置插件
+-   [pathfinder](https://github.com/Karang/mineflayer-pathfinder) - 具有许多可配置功能的高级 A\* 寻路
+-   [prismarine-viewer](https://github.com/PrismarineJS/prismarine-viewer) - 简单的在线区块查看器
+-   [web-inventory](https://github.com/ImHarvol/mineflayer-web-inventory) - 在线背包查看器
+-   [statemachine](https://github.com/TheDudeFromCI/mineflayer-statemachine) - 用于更复杂机器人行为的状态机 API
+-   [Armor Manager](https://github.com/G07cha/MineflayerArmorManager) - 自动护甲管理
+-   [Collect Block](https://github.com/TheDudeFromCI/mineflayer-collectblock) - 快速简单的块收集 API
+-   [Dashboard](https://github.com/wvffle/mineflayer-dashboard) - mineflayer bot 的前端仪表板
+-   [PVP](https://github.com/TheDudeFromCI/mineflayer-pvp) - 用于基本 PVP 和 PVE 的简单 API
+-   [auto-eat](https://github.com/LINKdiscordd/mineflayer-auto-eat) - 自动进食
+-   [Auto Crystal](https://github.com/link-discord/mineflayer-autocrystal) - 自动放置和破碎结
+-   [Tool](https://github.com/TheDudeFromCI/mineflayer-tool) - 一个具有高级API的工具/武器自动选择工具的工具
+-   [Hawkeye](https://github.com/sefirosweb/minecraftHawkEye) - 一个使用自动瞄准弓的工具
+-   [GUI](https://github.com/firejoust/mineflayer-GUI) - 简化了嵌套箱子GUI窗口的导航和管理
+-   [Projectile](https://github.com/firejoust/mineflayer-projectile) - 以投射物为基础的战斗的可配置插件
 
 也可以看看这些 :
 
-- [radar](https://github.com/andrewrk/mineflayer-radar/) - 使用 canvas 和 socket.io 的基于 Web 的雷达界面 [YouTube 演示](https://www.youtube.com/watch?v=FjDmAfcVulQ)
-- [blockfinder](https://github.com/Darthfett/mineflayer-blockFinder) - 在 3D 世界中寻找方块
-- [scaffold](https://github.com/andrewrk/mineflayer-scaffold) - 到达目标目的地，即使您必须建造或破坏块才能这样做 [YouTube 演示](http://youtu.be/jkg6psMUSE0)
-- [auto-auth](https://github.com/G07cha/MineflayerAutoAuth) - 基于聊天的bot身份验证
-- [Bloodhound](https://github.com/Nixes/mineflayer-bloodhound) - 确定谁和什么对另一个实体的损害负责
-- [tps](https://github.com/SiebeDW/mineflayer-tps) - 获取当前的 tps（已处理的 tps）
-- [panorama](https://github.com/IceTank/mineflayer-panorama) - 拍摄您的世界的全景图像
-- [player-death-event](https://github.com/tuanzisama/mineflayer-death-event) - 在 Mineflayer 里监听玩家死亡事件
+-   [radar](https://github.com/andrewrk/mineflayer-radar/) - 使用 canvas 和 socket.io 的基于 Web 的雷达界面 [YouTube 演示](https://www.youtube.com/watch?v=FjDmAfcVulQ)
+-   [blockfinder](https://github.com/Darthfett/mineflayer-blockFinder) - 在 3D 世界中寻找方块
+-   [scaffold](https://github.com/andrewrk/mineflayer-scaffold) - 到达目标目的地，即使您必须建造或破坏块才能这样做 [YouTube 演示](http://youtu.be/jkg6psMUSE0)
+-   [auto-auth](https://github.com/G07cha/MineflayerAutoAuth) - 基于聊天的bot身份验证
+-   [Bloodhound](https://github.com/Nixes/mineflayer-bloodhound) - 确定谁和什么对另一个实体的损害负责
+-   [tps](https://github.com/SiebeDW/mineflayer-tps) - 获取当前的 tps（已处理的 tps）
+-   [panorama](https://github.com/IceTank/mineflayer-panorama) - 拍摄您的世界的全景图像
+-   [player-death-event](https://github.com/tuanzisama/mineflayer-death-event) - 在 Mineflayer 里监听玩家死亡事件
 
 ## 正在使用 mineflayer 的项目
 
-- [rom1504/rbot](https://github.com/rom1504/rbot)
-  - [YouTube - 建造旋转楼梯](https://www.youtube.com/watch?v=UM1ZV5200S0)
-  - [YouTube - 复制一个建筑](https://www.youtube.com/watch?v=0cQxg9uDnzA)
-- [Darthfett/Helperbot](https://github.com/Darthfett/Helperbot) - 完成一些简单指令
-- [vogonistic/voxel](https://github.com/vogonistic/mineflayer-voxel) - 使用 voxel.js 可视化机器人正在做什么
-- [JonnyD/Skynet](https://github.com/JonnyD/Skynet) - 将玩家活动记录到在线 API 上
-- [MinecraftChat](https://github.com/rom1504/MinecraftChat) （最后一个开源版本，由 AlexKvazos 构建）——基于 Minecraft 网络的聊天客户端 <https://minecraftchat.net/>
-- [Cheese Bot](https://github.com/Minecheesecraft/Cheese-Bot) - 基于插件的机器人，具有干净的 GUI。使用 Node-Webkit 制作。
-- [Chaoscraft](https://github.com/schematical/chaoscraft) - 使用遗传算法的 Minecraft 机器人，请参阅 [Youtube](https://www.youtube.com/playlist?list=PLLkpLgU9B5xJ7Qy4kOyBJl5J6zsDIMceH)
-- [hexatester/minetelegram](https://github.com/hexatester/minetelegram) - Minecraft - Telegram 消息互通，基于 mineflayer & telegraf.
-- [PrismarineJS/mineflayer-builder](https://github.com/PrismarineJS/mineflayer-builder) - 在生存中打印我的世界示意图，保持方向
-- [以及数千个](https://github.com/PrismarineJS/mineflayer/network/dependents) - github 检测到的在使用 mineflayer 的项目
+-   [rom1504/rbot](https://github.com/rom1504/rbot)
+    -   [YouTube - 建造旋转楼梯](https://www.youtube.com/watch?v=UM1ZV5200S0)
+    -   [YouTube - 复制一个建筑](https://www.youtube.com/watch?v=0cQxg9uDnzA)
+-   [Darthfett/Helperbot](https://github.com/Darthfett/Helperbot) - 完成一些简单指令
+-   [vogonistic/voxel](https://github.com/vogonistic/mineflayer-voxel) - 使用 voxel.js 可视化机器人正在做什么
+-   [JonnyD/Skynet](https://github.com/JonnyD/Skynet) - 将玩家活动记录到在线 API 上
+-   [MinecraftChat](https://github.com/rom1504/MinecraftChat) （最后一个开源版本，由 AlexKvazos 构建）——基于 Minecraft 网络的聊天客户端 <https://minecraftchat.net/>
+-   [Cheese Bot](https://github.com/Minecheesecraft/Cheese-Bot) - 基于插件的机器人，具有干净的 GUI。使用 Node-Webkit 制作。
+-   [Chaoscraft](https://github.com/schematical/chaoscraft) - 使用遗传算法的 Minecraft 机器人，请参阅 [Youtube](https://www.youtube.com/playlist?list=PLLkpLgU9B5xJ7Qy4kOyBJl5J6zsDIMceH)
+-   [hexatester/minetelegram](https://github.com/hexatester/minetelegram) - Minecraft - Telegram 消息互通，基于 mineflayer & telegraf.
+-   [PrismarineJS/mineflayer-builder](https://github.com/PrismarineJS/mineflayer-builder) - 在生存中打印我的世界示意图，保持方向
+-   [以及数千个](https://github.com/PrismarineJS/mineflayer/network/dependents) - github 检测到的在使用 mineflayer 的项目
 
 ## 测试
 
